@@ -1,0 +1,131 @@
+.mainWrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: #D9D9DB;
+    width: 100%;
+}
+.personsWrap {
+    padding-right: 6px;
+    width: 24%;
+    height: 100%;
+}
+.messageWrap {
+    width: 76%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-left: solid 1px #3B5998;
+}
+.message {
+    width: 100%;
+    min-height: 100%;
+    height: 620px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+.avatar{
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50px;
+}
+.link {
+    border: 1px solid #000;
+    border-radius: 30px;
+    width: 100%;
+    height: 61px;
+    padding: 5px;
+    margin: 6px 0px;
+    display: flex;
+    background-color: #e9eaed;
+}
+.link:hover {
+    -webkit-box-shadow: 0px 0px 4px 2px #2e4a75;
+    box-shadow: 0px 0px 4px 2px #2e4a75;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.link:active {
+    -webkit-box-shadow: 0px 0px 6px 4px #adcbff;
+    box-shadow: 0px 0px 6px 4px #adcbff;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.name {
+    margin: 0 auto;
+    padding-top: 13px;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 10px;
+    line-height: 25px;
+    letter-spacing: 0.24px;
+
+}
+.dialog {
+    width: 100%;
+    margin: 3px 3px;
+    padding: 10px 5px;
+    max-height: 100%;
+    display: inline-flex;
+    background-color: #313133;
+    text-align: center;
+    border-radius: 35px;
+    min-height: 50px;
+}
+.post {
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.24px;
+}
+.myDialog {
+    max-height: 100%;
+    background-color: #43b25b;
+}
+.dialogAlign {
+    padding: 20px;
+    text-align: left;
+}
+.myDialogAlign {
+    justify-content: flex-end;
+    padding: 15px;
+    text-align: right;
+}
+.dialogWrap{
+    width: 50%;
+}
+.myWrap {
+    width: 50%;
+}
+
+.writeMessage {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 0px 0px 0px 10px;
+}
+.MessageArea {
+    background-color: #fff;
+    border-radius: 15px 0px 0px 15px;
+    padding: 10px;
+    resize: none;
+    width: 85%;
+}
+.SendButton {
+    background-color: #3B5998;
+    color: #fff;
+    border-radius: 0px 15px 15px 0px;
+    width: 15%;
+}
