@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NullStyle from "./components/GeneralStyles/NullStyles.module.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import GeneralNav from "./components/navigation/GeneralNav/GeneralNav";
+import Sidebar from "./components/sidebar/GeneralSidebar/GeneralSidebar";
+import GeneralHeader from "./components/header/GeneralHeader/GeneralHeader";
+import GeneralArticle from "./components/article/GeneralArticle/GenralArticle";
+import Comment from "./components/article/comment/Comment";
+
+import {BrowserRouter, Route} from "react-router-dom";
+import Messages from "./components/article/MessagesAll/Messages";
+import CommentContainer from "./components/article/comment/CommentContainer";
+import MessagesContainer from "./components/article/MessagesAll/MessagesContainer";
+
+
+const App = () => {
+    return (
+        <BrowserRouter>
+            <GeneralNav/>
+            <div className="wrapper">
+                <div className="subWrap">
+                    <Sidebar/>
+                    <Route path={'/Home'} render={() => <GeneralHeader/>}/>
+                    <Route path={'/Messages'}
+                           render={() => <MessagesContainer/>}/>
+                    <Route path={'/Comments'}
+                           render={() => <CommentContainer/>}/>
+                </div>
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App;
