@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 const LoginUser = (props) => {
     return (
         <div className={Styles.signWrap}>
-            <NavLink  to={'/Sign In'} className={Styles.signIn}>1{props.login}</NavLink>
+            <NavLink  to={'/Sign In'} className={Styles.signIn}>{props.login}</NavLink>
         </div>
     )
 }

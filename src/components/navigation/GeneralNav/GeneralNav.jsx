@@ -2,12 +2,12 @@ import React from "react";
 import Styles from "./GeneralNav.module.css";
 import ProfileIcon from "../profileIcon/ProfileIcon";
 import Search from "../search/Search";
-import UserName from "../userName/UserName";
 import Settings from "../settings/Settings";
 import NavMenu from "../menu/Menu";
+import LoginUserContainer from "../../header/LoginUser/LoginUserContainer";
 
 
-const GeneralNav = () => {
+const GeneralNav = (props) => {
     return (
         <nav className={Styles.nav}>
             <div className={Styles.navWrap}>
@@ -15,8 +15,8 @@ const GeneralNav = () => {
                 <ProfileIcon/>
                 <Search/>
             </form>
-            <UserName/>
             <div className={Styles.icons}>
+                <LoginUserContainer/>
             <NavMenu/>
             <Settings/>
             </div>

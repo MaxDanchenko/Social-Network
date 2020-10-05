@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from './Profile.module.css'
-import PreLoader from "../../GeneralStyles/PreLoader";
+import PreLoader from "../../CommonFiles/PreLoader/PreLoader";
 import avatar from '../../../images/avatars/annUser.jpg'
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
 
@@ -20,7 +20,7 @@ const Profile = (props) => {
                     <li className={Styles.profileItem}>contacts: {props.profile.contacts.twitter}</li>
                 </ul>
             </div>
-            <ProfileStatus/>
+            <ProfileStatus profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
         </div>
 
     )

@@ -1,16 +1,22 @@
 .list {
     padding: 0px 0px 0px 6px;
 }
-
 .list:hover {
     border-left: 3px solid #4267b2;
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
     background-color: #dee0e3;
+    color: #000;
 }
 .list:active {
-    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    border-left: 3px solid #4267b2;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+    background-color: #dee0e3;
 }
 .link {
     display: inline-block;
@@ -18,4 +24,8 @@
     color: #4b4f56;
     font-size: 14px;
     line-height: 32px;
+}
+.link:hover {
+    color: #000;
+    font-weight: bold;
 }

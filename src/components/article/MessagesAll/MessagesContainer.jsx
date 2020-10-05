@@ -1,32 +1,22 @@
 import React from "react";
-import {addMessageActionCreator, newPostActionCreator} from "../../../Redux/messageReducer";
+import {sendMessageCreator} from "../../../Redux/messageReducer";
 import {connect} from "react-redux";
 import Messages from "./Messages";
-
+import {compose} from "redux";
 
 
 const mapStateToProps = (state) => {
     return {
-        friendsList: state.messagesPage.friendsList,
-        dialogsList: state.messagesPage.dialogsList,
-        myDialogsList: state.messagesPage.myDialogsList,
-        myDialogsListNew: state.messagesPage.myDialogsListNew
-
+        friendsList: state.messagePage.friendsList,
+        dialogsList: state.messagePage.dialogsList,
+        messages: state.messagePage.messages
     }
 }
-debugger
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: () => {
-            dispatch(addMessageActionCreator());
-        },
-        newPostActionCreator: (text) => {
-            let action = newPostActionCreator(text)
-            dispatch(action);
-        }
+
+const mapDispatchToProps = (dispatch) => ({
+    sendMessage: (newMessageBody) => {
+        dispatch(sendMessageCreator(newMessageBody))
     }
-}
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
+})
 
-
-export default MessagesContainer;
+export default compose(connect(mapStateToProps, mapDispatchToProps))(Messages)

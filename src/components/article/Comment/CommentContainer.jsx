@@ -1,8 +1,8 @@
 import React from "react";
-import {addPostActionCreator, newCommentActionCreator} from "../../../Redux/commentReducer";
+import {addPostActionCreator} from "../../../Redux/commentReducer";
 import {connect} from "react-redux";
 import Comment from "./Comment";
-
+import {compose} from "redux";
 
 
 const mapStateToProps = (state) => {
@@ -12,18 +12,11 @@ const mapStateToProps = (state) => {
         newCommentAdd: state.commentPage.newCommentAdd
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addPostActionCreator: () => {
-            dispatch(addPostActionCreator());
-        },
-        newCommentActionCreator: (text) => {
-            let action = newCommentActionCreator(text)
-            dispatch(action);
-        }
+
+const mapDispatchToProps = (dispatch) => ({
+    onAddPost: (newCommentAdd) => {
+        dispatch(addPostActionCreator(newCommentAdd))
     }
-}
-const CommentContainer = connect(mapStateToProps, mapDispatchToProps)(Comment)
+})
 
-
-export default CommentContainer;
+export default compose(connect(mapStateToProps, mapDispatchToProps))(Comment)

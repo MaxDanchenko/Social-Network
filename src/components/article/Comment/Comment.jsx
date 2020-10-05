@@ -1,40 +1,16 @@
-import {NavLink} from 'react-router-dom';
 import React from 'react';
 import Styles from './Comment.module.css'
-
-
-
-const Author = (props) => {
-    let path = '/Comments/' + props.id;
-    return (
-        <NavLink className={Styles.link} to={path}>
-            <p className={Styles.person}>{props.name}</p>
-        </NavLink>
-    )
-}
-const Commentary = (props) => {
-    let path = '/Comments/' + props.id;
-    return (
-        <NavLink className={Styles.link} to={path}>
-            <p className={Styles.person}>
-                {props.post}
-            </p>
-        </NavLink>
-    )
-}
+import {reduxForm} from "redux-form";
+import Author from "./AuthorOfCommentary/AuthorOfCommentary";
+import Commentary from "./Commentary/Commentary";
+import CommentForm from "./CommentFormRedux/CommentFormRedux";
 
 const Comment = (props) => {
     let Comments = props.commentaryList.map(Comm => <Commentary id={Comm.id} post={Comm.post}/>);
     let Persons = props.personsList.map(Person => <Author name={Person.name} id={Person.id} com={Person.com}/>);
 
-
-    let newComment = React.createRef();
-    let onAddPost = () => {
-        props.onAddPost()
-    }
-    let onPostChange = () => {
-        let text = newComment.current.value;
-        props.onPostChange(text)
+    let addNewComment = (values) => {
+        props.onAddPost(values.newCommentAdd)
     }
     return (
         <div className={Styles.main}>
@@ -44,14 +20,11 @@ const Comment = (props) => {
             <div className={Styles.commentWrap}>
                 {Comments}
             </div>
-            <div className={Styles.writeMessage}>
-                <textarea onChange={onPostChange} value={props.newCommentAdd} ref={newComment} placeholder={'Write' +
-                ' your message'} className={Styles.MessageArea} name="message" id="txt" cols="2" maxLength={'500'}/>
-                <button onClick={onAddPost} type={'button'} className={Styles.SendButton} resize={'none'}>Send</button>
-            </div>
-
+            <CommentFormRedux  onSubmit={addNewComment}/>
         </div>
     )
 }
+const CommentFormRedux = reduxForm ({form: 'addNewComment'}) (CommentForm)
+
 
 export default Comment;

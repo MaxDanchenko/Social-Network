@@ -1,28 +1,28 @@
 import React from 'react';
-import Styles from './Authorization.module.css';
+import {AuthForm} from "./AuthForm/AuthForm";
+import Styles from "./Authorization.module.css";
+import {reduxForm} from "redux-form";
 import {NavLink} from "react-router-dom";
 
 const Authorization = (props) => {
+    const onSubmit = (formData) => {
+        console.log(formData);
+    }
     return (
-        <div className={Styles.wrapper}>
-            <div className={Styles.subWrapper}>
-                <div className={Styles.authWrapper}>
-                    <p className={Styles.nameInput}>Login</p>
-                    <p className={Styles.nameInput}>{props.login}</p>
-                    <NavLink to={'/Sign In'}><input className={Styles.input} maxLength={16} type="login"/></NavLink>
-                    <p className={Styles.nameInput}>Password</p>
-                    <NavLink to={'/Sign In'}><input className={Styles.input} maxLength={16} type="password"/></NavLink>
-                </div>
-                <div className={Styles.buttonWrap}>
-                    <button className={Styles.signButton}>Sign In</button>
-                    <button className={Styles.signButton}>Sign Up</button>
-                </div>
-                <div>
-                    <NavLink className={Styles.recoverPass} to={'/Sign In'}>Forgot your password?</NavLink>
-                </div>
+        <div className={Styles.mainPageAuth}>
+            <div className={Styles.imageWrapper}>
+                <NavLink className={Styles.imageLink} to={'/Home'}>
+                    <img className={Styles.fbImage} src={'https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg'} alt="logo"/>
+                </NavLink>
+            </div>
+            <div className={Styles.authWrapper}>
+                <AuthFormRedux  onSubmit={onSubmit}/>
             </div>
         </div>
     )
 }
+const AuthFormRedux = reduxForm({form: 'login'})(AuthForm)
+
+
 
 export default Authorization;

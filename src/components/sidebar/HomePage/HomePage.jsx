@@ -1,8 +1,8 @@
 import React from "react";
-import Styles from "./Profile.module.css"
+import Styles from "./HomePage.module.css"
 
 
-const Profile = () => {
+const HomePage = () => {
     return (
         <div className={Styles.main}>
             <a href="#"><img src={require("../SideImages/profile_icon.jpg")} alt="" className={Styles.profiles}/></a>
@@ -12,4 +12,4 @@ const Profile = () => {
     )
 };
 
-export default Profile;
+export default HomePage;
