@@ -1,0 +1,16 @@
+.required input{
+    box-shadow:inset 0px 0px 4px 2px rgba(255,0,0,1);
+}
+.errorMessage {
+    opacity: 0;
+}
+.showErrorMessage {
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+    opacity: 1;
+}
+
+
+

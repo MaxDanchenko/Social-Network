@@ -1,0 +1,144 @@
+.main {
+    padding: 5px;
+    background-color: #fff;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.personWrap {
+    margin: 0px 30px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-bottom: 1px solid #E9EAED;
+}
+.personSubWrap {
+    display: flex;
+}
+.person {
+    padding: 0px 10px;
+    line-height: 25px;
+    letter-spacing: 0.24px;
+}
+.aboutPerson{
+    opacity: 60%;
+}
+.personName {
+    color: #2155bc;
+    font-weight: bold;
+    font-size: 16px;
+}
+.link:hover {
+    -webkit-box-shadow: 0px 0px 4px 2px #2e4a75;
+    box-shadow: 0px 0px 4px 2px #2e4a75;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.link:active {
+    -webkit-box-shadow: 0px 0px 6px 4px #adcbff;
+    box-shadow: 0px 0px 6px 4px #adcbff;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.avatar{
+    max-width: 100px;
+    max-height: 100px;
+}
+.title {
+    padding: 10px 30px;
+    font-weight: bold;
+    border-bottom: 1px solid #E9EAED;
+}
+.buttonWrap{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 245px;
+}
+.followButton {
+    width: 120px;
+    height: 30px;
+    background-color: #3B5998;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #3B5998;
+    border-radius: 3px;
+}
+.followButton:hover {
+    -webkit-box-shadow: 0px 0px 4px 2px #2e4a75;
+    box-shadow: 0px 0px 2px 1px #2e4a75;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.followButton:active {
+    -webkit-box-shadow: 0px 0px 6px 4px #adcbff;
+    box-shadow: 0px 0px 4px 4px #adcbff;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+.removeButton {
+    border: 1px solid #98949c;
+    border-radius: 3px;
+    color: #4b4f56;
+    background-color: #fff;
+    width: 120px;
+    height: 30px;
+    font-weight: bold;
+}
+.removeButton:hover {
+    -webkit-box-shadow: 0px 0px 4px 2px #4b4f56;
+    box-shadow: 0px 0px 2px 1px #4b4f56;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.removeButton:active {
+    -webkit-box-shadow: 0px 0px 6px 4px #98949c;
+    box-shadow: 0px 0px 4px 4px #98949c;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+.inviteIcon {
+    padding-right: 5px;
+    width: 23px;
+}
+.showMore{
+    padding: 10px;
+    margin: 0 auto;
+
+}
+.showMoreButton{
+    border-radius: 5px;
+    border: 1px solid #98949c;
+    width: 150px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4b4f56;
+}
+.dotsIcon{
+    padding: 11px 0px 0px 5px;
+    width: 20px;
+}
+.showMoreButton:hover {
+    -webkit-box-shadow: 0px 0px 4px 2px #4b4f56;
+    box-shadow: 0px 0px 2px 1px #4b4f56;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+}
+.showMoreButton:active {
+    -webkit-box-shadow: 0px 0px 6px 4px #98949c;
+    box-shadow: 0px 0px 4px 4px #98949c;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
