@@ -2,11 +2,14 @@ import React from 'react';
 import {AuthForm} from "./AuthForm/AuthForm";
 import Styles from "./Authorization.module.css";
 import {reduxForm} from "redux-form";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 
 const Authorization = (props) => {
+    if (props.isAuth) {
+        return <Redirect to={'profile'} />
+    }
     const onSubmit = (formData) => {
-        console.log(formData);
+        props.logIn(formData.email, formData.password, formData.rememberMe);
     }
     return (
         <div className={Styles.mainPageAuth}>
@@ -21,7 +24,7 @@ const Authorization = (props) => {
         </div>
     )
 }
-const AuthFormRedux = reduxForm({form: 'login'})(AuthForm)
+const AuthFormRedux = reduxForm({form: 'logIn'})(AuthForm)
 
 
 

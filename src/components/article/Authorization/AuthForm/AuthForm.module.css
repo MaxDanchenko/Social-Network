@@ -83,3 +83,12 @@
     border-radius: 7px;
     font-size: 20px;
 }
+.showErrorMessage {
+    margin-bottom: 10px;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+    opacity: 1;
+}

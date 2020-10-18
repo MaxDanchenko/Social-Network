@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {auth} from "../../../Redux/authUserReducer";
+import {auth, logIn} from "../../../Redux/authUserReducer";
 import Authorization from "./Authorization";
 
 
@@ -11,16 +11,14 @@ class AuthUserContainer extends React.Component {
     }
 
     render() {
-        return <Authorization {...this.props  }/>
+        return <Authorization {...this.props }/>
     }
 }
 
 const mapStateToProps = (state) => ({
-    login: state.authUser.login,
-    email: state.authUser.email,
-    id: state.authUser.id,
+    logIn: state.authUser.logIn,
     isAuth: state.authUser.isAuth
 })
 
-export default connect(mapStateToProps, {auth})(AuthUserContainer)
+export default connect(mapStateToProps, {auth, logIn})(AuthUserContainer)
 

@@ -5,16 +5,8 @@
     padding: 0px 20px 5px 0px;
 }
 .signIn {
-    padding-bottom: 2px;
-    display: flex;
-    align-items: center;
+    background-color: #3B5998;
     color: #fff;
     font-size: 17px;
     font-weight: 500;
-}
-.signIn:hover {
-    border-bottom: 2px solid #fff;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
 }

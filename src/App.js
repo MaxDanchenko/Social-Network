@@ -10,52 +10,68 @@ import MessagesContainer from "./components/article/MessagesAll/MessagesContaine
 import UsersContainer from "./components/article/UsersFollow/UsersContainer";
 import ProfileContainer from "./components/article/Profile/ProfileContainer";
 import AuthUserContainer from "./components/article/Authorization/AuthUserContainer";
+import {compose} from "redux";
+import {withRouter} from "react-browser-router";
+import {connect} from "react-redux";
+import {initialize} from "./Redux/appReducer";
+import PreLoader from "./components/CommonFiles/PreLoader/PreLoader";
 
 
-const App = () => {
-
-
-    return (
-        <BrowserRouter>
-            <Route>
-                {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos' ]
-                    .map((path, index) =>
-                        <Route path={path} component={GeneralNav} key={index}/>
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initialize()
+    }
+    render() {
+        if (!this.props.initialStatus) {
+            return <PreLoader/>
+        }
+        return (
+            <BrowserRouter>
+                <Route>
+                    {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos']
+                        .map((path, index) =>
+                            <Route path={path} component={GeneralNav} key={index}/>
+                        )}
+                </Route>
+                <Route>
+                    {[GeneralNav].map((component, index) =>
+                        <Route exact path='/' component={component} key={index}/>
                     )}
-            </Route>
-            <Route>
-                {[GeneralNav].map((component, index)  =>
-                    <Route exact path='/' component={component} key={index}/>
-                )}
-            </Route>
-            <div className="wrapper">
-                <Route path={'/Sign In'}
-                       render={() => <AuthUserContainer/>}/>
-                <div className="subWrap">
-                    <Route>
-                        {[GeneralHeader, Sidebar].map((component, index)  =>
-                            <Route exact path='/' component={component} key={index}/>
+                </Route>
+                <div className="wrapper">
+                    <Route path={'/Sign In'}
+                           render={() => <AuthUserContainer/>}/>
+                    <div className="subWrap">
+                        <Route>
+                            {[GeneralHeader, Sidebar].map((component, index) =>
+                                <Route exact path='/' component={component} key={index}/>
                             )}
-                    </Route>
-                    <Route>
-                        {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos' ]
-                            .map((path, index) =>
-                                <Route path={path} component={Sidebar} key={index}/>
-                            )}
-                    </Route>
-                    <Route path={'/Home'} render={() => <GeneralHeader/>}/>
-                    <Route path={'/Messages'}
-                           render={() => <MessagesContainer/>}/>
-                    <Route path={'/Comments'}
-                           render={() => <CommentContainer/>}/>
-                    <Route path={'/UsersFollow'}
-                           render={() => <UsersContainer/>}/>
-                    <Route path={'/profile/:userId?'}
-                           render={() => <ProfileContainer/>}/>
+                        </Route>
+                        <Route>
+                            {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos']
+                                .map((path, index) =>
+                                    <Route path={path} component={Sidebar} key={index}/>
+                                )}
+                        </Route>
+                        <Route path={'/Home'} render={() => <GeneralHeader/>}/>
+                        <Route path={'/Messages'}
+                               render={() => <MessagesContainer/>}/>
+                        <Route path={'/Comments'}
+                               render={() => <CommentContainer/>}/>
+                        <Route path={'/UsersFollow'}
+                               render={() => <UsersContainer/>}/>
+                        <Route path={'/profile/:userId?'}
+                               render={() => <ProfileContainer/>}/>
+                    </div>
                 </div>
-            </div>
-        </BrowserRouter>
-    )
+            </BrowserRouter>
+        )
+    }
 }
+const mapStateToProps = (state) => ({
+    initialStatus: state.app.initialStatus
+})
 
-export default App;
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {initialize})) (App);

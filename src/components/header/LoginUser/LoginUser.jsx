@@ -5,7 +5,12 @@ import {NavLink} from "react-router-dom";
 const LoginUser = (props) => {
     return (
         <div className={Styles.signWrap}>
-            <NavLink  to={'/Sign In'} className={Styles.signIn}>{props.login}</NavLink>
+            {!props.isAuth
+                ?
+                <NavLink to={'Sign In'} className={Styles.signIn}>Log In</NavLink>
+                :
+                <button onClick={props.logOut} className={Styles.signIn}>Log Out</button>
+            }
         </div>
     )
 }

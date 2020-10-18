@@ -1,12 +1,12 @@
 import React from 'react'
 import Styles from "./AuthForm.module.css";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import {Field} from "redux-form";
 import {maxLengthCreator, minLengthCreator, requiredField} from "../../../../utilities/validator";
 import ValidateInput from "../../../CommonFiles/passwordValidator/formValidator";
 
-const maxLength16 = maxLengthCreator(16)
-const minLength4 = minLengthCreator(4)
+const maxLength32 = maxLengthCreator(32)
+const minLength6 = minLengthCreator(6)
 
 export const AuthForm = (props) => {
     return (
@@ -15,19 +15,17 @@ export const AuthForm = (props) => {
                 <h3 className={Styles.logInto}>Log Into Facebook</h3>
                 <div className={Styles.authSubWrapper}>
                     <div className={Styles.inputWrap}>
-                        <Field validate={[requiredField, maxLength16, minLength4]} name={'login'} component={ValidateInput}
-                               className={`${Styles.input} ${Styles.required}`} type="login" placeholder={'Login'}/>
+                        <Field validate={[requiredField, maxLength32, minLength6]} name={'email'} component={ValidateInput}
+                               className={`${Styles.input} ${Styles.required}`} type="email" placeholder={'Email'}/>
                     </div>
                     <div className={Styles.inputWrap}>
-                        <Field validate={[requiredField, maxLength16, minLength4]} name={'password'} component={ValidateInput}
+                        <Field validate={[requiredField, maxLength32, minLength6]} name={'password'} component={ValidateInput}
                                className={`${Styles.input} ${Styles.required}`} type="password" placeholder={'Password'}/>
                     </div>
-
+                    <span className={Styles.showErrorMessage}>{props.error}</span>
                 </div>
                 <div className={Styles.buttonWrap}>
-                    <NavLink to={'/Sign In'}>
                         <button className={Styles.signInButton}>Log In</button>
-                    </NavLink>
                 </div>
                 <div>
                     <NavLink className={Styles.recoverPass} to={'/Recover Account'}>Forgot account?</NavLink>
