@@ -22,7 +22,7 @@ export const initializeSuccessfully = () => ({type: INITIALIZE_SUCCESSFULLY})
 export const initialize = () => (dispatch) => {
     let promise = dispatch(auth())
     Promise.all([promise])
-        .then(()=> {
+        .then(() => {
             dispatch(initializeSuccessfully())
         })
 }

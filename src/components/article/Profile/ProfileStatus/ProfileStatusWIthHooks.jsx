@@ -1,54 +1,43 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Styles from './ProfileStatus.module.css'
 
-export class ProfileStatus extends React.Component {
-    state = {
-        editMode: false,
-        status: this.props.status
+const ProfileStatusWithHooks = (props) => {
+
+    let [editMode, setEditMode] = useState(false)
+    let [status, setStatus] = useState(props.status)
+
+    useEffect( () => {
+        setStatus(props.status)
+    }, [props.status])
+
+    const activateStatus = () => {
+        setEditMode(true)
     }
-    activateStatus = () => {
-        this.setState({
-            editMode: true
-        })
+    const deactivateStatus = () => {
+        setEditMode(false)
+        props.updateStatus(status)
     }
-    deactivateStatus = () => {
-        this.setState({
-            editMode: false
-        })
-        this.props.updateStatus(this.state.status)
-    }
-    onStatusChange = (e) => {
-        this.setState({
-            status: e.currentTarget.value
-        })
+    const onStatusChange = (e) => {
+        setStatus(e.currentTarget.value)
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.status !== this.props.status) {
-            this.setState({
-                status: this.props.status
-            })
-        }
-    }
-
-
-    render() {
-        return <>
+    return (
+        <div>
+            {!editMode &&
             <div className={Styles.statusWrap}>
-                {!this.state.editMode &&
-                <p onDoubleClick={this.activateStatus} className={Styles.status}>
-                    {this.props.status || 'Write your status here'}
-                </p>}
+                <p onDoubleClick={activateStatus} className={Styles.status}>
+                    {props.status || 'Write your status here'}
+                </p>
             </div>
+            }
+            {editMode &&
             <div>
-                {this.state.editMode &&
-                <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateStatus}
-                       className={Styles.statusInput} type="textarea" maxLength={50}
-                       value={this.state.status}/>
-                }
+                <input onBlur={deactivateStatus} className={Styles.statusInput} onChange={onStatusChange}
+                       autoFocus={true} type="textarea" maxLength={50} value={status}/>
             </div>
+            }
 
-
-        </>
-    }
+        </div>
+    )
 }
+export default ProfileStatusWithHooks;

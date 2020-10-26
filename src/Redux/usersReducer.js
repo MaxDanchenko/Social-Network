@@ -18,27 +18,24 @@ let initialState = {
 
 
 const usersReducer = (state = initialState, action) => {
+    const followUnfollowCase = (state, action, followed) => {
+        return {
+            ...state,
+            users: state.users.map(u => {
+                if (u.id === action.userId) {
+                    return {...u, followed}
+                }
+                return u;
+            })
+        }
+    }
     switch (action.type) {
-        case FOLLOW:
-            return {
-                ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userId) {
-                        return {...u, followed: true}
-                    }
-                    return u;
-                })
-            }
-        case UNFOLLOW:
-            return {
-                ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userId) {
-                        return {...u, followed: false}
-                    }
-                    return u;
-                })
-            }
+        case FOLLOW: {
+            followUnfollowCase(state, action, true)
+        }
+        case UNFOLLOW: {
+            followUnfollowCase(state, action, false)
+        }
         case SET_USERS: {
             return {...state, users: action.users}
         }
@@ -78,28 +75,27 @@ export const getUsers = (currentPage, pageSize) => {
         })
     }
 }
+
+const followUnfollow = async (userId, dispatch, apiMethod, actionCreator) => {
+    dispatch(toggleButtonProgress(true, userId))
+    let response = await apiMethod(userId)
+    if (response.data.resultCode === 0) {
+        dispatch(actionCreator(userId))
+    }
+    dispatch(toggleButtonProgress(false, userId))
+}
 export const follow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleButtonProgress(true, userId))
-        usersAPI.follow(userId)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(followSuccess(userId))
-                }
-                dispatch(toggleButtonProgress(false, userId))
-            })
+    return async (dispatch) => {
+        let apiMethod = usersAPI.follow.bind(usersAPI)
+        let actionCreator = followSuccess
+        followUnfollow(userId, dispatch, apiMethod, actionCreator)
     }
 }
 export const unfollow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleButtonProgress(true, userId))
-        usersAPI.unfollow(userId)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(unfollowSuccess(userId))
-                }
-                dispatch(toggleButtonProgress(false, userId))
-            })
+    return async (dispatch) => {
+        let apiMethod = usersAPI.unfollow.bind(usersAPI)
+        let actionCreator = unfollowSuccess
+        followUnfollow(userId, dispatch, apiMethod, actionCreator)
     }
 }
 

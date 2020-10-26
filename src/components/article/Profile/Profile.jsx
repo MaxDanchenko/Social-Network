@@ -3,6 +3,7 @@ import Styles from './Profile.module.css'
 import PreLoader from "../../CommonFiles/PreLoader/PreLoader";
 import avatar from '../../../images/avatars/annUser.jpg'
 import {ProfileStatus} from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWIthHooks";
 
 const Profile = (props) => {
     if (!props.profile) {
@@ -20,7 +21,7 @@ const Profile = (props) => {
                     <li className={Styles.profileItem}>contacts: {props.profile.contacts.twitter}</li>
                 </ul>
             </div>
-            <ProfileStatus profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
+            <ProfileStatusWithHooks profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
         </div>
 
     )
