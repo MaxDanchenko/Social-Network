@@ -22,9 +22,9 @@ class App extends React.Component {
         this.props.initialize()
     }
     render() {
-        // if (!this.props.initialStatus) {
-        //     return <PreLoader/>
-        // }
+        if (!this.props.initialStatus) {
+            return <PreLoader/>
+        }
         return (
             <>
                 <Route>
