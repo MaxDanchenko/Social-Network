@@ -4,7 +4,7 @@ import NullStyle from "./components/CommonFiles/NullStyles.module.css";
 import GeneralNav from "./components/navigation/GeneralNav/GeneralNav";
 import Sidebar from "./components/sidebar/GeneralSidebar/GeneralSidebar";
 import GeneralHeader from "./components/header/GeneralHeader/GeneralHeader";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import CommentContainer from "./components/article/Comment/CommentContainer";
 import MessagesContainer from "./components/article/MessagesAll/MessagesContainer";
 import UsersContainer from "./components/article/UsersFollow/UsersContainer";
@@ -22,9 +22,9 @@ class App extends React.Component {
         this.props.initialize()
     }
     render() {
-        if (!this.props.initialStatus) {
-            return <PreLoader/>
-        }
+        // if (!this.props.initialStatus) {
+        //     return <PreLoader/>
+        // }
         return (
             <>
                 <Route>
