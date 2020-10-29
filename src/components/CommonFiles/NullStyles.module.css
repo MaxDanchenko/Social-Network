@@ -36,7 +36,7 @@ html, body {
 }
 
 body {
-    min-width: 1366px;
+    min-width: 1024px;
 }
 
 input, button, textarea {

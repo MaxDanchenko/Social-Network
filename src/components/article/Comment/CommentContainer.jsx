@@ -3,6 +3,7 @@ import {addPostActionCreator} from "../../../Redux/commentReducer";
 import {connect} from "react-redux";
 import Comment from "./Comment";
 import {compose} from "redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 
 const mapStateToProps = (state) => {
@@ -19,4 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-export default compose(connect(mapStateToProps, mapDispatchToProps))(Comment)
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, mapDispatchToProps))(Comment)

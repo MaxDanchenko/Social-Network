@@ -7,6 +7,7 @@ import {reduxForm} from "redux-form";
 import AddMessageForm from "./AddMessageFormRedux/AddMessageFormRedux";
 
 const Messages = (props) => {
+
     let FriendsName = props.friendsList.map(Friend => <Person id={Friend.id} name={Friend.name} src={Friend.src}/>);
     let FriendsDialog = props.dialogsList.map(Dialog => <FriendMessage msg={Dialog.FriendMessage}/>);
     let MyDialog = props.messages.map(Dialog => <MyAnswer message={Dialog.message}/>);
