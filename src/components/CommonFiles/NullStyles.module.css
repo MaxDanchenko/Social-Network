@@ -35,6 +35,10 @@ html, body {
     scrollbar-width: none; /* Firefox */
 }
 
+body {
+    min-width: 1366px;
+}
+
 input, button, textarea {
     font-family: inherit;
 }
