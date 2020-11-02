@@ -13,7 +13,7 @@
     min-height: 57px;
     padding: 13px 13px;
 }
-@media (max-width: 736px) {
+@media (max-width: 1244px) {
     .head {
         margin: 0 auto;
         width: 90%;

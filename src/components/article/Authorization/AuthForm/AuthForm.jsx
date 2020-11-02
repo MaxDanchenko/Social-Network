@@ -6,7 +6,7 @@ import {maxLengthCreator, minLengthCreator, requiredField} from "../../../../uti
 import ValidateInput from "../../../CommonFiles/passwordValidator/formValidator";
 
 const maxLength32 = maxLengthCreator(32)
-const minLength6 = minLengthCreator(6)
+const minLength4 = minLengthCreator(4)
 
 export const AuthForm = (props) => {
     return (
@@ -15,11 +15,11 @@ export const AuthForm = (props) => {
                 <h3 className={Styles.logInto}>Log Into Facebook</h3>
                 <div className={Styles.authSubWrapper}>
                     <div className={Styles.inputWrap}>
-                        <Field validate={[requiredField, maxLength32, minLength6]} name={'email'} component={ValidateInput}
+                        <Field validate={[requiredField, maxLength32, minLength4]} name={'email'} component={ValidateInput}
                                className={`${Styles.input} ${Styles.required}`} type="email" placeholder={'Email'}/>
                     </div>
                     <div className={Styles.inputWrap}>
-                        <Field validate={[requiredField, maxLength32, minLength6]} name={'password'} component={ValidateInput}
+                        <Field validate={[requiredField, maxLength32, minLength4]} name={'password'} component={ValidateInput}
                                className={`${Styles.input} ${Styles.required}`} type="password" placeholder={'Password'}/>
                     </div>
                     <span className={Styles.showErrorMessage}>{props.error}</span>
