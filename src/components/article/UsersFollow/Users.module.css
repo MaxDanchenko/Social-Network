@@ -120,22 +120,24 @@
 .buttonsBlock {
     margin: 20px auto;
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: space-around;
+    width: 60%;
     height: 30px;
 }
 .buttonsBlock button {
+    background-color: #E9EAED;
     font-size: 18px;
     width: 20px;
     border-radius: 50px;
 }
 .buttonsBlock button:hover {
     box-shadow: 0px 0px 4px 4px #98949c;
+    transition: 0.2s;
 }
 
 .pageButton {
-    font-size: 25px;
     font-weight: bolder;
+    text-decoration: underline;
 }
 .loadIcon {
     display: block;

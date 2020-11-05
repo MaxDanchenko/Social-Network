@@ -58,7 +58,14 @@
 }
 
 @media (max-width: 1244px) {
+    /*.nav {*/
+    /*    padding: 10px 70px 10px 20px;*/
+    /*}*/
+    .navWrap{
+        padding-left: 32px;
+        width: 95%;
+    }
     .nav {
-        padding: 10px 35px 10px 20px;
+        justify-content: left;
     }
 }
