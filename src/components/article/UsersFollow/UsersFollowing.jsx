@@ -6,7 +6,7 @@ import PreLoader from "../../CommonFiles/PreLoader/PreLoader";
 
 let UsersFollowing = (props) => {
     if (!props.users) {
-        return  <PreLoader/>
+        return <PreLoader/>
     }
     let pagesCount = Math.ceil(props.pageUserCount / props.pageSize)
     let pages = []
@@ -33,12 +33,20 @@ let UsersFollowing = (props) => {
                     {u.followed ?
                         <button
                             disabled={props.followingInProgress.some(id => id === u.id)}
-                                onClick={() => {{props.unfollow(u.id)}}}
-                                className={Styles.unfollowButton}>Unfollow</button>
+                            onClick={() => {
+                                {
+                                    props.unfollow(u.id)
+                                }
+                            }}
+                            className={Styles.unfollowButton}>Unfollow</button>
                         : <button
                             disabled={props.followingInProgress.some(id => id === u.id)}
-                                  onClick={() => {{props.follow(u.id)}}}
-                                  className={Styles.followButton}>
+                            onClick={() => {
+                                {
+                                    props.follow(u.id)
+                                }
+                            }}
+                            className={Styles.followButton}>
                             <img className={Styles.inviteIcon}
                                  src={require('../../../images/small_icons/icon_invite.png')}
                                  alt=""/>Add Friend</button>}
@@ -51,7 +59,7 @@ let UsersFollowing = (props) => {
                 return <button className={props.currentPage === p && Styles.pageButton}
                                onClick={(e) => {
                                    if (!props.currentPage) {
-                                       return  <PreLoader/>
+                                       return <PreLoader/>
                                    }
                                    props.onPageChanged(p)
                                }}>{p}</button>
@@ -59,6 +67,5 @@ let UsersFollowing = (props) => {
         </div>
     </div>
 }
-
 
 export default UsersFollowing;

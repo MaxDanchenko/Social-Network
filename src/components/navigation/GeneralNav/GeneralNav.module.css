@@ -58,9 +58,6 @@
 }
 
 @media (max-width: 1244px) {
-    /*.nav {*/
-    /*    padding: 10px 70px 10px 20px;*/
-    /*}*/
     .navWrap{
         padding-left: 32px;
         width: 95%;
@@ -69,3 +66,9 @@
         justify-content: left;
     }
 }
+/*@media (max-width: 768px) {*/
+/*    .mainWrap {*/
+/*        width: 93%;*/
+/*        margin-left: 20px;*/
+/*    }*/
+/*}*/

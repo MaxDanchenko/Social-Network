@@ -1,5 +1,6 @@
 .wrapper {
-    position: fixed;
+    position: sticky;
+    top: 60px;
 }
 .menu {
     padding: 15px 35px 0px 0px;

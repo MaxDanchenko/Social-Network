@@ -26,7 +26,7 @@ class App extends React.Component {
             return <PreLoader/>
         }
         return (
-            <>
+            <div>
                 <Route>
                     {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos']
                         .map((path, index) =>
@@ -64,7 +64,7 @@ class App extends React.Component {
                                render={() => <ProfileContainer/>}/>
                     </div>
                 </div>
-                </>
+                </div>
         )
     }
 }
