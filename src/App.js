@@ -15,12 +15,14 @@ import {withRouter} from "react-browser-router";
 import {connect} from "react-redux";
 import {initialize} from "./Redux/appReducer";
 import PreLoader from "./components/CommonFiles/PreLoader/PreLoader";
+import Game from "./components/article/Game/Game";
 
 
 class App extends React.Component {
     componentDidMount() {
         this.props.initialize()
     }
+
     render() {
         const pathName = ['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Game', '/Videos']
         const routeComponent = (component, index) => {
@@ -33,8 +35,8 @@ class App extends React.Component {
             <div>
                 <Route>
                     {pathName.map((path, index) =>
-                            <Route path={path} component={GeneralNav} key={index}/>
-                        )}
+                        <Route path={path} component={GeneralNav} key={index}/>
+                    )}
                 </Route>
                 <Route>
                     {[GeneralNav].map((component, index) => routeComponent(component, index))}
@@ -48,8 +50,8 @@ class App extends React.Component {
                         </Route>
                         <Route>
                             {pathName.map((path, index) =>
-                                    <Route path={path} component={Sidebar} key={index}/>
-                                )}
+                                <Route path={path} component={Sidebar} key={index}/>
+                            )}
                         </Route>
                         <Route path={'/Home'}
                                render={() => <GeneralHeader/>}/>
@@ -61,16 +63,19 @@ class App extends React.Component {
                                render={() => <UsersContainer/>}/>
                         <Route path={'/profile/:userId?'}
                                render={() => <ProfileContainer/>}/>
+                        <Route path={'/Game'}
+                               render={() => <Game/>}/>
                     </div>
                 </div>
-                </div>
+            </div>
         )
     }
 }
+
 const mapStateToProps = (state) => ({
     initialStatus: state.app.initialStatus
 })
 
 export default compose(
     withRouter,
-    connect(mapStateToProps, {initialize})) (App);
+    connect(mapStateToProps, {initialize}))(App);
