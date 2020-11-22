@@ -12,7 +12,7 @@ export const AuthForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div className={Styles.authWrapper}>
-                <h3 className={Styles.logInto}>Log Into Facebook</h3>
+                <h3 className={Styles.logInto}>Log Into Social Network</h3>
                 <div className={Styles.authSubWrapper}>
                     <div className={Styles.inputWrap}>
                         <Field validate={[requiredField, maxLength32, minLength4]} name={'email'} component={ValidateInput}

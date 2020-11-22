@@ -13,8 +13,12 @@
     display: flex;
 }
 .imageLink {
-   margin: 0 auto;
+   margin: 20px auto;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
 }
-.fbImage {
-    width: 300px;
+.networkName {
+    color: #fff;
+    font-size: 32px;
 }

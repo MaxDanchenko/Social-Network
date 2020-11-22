@@ -22,38 +22,37 @@ class App extends React.Component {
         this.props.initialize()
     }
     render() {
+        const pathName = ['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Game', '/Videos']
+        const routeComponent = (component, index) => {
+            return <Route exact path='/' component={component} key={index}/>
+        }
         if (!this.props.initialStatus) {
             return <PreLoader/>
         }
         return (
             <div>
                 <Route>
-                    {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos']
-                        .map((path, index) =>
+                    {pathName.map((path, index) =>
                             <Route path={path} component={GeneralNav} key={index}/>
                         )}
                 </Route>
                 <Route>
-                    {[GeneralNav].map((component, index) =>
-                        <Route exact path='/' component={component} key={index}/>
-                    )}
+                    {[GeneralNav].map((component, index) => routeComponent(component, index))}
                 </Route>
                 <div className="wrapper">
                     <Route path={'/Sign In'}
                            render={() => <AuthUserContainer/>}/>
                     <div className="subWrap">
                         <Route>
-                            {[GeneralHeader, Sidebar].map((component, index) =>
-                                <Route exact path='/' component={component} key={index}/>
-                            )}
+                            {[GeneralHeader, Sidebar].map((component, index) => routeComponent(component, index))}
                         </Route>
                         <Route>
-                            {['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Reviews', '/Videos']
-                                .map((path, index) =>
+                            {pathName.map((path, index) =>
                                     <Route path={path} component={Sidebar} key={index}/>
                                 )}
                         </Route>
-                        <Route path={'/Home'} render={() => <GeneralHeader/>}/>
+                        <Route path={'/Home'}
+                               render={() => <GeneralHeader/>}/>
                         <Route path={'/Messages'}
                                render={() => <MessagesContainer/>}/>
                         <Route path={'/Comments'}

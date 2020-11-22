@@ -15,7 +15,7 @@ const Authorization = (props) => {
         <div className={Styles.mainPageAuth}>
             <div className={Styles.imageWrapper}>
                 <NavLink className={Styles.imageLink} to={'/Home'}>
-                    <img className={Styles.fbImage} src={'https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg'} alt="logo"/>
+                   <p className={Styles.networkName}>Social Network</p>
                 </NavLink>
             </div>
             <div className={Styles.authWrapper}>
