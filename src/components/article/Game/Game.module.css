@@ -2,14 +2,15 @@
    margin: 50px auto;
    width: 900px;
 }
+.wonGame{
+   border: 5px solid lime;
+}
 .puzzles {
    width: 100%;
    height: 100%;
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(5, 1fr);
    grid-template-rows: repeat(1, 12fr);
-   grid-column-gap: 2px;
-   grid-row-gap: 2px;
 }
 .commonPuzzleStyles {
    border: 1px solid #fff;
