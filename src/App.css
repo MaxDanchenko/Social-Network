@@ -17,7 +17,11 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
-
+@media (max-width: 737px) {
+    .subWrap{
+        max-height: 490px;
+    }
+}
 
 
 

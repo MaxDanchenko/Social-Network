@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./UserName.module.css"
+import Styles from "./UserName.module.scss"
 
 
 const UserName = () => {

@@ -1,13 +1,18 @@
 .table {
-    padding-top: 2px;
     max-height: 24px;
+    padding: 3px 0px 0px 0px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    max-width: 200px;
+}
+.table_small {
+    padding: 8px 0px 0px 0px;
+}
+.small {
+    padding: 0px 3px;
 }
 .list {
-    padding: 0px 15px 0px 0px;
+    padding-left: 10px;
 }
 .list:hover {
     -webkit-transform: scale(1.2);
@@ -16,4 +21,7 @@
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
+}
+.link {
+    color: #ffffff;
 }

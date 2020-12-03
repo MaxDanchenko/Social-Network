@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './ProfileIcon.module.css';
+import Styles from './ProfileIcon.module.scss';
 
 
 const ProfileIcon = () => {

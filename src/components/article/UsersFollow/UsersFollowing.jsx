@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './Users.module.css'
+import Styles from './Users.module.scss'
 import {NavLink} from "react-router-dom";
 import avatar from '../../../images/avatars/annUser.jpg'
 import PreLoader from "../../CommonFiles/PreLoader/PreLoader";

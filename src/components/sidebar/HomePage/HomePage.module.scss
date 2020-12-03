@@ -1,16 +1,14 @@
+@import '../../CommonFiles/commonStyles.module';
 .subname {
-    margin: 0px 0px 30px 0px;
+    margin: 0 0 30px 0;
     color: #98949c;
     font-size: 14px;
     font-weight: 500;
     line-height: 25px;
 }
 
-.subname:hover {
-    text-decoration: underline;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
+.subname {
+    @include onHoverText;
 }
 
 .profiles {
@@ -20,16 +18,16 @@
 }
 
 .profiles:hover {
-    -webkit-box-shadow: 0px 0px 4px 2px #2e4a75;
-    box-shadow: 0px 0px 4px 2px #2e4a75;
+    -webkit-box-shadow: 0 0 4px 2px #2e4a75;
+    box-shadow: 0 0 4px 2px #2e4a75;
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
 }
 
 .profiles:active {
-    -webkit-box-shadow: 0px 0px 6px 4px #adcbff;
-    box-shadow: 0px 0px 6px 4px #adcbff;
+    -webkit-box-shadow: 0 0 6px 4px #adcbff;
+    box-shadow: 0 0 6px 4px #adcbff;
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
@@ -37,8 +35,13 @@
 
 .names {
     background: url(../SideImages/icon_done.png) 115px 68px no-repeat;
-    padding: 40px 0px 9px 0px;
+    padding: 40px 0 9px 0;
     font-size: 24px;
     font-weight: 300;
     line-height: 26px;
+}
+@media (max-width: 737px) {
+    .profiles {
+        display: none;
+    }
 }

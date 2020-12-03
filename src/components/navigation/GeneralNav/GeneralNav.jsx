@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./GeneralNav.module.css";
+import Styles from "./GeneralNav.module.scss";
 import ProfileIcon from "../profileIcon/ProfileIcon";
 import Search from "../search/Search";
 import Settings from "../settings/Settings";
@@ -11,15 +11,15 @@ const GeneralNav = (props) => {
     return (
         <nav className={Styles.nav}>
             <div className={Styles.navWrap}>
-            <form className={Styles.form}>
-                <ProfileIcon/>
-                <Search/>
-            </form>
-            <div className={Styles.icons}>
-                <LoginUserContainer/>
-            <NavMenu/>
-            <Settings/>
-            </div>
+                <form className={Styles.form}>
+                    <ProfileIcon/>
+                    <Search/>
+                </form>
+                <div className={Styles.icons}>
+                    <NavMenu/>
+                    <Settings/>
+                    <LoginUserContainer/>
+                </div>
             </div>
         </nav>
     )

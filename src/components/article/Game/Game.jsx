@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styles from './Game.module.css'
+import styles from './Game.module.scss'
 import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
 
 
@@ -52,28 +52,3 @@ const Game = (props) => {
 
 
 export default Game;
-
-// <div className={`${styles.puzzleItem2} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/2.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem3} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/3.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem4} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/4.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem5} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/5.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem6} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/6.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem7} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/7.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem8} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/8.jpg')} alt="icon"/>
-// </div>
-// <div className={`${styles.puzzleItem9} ${styles.commonPuzzleStyles}`}>
-//     <img className={styles.puzzleImage} src={require('./ImagesForPuzzleGame/9.jpg')} alt="icon"/>
-// </div>
