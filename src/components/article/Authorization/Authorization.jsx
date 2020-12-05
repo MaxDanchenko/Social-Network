@@ -1,6 +1,6 @@
 import React from 'react';
 import {AuthForm} from "./AuthForm/AuthForm";
-import Styles from "./Authorization.module.css";
+import Styles from "./Authorization.module.scss";
 import {reduxForm} from "redux-form";
 import {NavLink, Redirect} from "react-router-dom";
 

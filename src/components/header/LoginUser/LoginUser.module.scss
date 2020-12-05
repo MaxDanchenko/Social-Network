@@ -1,14 +1,16 @@
 .signWrap {
-    height: 25px;
-    display: flex;
-    padding-left: 20px;
-    .sign {
-        line-height: 25px;
-        background-color: #3B5998;
-        color: #fff;
-        font-size: 17px;
-        font-weight: 500;
-    } &:hover {
-    text-decoration: underline;
-          }
+   height: 25px;
+   display: flex;
+   padding-left: 20px;
+
+   .sign {
+      line-height: 25px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 500;
+   }
+
+   &:hover {
+      text-decoration: underline;
+   }
 }

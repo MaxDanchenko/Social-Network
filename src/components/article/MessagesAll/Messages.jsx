@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./Messages.module.css";
+import Styles from "./Messages.module.scss";
 import Person from './Person/Person'
 import FriendMessage from "./FriendMessage/FriendMessage";
 import MyAnswer from "./MyAnswer/MyAnswer";

@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './Comment.module.css'
+import Styles from './Comment.module.scss'
 import {reduxForm} from "redux-form";
 import Author from "./AuthorOfCommentary/AuthorOfCommentary";
 import Commentary from "./Commentary/Commentary";

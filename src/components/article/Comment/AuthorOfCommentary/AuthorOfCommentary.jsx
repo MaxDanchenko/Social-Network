@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom";
-import Styles from "../Comment.module.css";
+import Styles from "../Comment.module.scss";
 import React from "react";
 
 

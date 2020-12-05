@@ -1,4 +1,4 @@
-import Styles from "../Messages.module.css";
+import Styles from "../Messages.module.scss";
 import {Field} from "redux-form";
 import React from "react";
 import {maxLengthCreator, requiredField} from "../../../../utilities/validator";

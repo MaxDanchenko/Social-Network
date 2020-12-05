@@ -1,11 +1,11 @@
 import React from "react";
-import Styles from "./MainImg.module.css"
+import Styles from "./MainImg.module.scss"
 
 
 const MainImg = () => {
     return (
-        <div className={Styles.bground}>
-            <img src={require("../HeaderImages/article_bg.jpg")} alt="" className={Styles.bground}/>
+        <div className={Styles.backImgWrap}>
+            <img src={require("../HeaderImages/article_bg.jpg")} alt="" className={Styles.backImg}/>
         </div>
     )
 }

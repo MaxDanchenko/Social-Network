@@ -1,3 +1,5 @@
+$mainBackGroundColor: #3b5998;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //background color for block//
 @mixin onHoverBackgroundColor {
    &:hover {
@@ -19,11 +21,11 @@
       font-weight: bold;
    }
 }
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover and active effect Box Shadow for Button //
 @mixin onHoverActiveButton {
    &:hover {
-      -webkit-box-shadow: 0 0 4px 2px #2e4a75;
+      -webkit-box-shadow: 0 0 2px 1px #2e4a75;
       box-shadow: 0 0 2px 1px #2e4a75;
       -webkit-transition: 0.1s;
       -o-transition: 0.1s;
@@ -31,7 +33,7 @@
    }
 
    &:active {
-      -webkit-box-shadow: 0 0 6px 4px #adcbff;
+      -webkit-box-shadow: 0 0 4px 4px #adcbff;
       box-shadow: 0 0 4px 4px #adcbff;
       -webkit-transition: 0.2s;
       -o-transition: 0.2s;
@@ -39,6 +41,7 @@
    }
 
 }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover effect for Text
 @mixin onHoverText {
    &:hover {

@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./GeneralHeader.module.css"
+import Styles from "./GeneralHeader.module.scss"
 import MainImg from "../mainImg/MainImg";
 import Contact from "../buttons/contact/Contact";
 import Activity from "../buttons/activity/Activity";

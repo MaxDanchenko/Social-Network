@@ -1,19 +1,23 @@
 .table {
-    padding: 2px 0px 0px 10px;
-    max-height: 24px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+   padding: 2px 0 0 10px;
+   max-height: 24px;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+
+   .list {
+      padding: 0 20px 0 0;
+      .link {
+         .image:hover {
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+            -webkit-transition: 0.1s;
+            -o-transition: 0.1s;
+            transition: 0.1s;
+         }
+      }
+   }
 }
-.list {
-    padding: 0px 20px 0px 0px;
-}
-.image:hover {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-}
+
 

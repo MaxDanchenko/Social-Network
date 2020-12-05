@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import NullStyle from "./components/CommonFiles/NullStyles.module.css";
+import './App.scss';
+import NullStyle from "./components/CommonFiles/NullStyles.module.scss";
 import GeneralNav from "./components/navigation/GeneralNav/GeneralNav";
 import Sidebar from "./components/sidebar/GeneralSidebar/GeneralSidebar";
 import GeneralHeader from "./components/header/GeneralHeader/GeneralHeader";

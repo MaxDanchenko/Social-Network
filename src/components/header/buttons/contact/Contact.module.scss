@@ -1,0 +1,13 @@
+@import '../../../CommonFiles/commonStyles.module';
+.butt {
+    min-width: 290px;
+    max-height: 31px;
+    border-radius: 2px;
+    background-color: $mainBackGroundColor;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    @include onHoverActiveButton
+}
+

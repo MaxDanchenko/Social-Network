@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from "./AuthForm.module.css";
+import Styles from "./AuthForm.module.scss";
 import {NavLink, Redirect} from "react-router-dom";
 import {Field} from "redux-form";
 import {maxLengthCreator, minLengthCreator, requiredField} from "../../../../utilities/validator";

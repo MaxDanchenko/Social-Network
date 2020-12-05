@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Styles from './ProfileStatus.module.css'
+import Styles from './ProfileStatus.module.scss'
 
 const ProfileStatusWithHooks = (props) => {
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./GeneralArticle.module.css"
+import Styles from "./GeneralArticle.module.scss"
 import {BrowserRouter, Route} from "react-router-dom";
 
 

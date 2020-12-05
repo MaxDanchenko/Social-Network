@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './ProfileStatus.module.css'
+import Styles from './ProfileStatus.module.scss'
 
 export class ProfileStatus extends React.Component {
     state = {

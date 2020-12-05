@@ -1,4 +1,4 @@
-import Styles from "../Comment.module.css";
+import Styles from "../Comment.module.scss";
 import {Field} from "redux-form";
 import React from "react";
 

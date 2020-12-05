@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from './formValidator.module.css'
+import Styles from './formValidator.module.scss'
 
 
 export const ValidateInput = ({input, meta, ...props}) => {
