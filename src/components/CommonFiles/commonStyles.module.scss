@@ -1,6 +1,10 @@
-$mainBackGroundColor: #3b5998;
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// required/dangerous effect for Form
+$danger0usShadow: inset 0 0 2px 1px rgba(255,0,0,1);
+
 //background color for block//
+$mainBackGroundColor: #3b5998;
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 @mixin onHoverBackgroundColor {
    &:hover {
       -webkit-transition: 0.1s;
@@ -21,6 +25,7 @@ $mainBackGroundColor: #3b5998;
       font-weight: bold;
    }
 }
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover and active effect Box Shadow for Button //
 @mixin onHoverActiveButton {
@@ -41,6 +46,7 @@ $mainBackGroundColor: #3b5998;
    }
 
 }
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover effect for Text
 @mixin onHoverText {
@@ -51,3 +57,4 @@ $mainBackGroundColor: #3b5998;
       transition: 0.1s;
    }
 }
+

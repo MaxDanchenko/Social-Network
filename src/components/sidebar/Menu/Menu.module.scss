@@ -2,12 +2,12 @@
 
 .list {
    padding: 0 0 0 6px;
+   @include onHoverBackgroundColor;
+   @include onActiveBackgroundColor;
    &:hover {
-      @include onHoverBackgroundColor;
-      @include onActiveBackgroundColor;
       border-left: 3px solid #4267b2;
    }
-
+   
    .link {
       display: inline-block;
       min-width: 150px;

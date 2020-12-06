@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "../../article/UsersFollow/Users.module.scss";
+import Styles from "./PreLoader.module.scss";
 import preLoaderImg from "../../../images/Eclipse-1s-84px.svg";
 
 

@@ -1,29 +1,19 @@
+@import '../../CommonFiles/commonStyles.module';
 .butt {
-    margin: 10px 0px 0px 0px;
+    margin-top: 10px;
     width: 100px;
     height: 30px;
-    background-color: #3B5998;
+    background-color: $mainBackGroundColor;
+    @include onHoverActiveButton;
+    .buttLink {
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 32px;
+        letter-spacing: 0.23px;
+    }
 }
 
-.butt:hover {
-    -webkit-box-shadow: 0px 0px 4px 2px #2e4a75;
-    box-shadow: 0px 0px 2px 1px #2e4a75;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-}
 
-.butt_link {
-    color: #ffffff;
-    font-size: 12px;
-    line-height: 32px;
-    letter-spacing: 0.23px;
-}
 
-.butt:active {
-    -webkit-box-shadow: 0px 0px 6px 4px #adcbff;
-    box-shadow: 0px 0px 4px 4px #adcbff;
-    -webkit-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-}
+
+

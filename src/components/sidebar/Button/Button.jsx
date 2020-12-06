@@ -4,7 +4,7 @@ import Styles from "./Button.module.scss"
 
 const Button = () => {
     return (
-        <button className={Styles.butt}><a href="#" className={Styles.butt_link}>Create a Page</a></button>
+        <button className={Styles.butt}><a href="#" className={Styles.buttLink}>Create a Page</a></button>
     )
 }
 
