@@ -9,7 +9,6 @@ const Menu = () => {
             <li className={Styles.list}><NavLink to={"/Home"} className={Styles.link}>Home</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Profile"} className={Styles.link}>Profile</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Messages"} className={Styles.link}>Messages</NavLink></li>
-            <li className={Styles.list}><NavLink to={"/Comments"} className={Styles.link}>Comments</NavLink></li>
             <li className={Styles.list}><NavLink to={"/UsersFollow"} className={Styles.link}>Users</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Game"} className={Styles.link}>Drag&Drop Game</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Photos"} className={Styles.link}>Photos</NavLink></li>

@@ -27,7 +27,7 @@ export const AuthForm = (props) => {
                 <div className={Styles.buttonWrap}>
                         <button className={Styles.signInButton}>Log In</button>
                 </div>
-                <div>
+                <div className={Styles.recoverPassWrap}>
                     <NavLink className={Styles.recoverPass} to={'/Recover Account'}>Forgot account?</NavLink>
                     <div className={Styles.or}>or</div>
                 </div>

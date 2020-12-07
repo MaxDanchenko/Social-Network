@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Styles from './Profile.module.scss'
 import PreLoader from "../../CommonFiles/PreLoader/PreLoader";
 import avatar from '../../../images/avatars/annUser.jpg'

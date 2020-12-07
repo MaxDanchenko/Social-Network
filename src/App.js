@@ -5,7 +5,6 @@ import GeneralNav from "./components/navigation/GeneralNav/GeneralNav";
 import Sidebar from "./components/sidebar/GeneralSidebar/GeneralSidebar";
 import GeneralHeader from "./components/header/GeneralHeader/GeneralHeader";
 import {Route} from "react-router-dom";
-import CommentContainer from "./components/article/Comment/CommentContainer";
 import MessagesContainer from "./components/article/MessagesAll/MessagesContainer";
 import UsersContainer from "./components/article/UsersFollow/UsersContainer";
 import ProfileContainer from "./components/article/Profile/ProfileContainer";
@@ -24,7 +23,7 @@ class App extends React.Component {
     }
 
     render() {
-        const pathName = ['/Home', '/Messages', '/Comments', '/UsersFollow', '/profile/:userId?', '/Photos', '/Game', '/Videos']
+        const pathName = ['/Home', '/Messages', '/UsersFollow', '/profile/:userId?', '/Photos', '/Game', '/Videos']
         const routeComponent = (component, index) => {
             return <Route exact path='/' component={component} key={index}/>
         }
@@ -57,8 +56,6 @@ class App extends React.Component {
                                render={() => <GeneralHeader/>}/>
                         <Route path={'/Messages'}
                                render={() => <MessagesContainer/>}/>
-                        <Route path={'/Comments'}
-                               render={() => <CommentContainer/>}/>
                         <Route path={'/UsersFollow'}
                                render={() => <UsersContainer/>}/>
                         <Route path={'/profile/:userId?'}
