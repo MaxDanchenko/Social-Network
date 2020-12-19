@@ -1,26 +1,27 @@
+@import './components/CommonFiles/commonStyles.module.scss';
 body {
-    font-weight: 400;
-    background-color: #e9eaed;
-    color: #000;
+  font-weight: 400;
+  background-color: #e9eaed;
+  color: $mainTextColor;
     font-family: "Helvetica Neue";
 }
+
 .wrapper {
-    margin: 0 auto;
-    max-width: 1200px;
-    background-color: #e9eaed;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #e9eaed;
 }
 
 .subWrap {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  grid-template-rows: repeat(2, 1fr);
 }
+
 @media (max-width: 737px) {
-    .subWrap{
-        max-height: 490px;
-    }
+  .subWrap {
+    max-height: 490px;
+  }
 }
 
 

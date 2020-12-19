@@ -19,14 +19,33 @@ const Profile = (props) => {
                 <img className={Styles.avatar} src={props.profile.photos.large ? props.profile.photos.large : avatar}
                      alt='avatar'/>
                 <ul>
-                    <li className={Styles.profileItem}>Full Name: {props.profile.fullName}</li>
-                    <li className={Styles.profileItem}>About me: {props.profile.aboutMe}</li>
-                    <li className={Styles.profileItem}>Job search status: {props.profile.lookingForAJobDescription} </li>
-                    <li className={Styles.profileItem}>user id: {props.profile.userId}</li>
-                    <li className={Styles.profileItem}>contacts: {props.profile.contacts.twitter}</li>
+                    <li className={Styles.profileItem}>Full Name:
+                        <span>
+                            {props.profile.fullName}
+                        </span>
+                    </li>
+                    <li className={Styles.profileItem}>About me:
+                        <span>
+                            {props.profile.aboutMe ? props.profile.aboutMe : 'React developer'}
+                        </span>
+                    </li>
+                    <li className={Styles.profileItem}>Job search status:
+                        <span>
+                            {props.profile.lookingForAJobDescription ? props.profile.lookingForAJobDescription : 'Looking for my dream company'}
+                        </span>
+                    </li>
+                    <li className={Styles.profileItem}>Contacts:
+                        <span>
+                            {props.profile.contacts.twitter ? props.profile.contacts.twitter : 'LinkedIn'}
+                        </span>
+                    </li>
                 </ul>
             </div>
-            {props.isOwner && <input className={Styles.btnPhoto} onChange={addPhoto} type="file"/>}
+            {props.isOwner &&
+            <label className={Styles.fileContainer}>
+                Add your photo
+                <input onChange={addPhoto} type="file" hidden/>
+            </label>}
             <ProfileStatusWithHooks profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
         </div>
 

@@ -1,5 +1,4 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import commentReducer from './commentReducer';
 import messageReducer from './messageReducer';
 import usersReducer from './usersReducer';
 import profileReducer from './profileReducer';
@@ -9,7 +8,6 @@ import { reducer as formReducer } from 'redux-form'
 import appReducer from "./appReducer";
 
 let reducers = combineReducers({
-    commentPage: commentReducer,
     messagePage: messageReducer,
     usersPage: usersReducer,
     profilePage: profileReducer,
