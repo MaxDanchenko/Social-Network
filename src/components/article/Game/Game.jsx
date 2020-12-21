@@ -10,14 +10,13 @@ const puzzle = [
     {id: '1', thumb: require('./puzzleGameInto5parts/image_part_001 (1).jpg')},
     {id: '3', thumb: require('./puzzleGameInto5parts/image_part_003.jpg')},
 ]
+
 const Game = (props) => {
     const [puzzles, setPuzzles] = useState(puzzle)
-
     function handleOnDragEnd(result) {
         const items = Array.from(puzzles)
         const [reorderedItem] = items.splice(result.source.index, 1)
         items.splice(result.destination.index, 0, reorderedItem)
-
         setPuzzles(items)
     }
     return (
