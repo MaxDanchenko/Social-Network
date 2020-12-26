@@ -2,23 +2,22 @@
 .main {
     .subName {
         margin: 0 0 30px 0;
-        color: #98949c;
+        color: $mainTextColor;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 25px;
         @include onHoverText;
     }
     .names {
-        background: url(../SideImages/icon_done.png) 115px 68px no-repeat;
         padding: 40px 0 9px 0;
         font-size: 24px;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 26px;
+        color: $mainTextColor;
     }
     .profiles {
-        outline: 1px solid #dfe0e4;
-        outline-offset: -5px;
-        border-radius: 5px;
+        width: 200px;
+        border-radius: 10px;
         @include onHoverActiveButton;
     }
 }

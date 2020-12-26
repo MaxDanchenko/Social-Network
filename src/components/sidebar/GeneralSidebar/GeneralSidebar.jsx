@@ -5,11 +5,11 @@ import Menu from "../Menu/Menu";
 import Button from "../Button/Button";
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     return (
         <aside className={Styles.menu}>
             <div className={Styles.wrapper}>
-            <HomePage/>
+            <HomePage profile={props.profile} status={props.status}/>
             <Menu/>
             <Button/>
             </div>

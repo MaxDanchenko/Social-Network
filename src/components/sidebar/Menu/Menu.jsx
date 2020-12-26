@@ -10,7 +10,6 @@ const Menu = () => {
             <li className={Styles.list}><NavLink to={"/Profile"} className={Styles.link}>Profile</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Messages"} className={Styles.link}>Messages</NavLink></li>
             <li className={Styles.list}><NavLink to={"/UsersFollow"} className={Styles.link}>Users</NavLink></li>
-            <li className={Styles.list}><NavLink to={"/Game"} className={Styles.link}>Drag&Drop Game</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Photos"} className={Styles.link}>Photos</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Videos"} className={Styles.link}>Videos</NavLink></li>
             <li className={Styles.list}><NavLink to={"/Sign In"} className={Styles.link}>Sign In</NavLink></li>

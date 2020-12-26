@@ -16,8 +16,6 @@ const Profile = (props) => {
     return (
         <div className={Styles.wrapper}>
             <div className={Styles.subWrapper}>
-                <img className={Styles.avatar} src={props.profile.photos.large ? props.profile.photos.large : avatar}
-                     alt='avatar'/>
                 <ul>
                     <li className={Styles.profileItem}>Full Name:
                         <span>
@@ -43,13 +41,11 @@ const Profile = (props) => {
             </div>
             {props.isOwner &&
             <label className={Styles.fileContainer}>
-                Add your photo
+                Change photo
                 <input onChange={addPhoto} type="file" hidden/>
             </label>}
             <ProfileStatusWithHooks profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
         </div>
-
     )
-
 }
 export default Profile

@@ -4,7 +4,7 @@ import Styles from './ProfileIcon.module.scss';
 
 const ProfileIcon = () => {
     return (
-        <a href='/Home'><img src={require('../ImagesNav/logo_facebook.png')} alt='' className={Styles.fbook} /></a>
+        <a href='/Home'><img src={require('../../../images/reactLogo.svg')} alt='' className={Styles.fbook} /></a>
     )
 }
 

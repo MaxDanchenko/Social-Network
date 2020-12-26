@@ -1,7 +1,7 @@
 @import './components/CommonFiles/commonStyles.module.scss';
 body {
   font-weight: 400;
-  background-color: #e9eaed;
+  background: url('./images/bg_and_photo/wallpapperBg.jpg');
   color: $mainTextColor;
     font-family: "Helvetica Neue";
 }
@@ -9,7 +9,6 @@ body {
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
-  background-color: #e9eaed;
 }
 
 .subWrap {

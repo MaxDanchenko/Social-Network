@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import NullStyle from "./components/CommonFiles/NullStyles.module.scss";
 import GeneralNav from "./components/navigation/GeneralNav/GeneralNav";
-import Sidebar from "./components/sidebar/GeneralSidebar/GeneralSidebar";
+import GeneralSidebarContainer from "./components/sidebar/GeneralSidebar/GeneralSidebarContainer";
 import GeneralHeader from "./components/header/GeneralHeader/GeneralHeader";
 import {Route} from "react-router-dom";
 import MessagesContainer from "./components/article/MessagesAll/MessagesContainer";
@@ -14,7 +14,6 @@ import {withRouter} from "react-browser-router";
 import {connect} from "react-redux";
 import {initialize} from "./Redux/appReducer";
 import PreLoader from "./components/CommonFiles/PreLoader/PreLoader";
-import Game from "./components/article/Game/Game";
 
 
 class App extends React.Component {
@@ -23,7 +22,7 @@ class App extends React.Component {
     }
 
     render() {
-        const pathName = ['/Home', '/Messages', '/UsersFollow', '/profile/:userId?', '/Photos', '/Game', '/Videos']
+        const pathName = ['/Home', '/Messages', '/UsersFollow', '/profile/:userId?', '/Photos', '/Videos']
         const routeComponent = (component, index) => {
             return <Route exact path='/' component={component} key={index}/>
         }
@@ -45,11 +44,11 @@ class App extends React.Component {
                            render={() => <AuthUserContainer/>}/>
                     <div className="subWrap">
                         <Route>
-                            {[GeneralHeader, Sidebar].map((component, index) => routeComponent(component, index))}
+                            {[GeneralHeader, GeneralSidebarContainer].map((component, index) => routeComponent(component, index))}
                         </Route>
                         <Route>
                             {pathName.map((path, index) =>
-                                <Route path={path} component={Sidebar} key={index}/>
+                                <Route path={path} component={GeneralSidebarContainer} key={index}/>
                             )}
                         </Route>
                         <Route path={'/Home'}
@@ -60,8 +59,7 @@ class App extends React.Component {
                                render={() => <UsersContainer/>}/>
                         <Route path={'/profile/:userId?'}
                                render={() => <ProfileContainer/>}/>
-                        <Route path={'/Game'}
-                               render={() => <Game/>}/>
+
                     </div>
                 </div>
             </div>

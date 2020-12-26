@@ -25,7 +25,9 @@ class ProfileContainer extends React.Component {
         this.refreshProfile()
     }
     render() {
-        return <Profile {...this.props} isOwner={!this.props.match.params.userId} setProfilePhoto={savePhoto}/>
+        return (
+            <Profile {...this.props} isOwner={!this.props.match.params.userId} setProfilePhoto={savePhoto}/>
+        )
     }
 }
 
@@ -35,7 +37,6 @@ let mapStateToProps = (state) => ({
     id: state.authUser.id,
     isAuth: state.authUser.isAuth,
 })
-
 export default compose(
     connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, auth, savePhoto}),
     withRouter

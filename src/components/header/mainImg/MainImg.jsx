@@ -5,7 +5,7 @@ import Styles from "./MainImg.module.scss"
 const MainImg = () => {
     return (
         <div className={Styles.backImgWrap}>
-            <img src={require("../HeaderImages/article_bg.jpg")} alt="" className={Styles.backImg}/>
+            <img src={require('../HeaderImages/reactBg.jpg')} alt="" className={Styles.backImg}/>
         </div>
     )
 }
