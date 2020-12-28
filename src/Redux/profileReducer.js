@@ -32,7 +32,6 @@ export const setPhotoSuccess = (photos) => ({type: SET_PHOTO_SUCCESS, photos})
 export const getUserProfile = (userId) => async (dispatch) => {
     let response = await usersAPI.profile(userId)
     dispatch(setUserProfile(response.data))
-    debugger
 }
 export const getStatus = (userId) => async (dispatch) => {
     let response = await profileAPI.getStatus(userId)

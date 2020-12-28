@@ -1,5 +1,5 @@
 import React from 'react';
-import {AuthForm} from "./AuthForm/AuthForm";
+import AuthForm from "./AuthForm/AuthForm";
 import Styles from "./Authorization.module.scss";
 import {reduxForm} from "redux-form";
 import {NavLink, Redirect} from "react-router-dom";
@@ -9,7 +9,7 @@ const Authorization = (props) => {
         return <Redirect to={'profile'} />
     }
     const onSubmit = (formData) => {
-        props.logIn(formData.email, formData.password, formData.rememberMe);
+        props.logIn(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
     return (
         <div className={Styles.mainPageAuth}>
@@ -19,7 +19,7 @@ const Authorization = (props) => {
                 </NavLink>
             </div>
             <div className={Styles.authWrapper}>
-                <AuthFormRedux  onSubmit={onSubmit}/>
+                <AuthFormRedux  captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
             </div>
         </div>
     )

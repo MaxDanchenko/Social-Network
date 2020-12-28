@@ -5,6 +5,7 @@ import {withRouter} from "react-browser-router";
 import {getStatus, getUserProfile, savePhoto, updateStatus} from "../../../Redux/profileReducer";
 import {compose} from "redux";
 import {auth} from "../../../Redux/authUserReducer";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 
 class ProfileContainer extends React.Component {
