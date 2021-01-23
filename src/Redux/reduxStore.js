@@ -1,12 +1,11 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
+import {applyMiddleware, combineReducers, createStore} from 'redux'
 import messageReducer from './messageReducer'
 import usersReducer from './usersReducer'
 import profileReducer from './profileReducer'
 import authUserReducer from './authUserReducer'
 import thunkMiddleware from 'redux-thunk'
-import { reducer as formReducer } from 'redux-form'
+import {reducer as formReducer} from 'redux-form'
 import appReducer from './appReducer'
-
 
 
 let rootReducers = combineReducers({
@@ -18,8 +17,6 @@ let rootReducers = combineReducers({
   app: appReducer
 })
 
-type RootReducerType = typeof rootReducers
-export type AppStateType = ReturnType<RootReducerType>
 
 let store = createStore(rootReducers, applyMiddleware(thunkMiddleware))
 
