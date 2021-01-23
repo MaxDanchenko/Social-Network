@@ -44,7 +44,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 followingInProgress: action.isFetching
                     ? [...state.followingInProgress, action.userId]
-                    : state.followingInProgress.filter(id => id != action.userId)
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
         }
         default:
@@ -80,15 +80,15 @@ const followUnfollow = async (userId, dispatch, apiMethod, actionCreator) => {
 }
 export const follow = (userId) => {
     return async (dispatch) => {
-        let apiMethod = usersAPI.follow.bind(usersAPI)
-        let actionCreator = followSuccess
+        const apiMethod = usersAPI.follow.bind(usersAPI)
+        const actionCreator = followSuccess
         followUnfollow(userId, dispatch, apiMethod, actionCreator)
     }
 }
 export const unfollow = (userId) => {
     return async (dispatch) => {
-        let apiMethod = usersAPI.unfollow.bind(usersAPI)
-        let actionCreator = unfollowSuccess
+        const apiMethod = usersAPI.unfollow.bind(usersAPI)
+        const actionCreator = unfollowSuccess
         followUnfollow(userId, dispatch, apiMethod, actionCreator)
     }
 }
