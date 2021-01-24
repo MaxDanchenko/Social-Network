@@ -4,10 +4,10 @@ import ProfileIcon from '../profileIcon/ProfileIcon'
 import Search from '../search/Search'
 import Settings from '../settings/Settings'
 import NavMenu from '../menu/Menu'
-import LoginUserContainer from '../../header/LoginUser/LoginUserContainer'
+import LoginUserContainer from '../../header/LogOutUser/LogOutUserContainer'
 
 
-const GeneralNav = (props) => {
+const GeneralNav = () => {
   return (
     <nav className={Styles.nav}>
       <div className={Styles.navWrap}>

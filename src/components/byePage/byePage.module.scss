@@ -1,0 +1,29 @@
+@import "../../components/CommonFiles/commonStyles.module";
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .imgWrap {
+    margin-top: 150px;
+  width: 100%;
+
+    .img {
+      display: block;
+      margin: 0 auto;
+      width: 500px;
+    }
+  }
+
+  .goBack {
+    margin-top: 100px;
+    border-radius: 5px;
+    font-size: 28px;
+    padding: 5px 10px;
+    background-color: $mainBackGroundColor;
+    color: white;
+    text-align: center;
+    @include onHoverActiveButton;
+  }
+}

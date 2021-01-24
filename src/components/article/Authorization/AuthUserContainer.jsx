@@ -7,7 +7,7 @@ import Authorization from './Authorization'
 const AuthUserContainer = (props) => {
   useEffect(() => {
     props.auth(props.email, props.id, props.login)
-  })
+  }, [])
   return <Authorization {...props} />
 }
 

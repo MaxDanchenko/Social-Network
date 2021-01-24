@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom'
 import {compose} from 'redux'
 import {withRouter} from 'react-browser-router'
 import {connect} from 'react-redux'
+import './components/CommonFiles/NullStyles.module.scss'
 import GeneralNav from './components/navigation/GeneralNav/GeneralNav'
 import GeneralSidebarContainer from './components/sidebar/GeneralSidebar/GeneralSidebarContainer'
 import GeneralHeader from './components/header/GeneralHeader/GeneralHeader'
@@ -14,12 +15,13 @@ import AuthUserContainer from './components/article/Authorization/AuthUserContai
 import {initialize} from './Redux/appReducer'
 import PreLoader from './components/CommonFiles/PreLoader/PreLoader'
 import PhotoGallery from './components/article/PhotoGallery/PhotoGallery'
+import ByePage from './components/byePage/ByePage'
 
 
 const App = (props) => {
   useEffect(() => {
     props.initialize()
-  })
+  }, [])
   const pathName = ['/Home', '/Messages', '/UsersFollow', '/profile/:userId?', '/Photos', '/Videos']
   const routeComponent = (component, index) => (<Route exact path="/" component={component} key={index}/>)
   if (!props.initialStatus) {
@@ -34,6 +36,7 @@ const App = (props) => {
     </Route>
     <div className="wrapper">
       <Route path="/Sign In" render={() => <AuthUserContainer/>}/>
+      <Route path="/ByePage" render={() => <ByePage/>}/>
       <div className="subWrap">
         <Route>
           {[GeneralHeader, GeneralSidebarContainer].map((component, index) => routeComponent(component, index))}
@@ -56,7 +59,10 @@ const App = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  initialStatus: state.app.initialStatus, isAuth: state.authUser.isAuth
+  initialStatus: state.app.initialStatus,
+  isAuth: state.authUser.isAuth
 })
 
-export default compose(withRouter, connect(mapStateToProps, {initialize}))(App)
+export default compose(
+  withRouter,
+  connect(mapStateToProps, {initialize}))(App)
