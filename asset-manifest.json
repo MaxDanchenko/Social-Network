@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Social-Network/static/css/main.3e6840a4.chunk.css",
-    "main.js": "/Social-Network/static/js/main.cae1f55a.chunk.js",
-    "main.js.map": "/Social-Network/static/js/main.cae1f55a.chunk.js.map",
+    "main.css": "/Social-Network/static/css/main.6fd4dda3.chunk.css",
+    "main.js": "/Social-Network/static/js/main.889574f6.chunk.js",
+    "main.js.map": "/Social-Network/static/js/main.889574f6.chunk.js.map",
     "runtime-main.js": "/Social-Network/static/js/runtime-main.3828848e.js",
     "runtime-main.js.map": "/Social-Network/static/js/runtime-main.3828848e.js.map",
-    "static/js/2.895632af.chunk.js": "/Social-Network/static/js/2.895632af.chunk.js",
-    "static/js/2.895632af.chunk.js.map": "/Social-Network/static/js/2.895632af.chunk.js.map",
+    "static/js/2.20be893f.chunk.js": "/Social-Network/static/js/2.20be893f.chunk.js",
+    "static/js/2.20be893f.chunk.js.map": "/Social-Network/static/js/2.20be893f.chunk.js.map",
     "index.html": "/Social-Network/index.html",
-    "precache-manifest.bd0faf89fc77b72961426d8c926c87ba.js": "/Social-Network/precache-manifest.bd0faf89fc77b72961426d8c926c87ba.js",
+    "precache-manifest.4e3e32ccfdb3ea30203361cc23f44479.js": "/Social-Network/precache-manifest.4e3e32ccfdb3ea30203361cc23f44479.js",
     "service-worker.js": "/Social-Network/service-worker.js",
-    "static/css/main.3e6840a4.chunk.css.map": "/Social-Network/static/css/main.3e6840a4.chunk.css.map",
-    "static/js/2.895632af.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.895632af.chunk.js.LICENSE.txt",
-    "static/media/Eclipse-1s-84px.svg": "/Social-Network/static/media/Eclipse-1s-84px.c74b34ba.svg",
+    "static/css/main.6fd4dda3.chunk.css.map": "/Social-Network/static/css/main.6fd4dda3.chunk.css.map",
+    "static/js/2.20be893f.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.20be893f.chunk.js.LICENSE.txt",
+    "static/media/Eclipse-1s-84px.svg": "/Social-Network/static/media/Eclipse-1s-84px.8ef24065.svg",
     "static/media/annUser.jpg": "/Social-Network/static/media/annUser.689ea90f.jpg",
     "static/media/reactBg.jpg": "/Social-Network/static/media/reactBg.5f8ab0b4.jpg",
-    "static/media/reactLogo.svg": "/Social-Network/static/media/reactLogo.876a8325.svg",
+    "static/media/reactLogo.svg": "/Social-Network/static/media/reactLogo.abc92c83.svg",
     "static/media/App.scss": "/Social-Network/static/media/wallpapperBg.59216aa3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3828848e.js",
-    "static/js/2.895632af.chunk.js",
-    "static/css/main.3e6840a4.chunk.css",
-    "static/js/main.cae1f55a.chunk.js"
+    "static/js/2.20be893f.chunk.js",
+    "static/css/main.6fd4dda3.chunk.css",
+    "static/js/main.889574f6.chunk.js"
   ]
 }
