@@ -1,7 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { logOut } from '../../../Redux/authUserReducer'
+import {connect} from 'react-redux'
+import {logOut} from '../../../Redux/authUserReducer'
 import LoginUser from './LoginUser'
+
 
 class LoginUserContainer extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class LoginUserContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  isAuth: state.authUser.isAuth,
+  isAuth: state.authUser.isAuth
 })
 
-export default connect(mapStateToProps, { logOut })(LoginUserContainer)
+export default connect(mapStateToProps, {logOut})(LoginUserContainer)

@@ -1,21 +1,25 @@
 @import '../../CommonFiles/commonStyles.module';
-.validateWrapper{
+
+.validateWrapper {
 }
-.required input{
-    box-shadow: $danger0usShadow;
+
+.required input {
+  box-shadow: $danger0usShadow;
 }
+
 .errorMessage {
-    display: block;
-    height: 36px;
-    opacity: 0;
+  display: block;
+  height: 36px;
+  opacity: 0;
 }
+
 .showErrorMessage {
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    color: red;
-    font-weight: bold;
-    opacity: 1;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-weight: bold;
+  opacity: 1;
 }
 
 

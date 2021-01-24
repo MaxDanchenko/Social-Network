@@ -4,13 +4,14 @@ import MainImg from '../mainImg/MainImg'
 import Contact from '../buttons/contact/Contact'
 import Activity from '../buttons/activity/Activity'
 
+
 const GeneralHeader = () => {
   return (
     <header className={Styles.head}>
-      <MainImg />
+      <MainImg/>
       <div className={Styles.wrap}>
-        <Activity />
-        <Contact />
+        <Activity/>
+        <Contact/>
       </div>
     </header>
   )

@@ -1,15 +1,16 @@
 .area {
-    min-height: 26px;
-    min-width: 403px;
-    padding-left: 10px;
-    color: #373b44;
-    font-size: 14px;
-    line-height: 25px;
-    &:hover {
-        -webkit-box-shadow: 0 0 4px 2px #adcbff;
-        box-shadow: 0 0 4px 2px #adcbff;
-        -webkit-transition: 0.1s;
-        -o-transition: 0.1s;
-        transition: 0.1s;
-    }
+  min-height: 26px;
+  min-width: 403px;
+  padding-left: 10px;
+  color: #373b44;
+  font-size: 14px;
+  line-height: 25px;
+
+  &:hover {
+    -webkit-box-shadow: 0 0 4px 2px #adcbff;
+    box-shadow: 0 0 4px 2px #adcbff;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+  }
 }

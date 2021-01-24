@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './ProfileIcon.module.scss'
 
+
 const ProfileIcon = () => {
   return (
     <a href="#">

@@ -1,39 +1,43 @@
 @import '../../CommonFiles/commonStyles.module';
+
 .nav {
-    padding: 10px 0 0 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
+  padding: 10px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  background-color: $mainBackGroundColor;
+  height: 44px;
+  position: sticky;
+  top: 0;
+  min-height: 2em;
+
+  .navWrap {
     display: flex;
-    justify-content: center;
-    background-color: $mainBackGroundColor;
-    height: 44px;
-    position: sticky;
-    top: 0;
-    min-height: 2em;
-    .navWrap {
-        display: flex;
-        justify-content: space-between;
-        width: 1200px;
-        padding-left: 22px;
-        .form {
-            min-width: 480px;
-        }
-        .icons {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            justify-content: space-between;
-            min-width: 200px;
-        }
+    justify-content: space-between;
+    width: 1200px;
+    padding-left: 22px;
+
+    .form {
+      min-width: 480px;
     }
+
+    .icons {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      justify-content: space-between;
+      min-width: 200px;
+    }
+  }
 }
 
 @media (max-width: 1244px) {
-    .navWrap{
-        padding-left: 32px;
-        width: 95%;
-    }
-    .nav {
-        justify-content: left;
-    }
+  .navWrap {
+    padding-left: 32px;
+    width: 95%;
+  }
+  .nav {
+    justify-content: left;
+  }
 }

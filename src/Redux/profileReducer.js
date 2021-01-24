@@ -1,5 +1,6 @@
-import { usersAPI } from '../api/usersAPI'
-import { profileAPI } from '../api/profileAPI'
+import {usersAPI} from '../api/usersAPI'
+import {profileAPI} from '../api/profileAPI'
+
 
 const SET_STATUS = 'SET_STATUS'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
@@ -7,32 +8,32 @@ const SET_PHOTO_SUCCESS = 'SET_PHOTO_SUCCESS'
 
 const initialState = {
   profile: null,
-  status: '',
+  status: ''
 }
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-  case SET_USER_PROFILE: {
-    return { ...state, profile: action.profile }
-  }
-  case SET_STATUS: {
-    return { ...state, status: action.status }
-  }
-  case SET_PHOTO_SUCCESS: {
-    return { ...state, profile: { ...state.profile, photos: action.photos } }
-  }
-  default:
-    return state
+    case SET_USER_PROFILE: {
+      return {...state, profile: action.profile}
+    }
+    case SET_STATUS: {
+      return {...state, status: action.status}
+    }
+    case SET_PHOTO_SUCCESS: {
+      return {...state, profile: {...state.profile, photos: action.photos}}
+    }
+    default:
+      return state
   }
 }
 export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
-  profile,
+  profile
 })
-export const setStatus = (status) => ({ type: SET_STATUS, status })
+export const setStatus = (status) => ({type: SET_STATUS, status})
 export const setPhotoSuccess = (photos) => ({
   type: SET_PHOTO_SUCCESS,
-  photos,
+  photos
 })
 
 export const getUserProfile = (userId) => async (dispatch) => {

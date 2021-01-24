@@ -3,9 +3,10 @@ import Styles from './Profile.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWIthHooks'
 
+
 const Profile = (props) => {
   if (!props.profile) {
-    return <PreLoader />
+    return <PreLoader/>
   }
   const addPhoto = (e) => {
     if (e.target.files.length) {
@@ -49,7 +50,7 @@ const Profile = (props) => {
       {props.isOwner && (
         <label className={Styles.fileContainer}>
           Change photo
-          <input onChange={addPhoto} type="file" hidden />
+          <input onChange={addPhoto} type="file" hidden/>
         </label>
       )}
       <ProfileStatusWithHooks

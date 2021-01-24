@@ -1,15 +1,11 @@
 import React from 'react'
 import Sidebar from './GeneralSidebar'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import {
-  getStatus,
-  getUserProfile,
-  savePhoto,
-  updateStatus,
-} from '../../../Redux/profileReducer'
-import { auth } from '../../../Redux/authUserReducer'
-import { withRouter } from 'react-browser-router'
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../Redux/profileReducer'
+import {auth} from '../../../Redux/authUserReducer'
+import {withRouter} from 'react-browser-router'
+
 
 class GeneralSidebarContainer extends React.Component {
   refreshProfile() {
@@ -21,13 +17,16 @@ class GeneralSidebarContainer extends React.Component {
     this.props.getUserProfile(userId)
     this.props.getStatus(userId)
   }
+  
   componentDidMount() {
     this.refreshProfile()
   }
+  
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.userId !== prevProps.match.params.userId)
       this.refreshProfile()
   }
+  
   render() {
     return <Sidebar {...this.props} />
   }
@@ -37,7 +36,7 @@ let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   isAuth: state.authUser.isAuth,
-  id: state.authUser.id,
+  id: state.authUser.id
 })
 export default compose(
   connect(mapStateToProps, {
@@ -45,7 +44,7 @@ export default compose(
     getStatus,
     updateStatus,
     auth,
-    savePhoto,
+    savePhoto
   }),
   withRouter
 )(GeneralSidebarContainer)

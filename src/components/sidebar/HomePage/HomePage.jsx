@@ -3,6 +3,7 @@ import Styles from './HomePage.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import avatar from '../../../images/avatars/annUser.jpg'
 
+
 const HomePage = (props) => {
   if (!props.profile) {
     return <PreLoader/>

@@ -2,12 +2,13 @@ import React from 'react'
 import Styles from './formValidator.module.scss'
 import cn from 'classnames'
 
-const ValidateInput = ({ input, meta, ...props }) => {
+
+const ValidateInput = ({input, meta, ...props}) => {
   const hasError = meta.error && meta.touched
   return (
     <div>
       <div
-        className={cn(Styles.validateWrapper, { [Styles.required]: hasError })}
+        className={cn(Styles.validateWrapper, {[Styles.required]: hasError})}
       >
         <input className={Styles.accountField} {...input} {...props} />
         <span

@@ -1,5 +1,6 @@
-import { instance } from './api'
-import { AuthMeType, UserLoginType } from './apiTyper'
+import {instance} from './api'
+import {AuthMeType, UserLoginType} from './apiTyper'
+
 
 export const authAPI = {
   auth() {
@@ -15,10 +16,10 @@ export const authAPI = {
       email,
       password,
       rememberMe,
-      captcha,
+      captcha
     })
   },
   logOut() {
     return instance.delete<UserLoginType>('auth/login')
-  },
+  }
 }

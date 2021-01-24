@@ -1,24 +1,27 @@
 @import '../../../CommonFiles/commonStyles.module';
+
 .link {
-   border-radius: 30px;
-   width: 100%;
-   height: 61px;
-   padding: 5px;
-   margin: 6px 0;
-   display: flex;
-   background-color: $mainBackGroundColor;
-   @include onHoverActiveButton;
-   .avatar{
-      max-width: 50px;
-      max-height: 50px;
-      border-radius: 50px;
-   }
-   .name {
-      margin: 0 auto;
-      padding-top: 13px;
-      color: #fff;
-      font-size: 14px;
-      line-height: 25px;
-      letter-spacing: 0.24px;
-   }
+  border-radius: 30px;
+  width: 100%;
+  height: 61px;
+  padding: 5px;
+  margin: 6px 0;
+  display: flex;
+  background-color: $mainBackGroundColor;
+  @include onHoverActiveButton;
+
+  .avatar {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50px;
+  }
+
+  .name {
+    margin: 0 auto;
+    padding-top: 13px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.24px;
+  }
 }

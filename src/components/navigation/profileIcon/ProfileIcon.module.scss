@@ -1,13 +1,14 @@
 .profileIcon {
-    margin-right: 30px;
-    min-width: 26px;
-    max-height: 26px;
-    min-height: 26px;
-    &:hover {
-        -webkit-box-shadow: 0 0 4px 2px #adcbff;
-        box-shadow: 0 0 4px 2px #adcbff;
-        -webkit-transition: 0.1s;
-        -o-transition: 0.1s;
-        transition: 0.1s;
-    }
+  margin-right: 30px;
+  min-width: 26px;
+  max-height: 26px;
+  min-height: 26px;
+
+  &:hover {
+    -webkit-box-shadow: 0 0 4px 2px #adcbff;
+    box-shadow: 0 0 4px 2px #adcbff;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+  }
 }

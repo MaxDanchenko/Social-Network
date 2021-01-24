@@ -1,12 +1,13 @@
 import React from 'react'
 import Styles from './Users.module.scss'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import avatar from '../../../images/avatars/annUser.jpg'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 
-let UsersFollowing = (props) => {
+
+const UsersFollowing = (props) => {
   if (!props.users) {
-    return <PreLoader />
+    return <PreLoader/>
   }
   let pagesCount = Math.ceil(props.pageUserCount / props.pageSize)
   let pages = []
@@ -78,7 +79,7 @@ let UsersFollowing = (props) => {
               className={props.currentPage === p && Styles.pageButton}
               onClick={(e) => {
                 if (!props.currentPage) {
-                  return <PreLoader />
+                  return <PreLoader/>
                 }
                 props.onPageChanged(p)
               }}

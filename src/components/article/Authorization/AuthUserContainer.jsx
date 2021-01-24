@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { auth, logIn } from '../../../Redux/authUserReducer'
+import React, {useEffect} from 'react'
+import {connect} from 'react-redux'
+import {auth, logIn} from '../../../Redux/authUserReducer'
 import Authorization from './Authorization'
+
 
 const AuthUserContainer = (props) => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const AuthUserContainer = (props) => {
 const mapStateToProps = (state) => ({
   logIn: state.authUser.logIn,
   isAuth: state.authUser.isAuth,
-  captchaUrl: state.authUser.captchaUrl,
+  captchaUrl: state.authUser.captchaUrl
 })
 
 export default connect(mapStateToProps, {

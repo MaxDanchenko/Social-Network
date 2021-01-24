@@ -1,36 +1,37 @@
 import React from 'react'
 import Styles from './ProfileStatus.module.scss'
 
+
 export class ProfileStatus extends React.Component {
   state = {
     editMode: false,
-    status: this.props.status,
-  };
+    status: this.props.status
+  }
   activateStatus = () => {
     this.setState({
-      editMode: true,
+      editMode: true
     })
-  };
+  }
   deactivateStatus = () => {
     this.setState({
-      editMode: false,
+      editMode: false
     })
     this.props.updateStatus(this.state.status)
-  };
+  }
   onStatusChange = (e) => {
     this.setState({
-      status: e.currentTarget.value,
+      status: e.currentTarget.value
     })
-  };
-
+  }
+  
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.status !== this.props.status) {
       this.setState({
-        status: this.props.status,
+        status: this.props.status
       })
     }
   }
-
+  
   render() {
     return (
       <>

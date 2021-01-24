@@ -1,12 +1,13 @@
 import React from 'react'
 import AuthForm from './AuthForm/AuthForm'
 import Styles from './Authorization.module.scss'
-import { reduxForm } from 'redux-form'
-import { NavLink, Redirect } from 'react-router-dom'
+import {reduxForm} from 'redux-form'
+import {NavLink, Redirect} from 'react-router-dom'
+
 
 const Authorization = (props) => {
   if (props.isAuth) {
-    return <Redirect to={'profile'} />
+    return <Redirect to={'profile'}/>
   }
   const onSubmit = (formData) => {
     props.logIn(
@@ -24,11 +25,11 @@ const Authorization = (props) => {
         </NavLink>
       </div>
       <div className={Styles.authWrapper}>
-        <AuthFormRedux captchaUrl={props.captchaUrl} onSubmit={onSubmit} />
+        <AuthFormRedux captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
       </div>
     </div>
   )
 }
-const AuthFormRedux = reduxForm({ form: 'logIn' })(AuthForm)
+const AuthFormRedux = reduxForm({form: 'logIn'})(AuthForm)
 
 export default Authorization

@@ -2,6 +2,7 @@ import React from 'react'
 import Styles from './Activity.module.scss'
 import cn from 'classnames'
 
+
 const Activity = () => {
   return (
     <ul className={Styles.table}>

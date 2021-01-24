@@ -1,22 +1,24 @@
 @import '../../../CommonFiles/commonStyles.module';
-.writeMessage {
-   margin:0 auto;
-   width: 100%;
-   height: 50px;
-   display: flex;
-   padding-left: 10px;
 
-   .MessageArea {
-      background-color: #dce1ea;
-      border-radius: 15px 0 0 15px;
-      padding: 10px;
-      resize: none;
-      width: 90%;
-   }
-   .SendButton {
-      background-color: $mainBackGroundColor;
-      color: #fff;
-      border-radius: 0 15px 15px 0;
-      width: 15%;
-   }
+.writeMessage {
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding-left: 10px;
+
+  .MessageArea {
+    background-color: #dce1ea;
+    border-radius: 15px 0 0 15px;
+    padding: 10px;
+    resize: none;
+    width: 90%;
+  }
+
+  .SendButton {
+    background-color: $mainBackGroundColor;
+    color: #fff;
+    border-radius: 0 15px 15px 0;
+    width: 15%;
+  }
 }

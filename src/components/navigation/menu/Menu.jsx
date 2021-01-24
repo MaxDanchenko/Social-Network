@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './Menu.module.scss'
 
+
 const NavMenu = () => {
   return (
     <ul className={Styles.table}>

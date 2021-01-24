@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './LoginUser.module.scss'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+
 
 const LoginUser = (props) => {
   return (

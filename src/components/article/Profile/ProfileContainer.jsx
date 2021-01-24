@@ -1,16 +1,11 @@
 import React from 'react'
 import Profile from './Profile'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-browser-router'
-import {
-  getStatus,
-  getUserProfile,
-  savePhoto,
-  updateStatus,
-} from '../../../Redux/profileReducer'
-import { compose } from 'redux'
-import { auth } from '../../../Redux/authUserReducer'
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-browser-router'
+import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../Redux/profileReducer'
+import {compose} from 'redux'
+import {auth} from '../../../Redux/authUserReducer'
+
 
 class ProfileContainer extends React.Component {
   refreshProfile() {
@@ -22,16 +17,16 @@ class ProfileContainer extends React.Component {
     this.props.getUserProfile(userId)
     this.props.getStatus(userId)
   }
-
+  
   componentDidMount() {
     this.refreshProfile()
   }
-
+  
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.match.params.userId !== prevProps.match.params.userId)
       this.refreshProfile()
   }
-
+  
   render() {
     return (
       <Profile
@@ -47,7 +42,7 @@ let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   id: state.authUser.id,
-  isAuth: state.authUser.isAuth,
+  isAuth: state.authUser.isAuth
 })
 export default compose(
   connect(mapStateToProps, {
@@ -55,7 +50,7 @@ export default compose(
     getStatus,
     updateStatus,
     auth,
-    savePhoto,
+    savePhoto
   }),
   withRouter
 )(ProfileContainer)

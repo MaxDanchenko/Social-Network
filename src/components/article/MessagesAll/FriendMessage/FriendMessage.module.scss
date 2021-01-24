@@ -1,19 +1,20 @@
 .dialog {
-   width: fit-content;
-   min-height: 30px;
-   margin: 8px;
-   padding: 10px 5px;
-   border-radius: 35px;
-   color: #fff;
-   font-size: 14px;
-   background-color: #dce1ea;
-   text-align: center;
-   .post {
-      display: flex;
-      justify-content: center;
-      padding: 5px 10px;
-      color: #000;
-      font-size: 14px;
-      line-height: 25px;
-   }
+  width: fit-content;
+  min-height: 30px;
+  margin: 8px;
+  padding: 10px 5px;
+  border-radius: 35px;
+  color: #fff;
+  font-size: 14px;
+  background-color: #dce1ea;
+  text-align: center;
+
+  .post {
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    color: #000;
+    font-size: 14px;
+    line-height: 25px;
+  }
 }

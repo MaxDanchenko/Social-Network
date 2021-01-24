@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './MainImg.module.scss'
 
+
 const MainImg = () => {
   return (
     <div className={Styles.backImgWrap}>

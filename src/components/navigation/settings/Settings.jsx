@@ -2,6 +2,7 @@ import React from 'react'
 import Styles from './Settings.module.scss'
 import cn from 'classnames'
 
+
 const Settings = () => {
   return (
     <ul className={cn(Styles.table, Styles.table_small)}>

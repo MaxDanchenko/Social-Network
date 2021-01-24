@@ -1,13 +1,12 @@
-import { instance } from './api'
-import { AuthMeType, UserType, ItemsType, ProfileType } from './apiTyper'
+import {instance} from './api'
+import {AuthMeType, ItemsType, ProfileType, UserType} from './apiTyper'
+
 
 export const usersAPI = {
   getUsers(currentPage = 1, pageSize = 4) {
-    return instance
-      .get<ItemsType>(`users?page=${currentPage}&count=${pageSize}`)
-      .then((response) => {
-        return response.data
-      })
+    return instance.get<ItemsType>(`users?page=${currentPage}&count=${pageSize}`).then((response) => {
+      return response.data
+    })
   },
   follow(userId: number) {
     return instance.post<UserType>(`follow/${userId}`)
@@ -20,5 +19,5 @@ export const usersAPI = {
   },
   auth() {
     return instance.get<AuthMeType>('auth/me')
-  },
+  }
 }

@@ -1,16 +1,18 @@
 @import '../../CommonFiles/commonStyles.module';
+
 .butt {
-    margin-top: 10px;
-    width: 100px;
-    height: 30px;
-    background-color: $mainBackGroundColor;
-    @include onHoverActiveButton;
-    .buttLink {
-        color: #ffffff;
-        font-size: 12px;
-        line-height: 32px;
-        letter-spacing: 0.23px;
-    }
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: $mainBackGroundColor;
+  @include onHoverActiveButton;
+
+  .buttLink {
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 32px;
+    letter-spacing: 0.23px;
+  }
 }
 
 

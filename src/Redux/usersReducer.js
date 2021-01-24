@@ -1,5 +1,6 @@
-import { usersAPI } from '../api/usersAPI'
-import { updateObjectInArray } from '../utilities/object-helper'
+import {usersAPI} from '../api/usersAPI'
+import {updateObjectInArray} from '../utilities/object-helper'
+
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
@@ -14,62 +15,62 @@ const initialState = {
   pageUserCount: 50,
   currentPage: 1,
   isFetching: true,
-  followingInProgress: [],
+  followingInProgress: []
 }
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-  case FOLLOW:
-    return {
-      ...state,
-      users: updateObjectInArray(state.users, action.userId, 'id', {
-        followed: true,
-      }),
+    case FOLLOW:
+      return {
+        ...state,
+        users: updateObjectInArray(state.users, action.userId, 'id', {
+          followed: true
+        })
+      }
+    case UNFOLLOW:
+      return {
+        ...state,
+        users: updateObjectInArray(state.users, action.userId, 'id', {
+          followed: false
+        })
+      }
+    case SET_USERS: {
+      return {...state, users: action.users}
     }
-  case UNFOLLOW:
-    return {
-      ...state,
-      users: updateObjectInArray(state.users, action.userId, 'id', {
-        followed: false,
-      }),
+    case SET_CURRENT_PAGE: {
+      return {...state, currentPage: action.currentPage}
     }
-  case SET_USERS: {
-    return { ...state, users: action.users }
-  }
-  case SET_CURRENT_PAGE: {
-    return { ...state, currentPage: action.currentPage }
-  }
-  case IS_FETCHING_FUNK: {
-    return { ...state, isFetching: action.isFetching }
-  }
-  case TOGGLE_BUTTON: {
-    return {
-      ...state,
-      followingInProgress: action.isFetching
-        ? [...state.followingInProgress, action.userId]
-        : state.followingInProgress.filter((id) => id !== action.userId),
+    case IS_FETCHING_FUNK: {
+      return {...state, isFetching: action.isFetching}
     }
-  }
-  default:
-    return state
+    case TOGGLE_BUTTON: {
+      return {
+        ...state,
+        followingInProgress: action.isFetching
+          ? [...state.followingInProgress, action.userId]
+          : state.followingInProgress.filter((id) => id !== action.userId)
+      }
+    }
+    default:
+      return state
   }
 }
 
-export const followSuccess = (userId) => ({ type: FOLLOW, userId })
-export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId })
-export const setUsers = (users) => ({ type: SET_USERS, users })
+export const followSuccess = (userId) => ({type: FOLLOW, userId})
+export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
-  currentPage,
+  currentPage
 })
 export const setIsFetching = (isFetching) => ({
   type: IS_FETCHING_FUNK,
-  isFetching,
+  isFetching
 })
 export const toggleButtonProgress = (isFetching, userId) => ({
   type: TOGGLE_BUTTON,
   isFetching,
-  userId,
+  userId
 })
 
 export const getUsers = (currentPage, pageSize) => (dispatch) => {
