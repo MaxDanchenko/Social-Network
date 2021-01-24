@@ -1,11 +1,11 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunkMiddleware from "redux-thunk";
-import { reducer as formReducer } from "redux-form";
-import messageReducer from "./messageReducer";
-import usersReducer from "./usersReducer";
-import profileReducer from "./profileReducer";
-import authUserReducer from "./authUserReducer";
-import appReducer from "./appReducer";
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { reducer as formReducer } from 'redux-form'
+import messageReducer from './messageReducer'
+import usersReducer from './usersReducer'
+import profileReducer from './profileReducer'
+import authUserReducer from './authUserReducer'
+import appReducer from './appReducer'
 
 const rootReducers = combineReducers({
   messagePage: messageReducer,
@@ -14,11 +14,11 @@ const rootReducers = combineReducers({
   authUser: authUserReducer,
   form: formReducer,
   app: appReducer,
-});
+})
 
-const store = createStore(rootReducers, applyMiddleware(thunkMiddleware));
+const store = createStore(rootReducers, applyMiddleware(thunkMiddleware))
 
 // @ts-ignore
-window.store = store;
+window.store = store
 
-export default store;
+export default store

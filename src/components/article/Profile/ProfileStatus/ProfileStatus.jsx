@@ -1,5 +1,5 @@
-import React from "react";
-import Styles from "./ProfileStatus.module.scss";
+import React from 'react'
+import Styles from './ProfileStatus.module.scss'
 
 export class ProfileStatus extends React.Component {
   state = {
@@ -9,25 +9,25 @@ export class ProfileStatus extends React.Component {
   activateStatus = () => {
     this.setState({
       editMode: true,
-    });
+    })
   };
   deactivateStatus = () => {
     this.setState({
       editMode: false,
-    });
-    this.props.updateStatus(this.state.status);
+    })
+    this.props.updateStatus(this.state.status)
   };
   onStatusChange = (e) => {
     this.setState({
       status: e.currentTarget.value,
-    });
+    })
   };
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.status !== this.props.status) {
       this.setState({
         status: this.props.status,
-      });
+      })
     }
   }
 
@@ -37,7 +37,7 @@ export class ProfileStatus extends React.Component {
         <div className={Styles.statusWrap}>
           {!this.state.editMode && (
             <p onDoubleClick={this.activateStatus} className={Styles.status}>
-              {this.props.status || "Write your status here"}
+              {this.props.status || 'Write your status here'}
             </p>
           )}
         </div>
@@ -55,6 +55,6 @@ export class ProfileStatus extends React.Component {
           )}
         </div>
       </>
-    );
+    )
   }
 }

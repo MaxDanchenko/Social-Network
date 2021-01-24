@@ -1,24 +1,24 @@
-import { instance } from "./api";
-import { AuthMeType, UserType, ItemsType, ProfileType } from "./apiTyper";
+import { instance } from './api'
+import { AuthMeType, UserType, ItemsType, ProfileType } from './apiTyper'
 
 export const usersAPI = {
-  getUsers(currentPage: number = 1, pageSize: number = 4) {
+  getUsers(currentPage = 1, pageSize = 4) {
     return instance
       .get<ItemsType>(`users?page=${currentPage}&count=${pageSize}`)
       .then((response) => {
-        return response.data;
-      });
+        return response.data
+      })
   },
   follow(userId: number) {
-    return instance.post<UserType>(`follow/${userId}`);
+    return instance.post<UserType>(`follow/${userId}`)
   },
   unfollow(userId: number) {
-    return instance.delete<UserType>(`follow/${userId}`);
+    return instance.delete<UserType>(`follow/${userId}`)
   },
   profile(userId: number) {
-    return instance.get<ProfileType>(`profile/${userId}`);
+    return instance.get<ProfileType>(`profile/${userId}`)
   },
   auth() {
-    return instance.get<AuthMeType>("auth/me");
+    return instance.get<AuthMeType>('auth/me')
   },
-};
+}

@@ -1,5 +1,5 @@
-import React from "react";
-import Styles from "./Menu.module.scss";
+import React from 'react'
+import Styles from './Menu.module.scss'
 
 const NavMenu = () => {
   return (
@@ -7,7 +7,7 @@ const NavMenu = () => {
       <li className={Styles.list}>
         <a href="" className={Styles.link}>
           <img
-            src={require("../ImagesNav/icon_friends.png")}
+            src={require('../ImagesNav/icon_friends.png')}
             alt=""
             className={Styles.image}
           />
@@ -16,7 +16,7 @@ const NavMenu = () => {
       <li className={Styles.list}>
         <a href="" className={Styles.link}>
           <img
-            src={require("../ImagesNav/icon_messages.png")}
+            src={require('../ImagesNav/icon_messages.png')}
             alt=""
             className={Styles.image}
           />
@@ -25,14 +25,14 @@ const NavMenu = () => {
       <li className={Styles.list}>
         <a href="" className={Styles.link}>
           <img
-            src={require("../ImagesNav/icon_globe_active.png")}
+            src={require('../ImagesNav/icon_globe_active.png')}
             alt=""
             className={Styles.image}
           />
         </a>
       </li>
     </ul>
-  );
-};
+  )
+}
 
-export default NavMenu;
+export default NavMenu

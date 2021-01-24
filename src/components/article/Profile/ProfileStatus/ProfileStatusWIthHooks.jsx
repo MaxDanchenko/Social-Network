@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Styles from "./ProfileStatus.module.scss";
+import React, { useEffect, useState } from 'react'
+import Styles from './ProfileStatus.module.scss'
 
 const ProfileStatusWithHooks = (props) => {
-  let [editMode, setEditMode] = useState(false);
-  let [status, setStatus] = useState(props.status);
+  let [editMode, setEditMode] = useState(false)
+  let [status, setStatus] = useState(props.status)
 
   useEffect(() => {
-    setStatus(props.status);
-  }, [props.status]);
+    setStatus(props.status)
+  }, [props.status])
 
   const activateStatus = () => {
-    setEditMode(true);
-  };
+    setEditMode(true)
+  }
   const deactivateStatus = () => {
-    setEditMode(false);
-    props.updateStatus(status);
-  };
+    setEditMode(false)
+    props.updateStatus(status)
+  }
   const onStatusChange = (e) => {
-    setStatus(e.currentTarget.value);
-  };
+    setStatus(e.currentTarget.value)
+  }
 
   return (
     <div>
@@ -26,7 +26,7 @@ const ProfileStatusWithHooks = (props) => {
         <div className={Styles.statusWrap}>
           <p className={Styles.status}> status: </p>
           <p onDoubleClick={activateStatus} className={Styles.status}>
-            {props.status || "Double click on me and write your status :)"}
+            {props.status || 'Double click on me and write your status :)'}
           </p>
         </div>
       )}
@@ -44,6 +44,6 @@ const ProfileStatusWithHooks = (props) => {
         </div>
       )}
     </div>
-  );
-};
-export default ProfileStatusWithHooks;
+  )
+}
+export default ProfileStatusWithHooks

@@ -1,6 +1,6 @@
-import React from "react";
-import Styles from "./Settings.module.scss";
-import cn from "classnames";
+import React from 'react'
+import Styles from './Settings.module.scss'
+import cn from 'classnames'
 
 const Settings = () => {
   return (
@@ -8,7 +8,7 @@ const Settings = () => {
       <li className={cn(Styles.list, Styles.small)}>
         <a href="" className={Styles.link}>
           <img
-            src={require("../ImagesNav/icon_lock.png")}
+            src={require('../ImagesNav/icon_lock.png')}
             alt=""
             className={cn(Styles.image, Styles.small)}
           />
@@ -17,14 +17,14 @@ const Settings = () => {
       <li className={cn(Styles.list, Styles.small)}>
         <a href="" className={Styles.link}>
           <img
-            src={require("../ImagesNav/more-info.png")}
+            src={require('../ImagesNav/more-info.png')}
             alt=""
             className={cn(Styles.image, Styles.small)}
           />
         </a>
       </li>
     </ul>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings

@@ -1,9 +1,9 @@
-import React from "react";
-import Styles from "./formValidator.module.scss";
-import cn from "classnames";
+import React from 'react'
+import Styles from './formValidator.module.scss'
+import cn from 'classnames'
 
 const ValidateInput = ({ input, meta, ...props }) => {
-  const hasError = meta.error && meta.touched;
+  const hasError = meta.error && meta.touched
   return (
     <div>
       <div
@@ -19,7 +19,7 @@ const ValidateInput = ({ input, meta, ...props }) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ValidateInput;
+export default ValidateInput

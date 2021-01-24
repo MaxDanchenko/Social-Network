@@ -1,5 +1,5 @@
-import React from "react";
-import Styles from "./Button.module.scss";
+import React from 'react'
+import Styles from './Button.module.scss'
 
 const Button = () => {
   return (
@@ -8,7 +8,7 @@ const Button = () => {
         Create a Page
       </a>
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

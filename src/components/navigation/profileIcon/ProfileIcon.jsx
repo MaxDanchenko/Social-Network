@@ -1,16 +1,16 @@
-import React from "react";
-import Styles from "./ProfileIcon.module.scss";
+import React from 'react'
+import Styles from './ProfileIcon.module.scss'
 
 const ProfileIcon = () => {
   return (
     <a href="#">
       <img
-        src={require("../../../images/reactLogo.svg")}
+        src={require('../../../images/reactLogo.svg')}
         alt=""
         className={Styles.profileIcon}
       />
     </a>
-  );
-};
+  )
+}
 
-export default ProfileIcon;
+export default ProfileIcon

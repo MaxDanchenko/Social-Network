@@ -1,18 +1,18 @@
-import React from "react";
-import Styles from "./AuthForm.module.scss";
-import { NavLink } from "react-router-dom";
-import { Field } from "redux-form";
+import React from 'react'
+import Styles from './AuthForm.module.scss'
+import { NavLink } from 'react-router-dom'
+import { Field } from 'redux-form'
 import {
   maxLengthCreator,
   minLengthCreator,
   requiredField,
-} from "../../../../utilities/validator";
-import ValidateInput from "../../../CommonFiles/passwordValidator/formValidator";
-import CaptchaInput from "./CaptchaInput";
-import cn from "classnames";
+} from '../../../../utilities/validator'
+import ValidateInput from '../../../CommonFiles/passwordValidator/formValidator'
+import CaptchaInput from './CaptchaInput'
+import cn from 'classnames'
 
-const maxLength32 = maxLengthCreator(32);
-const minLength4 = minLengthCreator(4);
+const maxLength32 = maxLengthCreator(32)
+const minLength4 = minLengthCreator(4)
 
 const AuthForm = (props) => {
   return (
@@ -23,21 +23,21 @@ const AuthForm = (props) => {
           <div className={Styles.inputWrap}>
             <Field
               validate={[requiredField, maxLength32, minLength4]}
-              name={"email"}
+              name={'email'}
               component={ValidateInput}
               className={cn(Styles.input, Styles.required)}
               type="email"
-              placeholder={"Email"}
+              placeholder={'Email'}
             />
           </div>
           <div className={Styles.inputWrap}>
             <Field
               validate={[requiredField, maxLength32, minLength4]}
-              name={"password"}
+              name={'password'}
               component={ValidateInput}
               className={cn(Styles.input, Styles.required)}
               type="password"
-              placeholder={"Password"}
+              placeholder={'Password'}
             />
           </div>
           {props.error && !props.captchaUrl ? (
@@ -54,11 +54,11 @@ const AuthForm = (props) => {
               />
             </div>
             <Field
-              name={"captcha"}
+              name={'captcha'}
               component={CaptchaInput}
               className={Styles.captchaInp}
               type="textarea"
-              placeholder={"Type the characters"}
+              placeholder={'Type the characters'}
             />
           </div>
         ) : (
@@ -69,13 +69,13 @@ const AuthForm = (props) => {
             <button className={Styles.signInButton}>Log In</button>
           </div>
           <div className={Styles.recoverPassWrap}>
-            <NavLink className={Styles.recoverPass} to={"/Recover Account"}>
+            <NavLink className={Styles.recoverPass} to={'/Recover Account'}>
               Forgot account?
             </NavLink>
             <div className={Styles.or}>or</div>
           </div>
           <div className={Styles.createAccountWrap}>
-            <NavLink className={Styles.createAccount} to={"/Regestration"}>
+            <NavLink className={Styles.createAccount} to={'/Regestration'}>
               <button className={Styles.createAccountButton}>
                 Create New Account
               </button>
@@ -84,7 +84,7 @@ const AuthForm = (props) => {
         </div>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default AuthForm;
+export default AuthForm

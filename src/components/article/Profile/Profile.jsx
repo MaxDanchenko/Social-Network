@@ -1,17 +1,17 @@
-import React from "react";
-import Styles from "./Profile.module.scss";
-import PreLoader from "../../CommonFiles/PreLoader/PreLoader";
-import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWIthHooks";
+import React from 'react'
+import Styles from './Profile.module.scss'
+import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
+import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWIthHooks'
 
 const Profile = (props) => {
   if (!props.profile) {
-    return <PreLoader />;
+    return <PreLoader />
   }
   const addPhoto = (e) => {
     if (e.target.files.length) {
-      props.savePhoto(e.target.files[0]);
+      props.savePhoto(e.target.files[0])
     }
-  };
+  }
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.subWrapper}>
@@ -25,7 +25,7 @@ const Profile = (props) => {
             <span>
               {props.profile.aboutMe
                 ? props.profile.aboutMe
-                : "React developer"}
+                : 'React developer'}
             </span>
           </li>
           <li className={Styles.profileItem}>
@@ -33,7 +33,7 @@ const Profile = (props) => {
             <span>
               {props.profile.lookingForAJobDescription
                 ? props.profile.lookingForAJobDescription
-                : "Looking for my dream company"}
+                : 'Looking for my dream company'}
             </span>
           </li>
           <li className={Styles.profileItem}>
@@ -41,7 +41,7 @@ const Profile = (props) => {
             <span>
               {props.profile.contacts.twitter
                 ? props.profile.contacts.twitter
-                : "LinkedIn"}
+                : 'LinkedIn'}
             </span>
           </li>
         </ul>
@@ -58,6 +58,6 @@ const Profile = (props) => {
         updateStatus={props.updateStatus}
       />
     </div>
-  );
-};
-export default Profile;
+  )
+}
+export default Profile

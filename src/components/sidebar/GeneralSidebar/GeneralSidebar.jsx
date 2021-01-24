@@ -1,8 +1,8 @@
-import React from "react";
-import Styles from "./GeneralSidebar.module.scss";
-import HomePage from "../HomePage/HomePage";
-import Menu from "../Menu/Menu";
-import Button from "../Button/Button";
+import React from 'react'
+import Styles from './GeneralSidebar.module.scss'
+import HomePage from '../HomePage/HomePage'
+import Menu from '../Menu/Menu'
+import Button from '../Button/Button'
 
 const Sidebar = (props) => {
   return (
@@ -13,7 +13,7 @@ const Sidebar = (props) => {
         <Button />
       </div>
     </aside>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

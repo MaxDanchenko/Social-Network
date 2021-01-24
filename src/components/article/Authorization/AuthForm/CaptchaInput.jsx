@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const CaptchaInput = ({ input, meta, ...props }) => {
   return (
@@ -7,10 +7,10 @@ const CaptchaInput = ({ input, meta, ...props }) => {
         {...input}
         {...props}
         type="text"
-        placeholder={"Type the characters"}
+        placeholder={'Type the characters'}
       />
     </div>
-  );
-};
+  )
+}
 
-export default CaptchaInput;
+export default CaptchaInput

@@ -1,10 +1,10 @@
-import React from "react";
-import Styles from "./GeneralNav.module.scss";
-import ProfileIcon from "../profileIcon/ProfileIcon";
-import Search from "../search/Search";
-import Settings from "../settings/Settings";
-import NavMenu from "../menu/Menu";
-import LoginUserContainer from "../../header/LoginUser/LoginUserContainer";
+import React from 'react'
+import Styles from './GeneralNav.module.scss'
+import ProfileIcon from '../profileIcon/ProfileIcon'
+import Search from '../search/Search'
+import Settings from '../settings/Settings'
+import NavMenu from '../menu/Menu'
+import LoginUserContainer from '../../header/LoginUser/LoginUserContainer'
 
 const GeneralNav = (props) => {
   return (
@@ -21,7 +21,7 @@ const GeneralNav = (props) => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default GeneralNav;
+export default GeneralNav

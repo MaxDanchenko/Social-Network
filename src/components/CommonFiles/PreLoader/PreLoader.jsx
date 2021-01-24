@@ -1,13 +1,13 @@
-import React from "react";
-import Styles from "./PreLoader.module.scss";
-import preLoaderImg from "../../../images/Eclipse-1s-84px.svg";
+import React from 'react'
+import Styles from './PreLoader.module.scss'
+import preLoaderImg from '../../../images/Eclipse-1s-84px.svg'
 
-let PreLoader = (props) => {
+let PreLoader = () => {
   return (
     <div className={Styles.preloadBlock}>
-      <img alt={"text"} className={Styles.loadIcon} src={preLoaderImg} />
+      <img alt={'text'} className={Styles.loadIcon} src={preLoaderImg} />
     </div>
-  );
-};
+  )
+}
 
-export default PreLoader;
+export default PreLoader
