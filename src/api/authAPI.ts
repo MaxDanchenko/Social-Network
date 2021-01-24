@@ -7,9 +7,9 @@ export const authAPI = {
     return instance.get<AuthMeType>('auth/me')
   },
   logIn(
-    email: string,
-    password: string,
-    rememberMe = false,
+    email: string | null,
+    password: string | null,
+    rememberMe: boolean | null = false,
     captcha: string | null = null
   ) {
     return instance.post<UserLoginType>('auth/login', {

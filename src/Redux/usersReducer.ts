@@ -1,3 +1,4 @@
+import {CurrentItemType} from '../api/apiTyper'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
 
@@ -9,6 +10,14 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const IS_FETCHING_FUNK = 'IS_FETCHING_FUNK'
 const TOGGLE_BUTTON = 'TOGGLE_BUTTON'
 
+type InitialStateType = {
+  users: Array<CurrentItemType>
+  pageSize: number
+  pageUserCount: number
+  currentPage: number
+  isFetching: boolean
+  followingInProgress: Array<any>
+}
 const initialState = {
   users: [],
   pageSize: 5,
@@ -16,9 +25,9 @@ const initialState = {
   currentPage: 1,
   isFetching: true,
   followingInProgress: []
-}
+} as InitialStateType
 
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action: UsersActionsType): InitialStateType => {
   switch (action.type) {
     case FOLLOW:
       return {
@@ -55,25 +64,50 @@ const usersReducer = (state = initialState, action) => {
       return state
   }
 }
-
-export const followSuccess = (userId) => ({type: FOLLOW, userId})
-export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId})
-export const setUsers = (users) => ({type: SET_USERS, users})
-export const setCurrentPage = (currentPage) => ({
+type UsersActionsType = FollowSuccessType | UnfollowSuccessType | SetUsersType | SetCurrentPageType | SetIsFetchingType | ToggleButtonType
+type FollowSuccessType = {
+  type: typeof FOLLOW
+  userId: number
+}
+export const followSuccess = (userId: number): FollowSuccessType => ({type: FOLLOW, userId})
+type UnfollowSuccessType = {
+  type: typeof UNFOLLOW
+  userId: number
+}
+export const unfollowSuccess = (userId: number): UnfollowSuccessType => ({type: UNFOLLOW, userId})
+type SetUsersType = {
+  type: typeof SET_USERS
+  users: Array<CurrentItemType>
+}
+export const setUsers = (users: Array<CurrentItemType>): SetUsersType => ({type: SET_USERS, users})
+type SetCurrentPageType = {
+  type: typeof SET_CURRENT_PAGE
+  currentPage: number
+}
+export const setCurrentPage = (currentPage: number): SetCurrentPageType => ({
   type: SET_CURRENT_PAGE,
   currentPage
 })
-export const setIsFetching = (isFetching) => ({
+type SetIsFetchingType = {
+  type: typeof IS_FETCHING_FUNK
+  isFetching: boolean
+}
+export const setIsFetching = (isFetching: boolean): SetIsFetchingType => ({
   type: IS_FETCHING_FUNK,
   isFetching
 })
-export const toggleButtonProgress = (isFetching, userId) => ({
+type ToggleButtonType = {
+  type: typeof TOGGLE_BUTTON
+  isFetching: boolean
+  userId: number
+}
+export const toggleButtonProgress = (isFetching: boolean, userId: number): ToggleButtonType => ({
   type: TOGGLE_BUTTON,
   isFetching,
   userId
 })
 
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const getUsers = (currentPage: number, pageSize: number) => (dispatch: any) => {
   dispatch(setIsFetching(true))
   dispatch(setCurrentPage(currentPage))
   usersAPI.getUsers(currentPage, pageSize).then((data) => {
@@ -82,7 +116,7 @@ export const getUsers = (currentPage, pageSize) => (dispatch) => {
   })
 }
 
-const followUnfollow = async (userId, dispatch, apiMethod, actionCreator) => {
+const followUnfollow = async (userId: number, dispatch: any, apiMethod: any, actionCreator: any) => {
   dispatch(toggleButtonProgress(true, userId))
   const response = await apiMethod(userId)
   if (response.data.resultCode === 0) {
@@ -90,12 +124,12 @@ const followUnfollow = async (userId, dispatch, apiMethod, actionCreator) => {
   }
   dispatch(toggleButtonProgress(false, userId))
 }
-export const follow = (userId) => async (dispatch) => {
+export const follow = (userId: number) => async (dispatch: any) => {
   const apiMethod = usersAPI.follow.bind(usersAPI)
   const actionCreator = followSuccess
   followUnfollow(userId, dispatch, apiMethod, actionCreator)
 }
-export const unfollow = (userId) => async (dispatch) => {
+export const unfollow = (userId: number) => async (dispatch: any) => {
   const apiMethod = usersAPI.unfollow.bind(usersAPI)
   const actionCreator = unfollowSuccess
   followUnfollow(userId, dispatch, apiMethod, actionCreator)

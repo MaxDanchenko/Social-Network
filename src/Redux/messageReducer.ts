@@ -9,32 +9,6 @@ const initialState = {
     {id: 5, name: 'Francis Ngannou', src: require('../images/avatars/5.png')},
     {id: 6, name: 'Daniel Cormrier', src: require('../images/avatars/6.png')}
   ],
-  dialogsList: [
-    {
-      dialogId: 1,
-      FriendMessage:
-        ' John: "How are you doing man?"\n' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it' +
-        'I think we can do it'
-    },
-    {
-      dialogId: 2,
-      FriendMessage: ' Chak: "Wats up"\n'
-    },
-    {
-      dialogId: 3,
-      FriendMessage: 'Not too bad.'
-    }
-  ],
   messages: [
     {
       id: 1,
@@ -50,8 +24,9 @@ const initialState = {
     }
   ]
 }
+type InitialStateType = typeof initialState
 
-const messageReducer = (state = initialState, action) => {
+const messageReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SEND_MESSAGE:
       const body = action.newMessageBody
@@ -64,7 +39,7 @@ const messageReducer = (state = initialState, action) => {
   }
 }
 
-export const sendMessageCreator = (newMessageBody) => ({
+export const sendMessageCreator = (newMessageBody: string | null) => ({
   type: SEND_MESSAGE,
   newMessageBody
 })

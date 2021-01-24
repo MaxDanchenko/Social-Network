@@ -17,7 +17,7 @@ export type UserType = {
   data?: {};
   fieldsErrors?: Array<string>;
   messages: Array<string>;
-  resultCode: string;
+  resultCode: number;
 };
 export type ProfileType = {
   userId: number;
@@ -49,10 +49,7 @@ export type AuthMeType = {
   };
 };
 export type ProfilePhotoType = {
-  data: {
-    small?: string;
-    large?: string;
-  };
+  data: any
   resultCode: number;
   messages: Array<string>;
 };
