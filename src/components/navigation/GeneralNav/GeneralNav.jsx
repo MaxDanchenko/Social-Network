@@ -6,23 +6,22 @@ import Settings from "../settings/Settings";
 import NavMenu from "../menu/Menu";
 import LoginUserContainer from "../../header/LoginUser/LoginUserContainer";
 
-
 const GeneralNav = (props) => {
-    return (
-        <nav className={Styles.nav}>
-            <div className={Styles.navWrap}>
-                <form className={Styles.form}>
-                    <ProfileIcon/>
-                    <Search/>
-                </form>
-                <div className={Styles.icons}>
-                    <NavMenu/>
-                    <Settings/>
-                    <LoginUserContainer/>
-                </div>
-            </div>
-        </nav>
-    )
-}
+  return (
+    <nav className={Styles.nav}>
+      <div className={Styles.navWrap}>
+        <form className={Styles.form}>
+          <ProfileIcon />
+          <Search />
+        </form>
+        <div className={Styles.icons}>
+          <NavMenu />
+          <Settings />
+          <LoginUserContainer />
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 export default GeneralNav;

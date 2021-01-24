@@ -1,37 +1,40 @@
-import { auth } from './authUserReducer'
+import { auth } from "./authUserReducer";
 
-
-
-const INITIALIZE_SUCCESSFULLY = 'INITIALIZE_SUCCESSFULLY'
+const INITIALIZE_SUCCESSFULLY = "INITIALIZE_SUCCESSFULLY";
 
 type InitialStateType = {
-  initialStatus: boolean
-}
+  initialStatus: boolean;
+};
 const initialState = {
-  initialStatus: false
-} as InitialStateType
+  initialStatus: false,
+} as InitialStateType;
 
-const appReducer = (state = initialState, action: InitializeActionType): InitialStateType => {
+const appReducer = (
+  state = initialState,
+  action: InitializeActionType
+): InitialStateType => {
   switch (action.type) {
     case INITIALIZE_SUCCESSFULLY:
       return {
         ...state,
-        initialStatus: true
-      }
+        initialStatus: true,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 type InitializeActionType = {
-  type: typeof INITIALIZE_SUCCESSFULLY
-}
-export const initializeSuccessfully = (): InitializeActionType => ({type: INITIALIZE_SUCCESSFULLY})
+  type: typeof INITIALIZE_SUCCESSFULLY;
+};
+export const initializeSuccessfully = (): InitializeActionType => ({
+  type: INITIALIZE_SUCCESSFULLY,
+});
 
 export const initialize = () => async (dispatch: any) => {
-  let promise = dispatch(auth())
+  let promise = dispatch(auth());
   Promise.all([promise]).then(() => {
-    dispatch(initializeSuccessfully())
-  })
-}
+    dispatch(initializeSuccessfully());
+  });
+};
 
-export default appReducer
+export default appReducer;
