@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/Social-Network/static/css/main.6fd4dda3.chunk.css",
-    "main.js": "/Social-Network/static/js/main.889574f6.chunk.js",
-    "main.js.map": "/Social-Network/static/js/main.889574f6.chunk.js.map",
+    "main.css": "/Social-Network/static/css/main.ec299f6d.chunk.css",
+    "main.js": "/Social-Network/static/js/main.4d008f28.chunk.js",
+    "main.js.map": "/Social-Network/static/js/main.4d008f28.chunk.js.map",
     "runtime-main.js": "/Social-Network/static/js/runtime-main.3828848e.js",
     "runtime-main.js.map": "/Social-Network/static/js/runtime-main.3828848e.js.map",
-    "static/js/2.20be893f.chunk.js": "/Social-Network/static/js/2.20be893f.chunk.js",
-    "static/js/2.20be893f.chunk.js.map": "/Social-Network/static/js/2.20be893f.chunk.js.map",
+    "static/js/2.89ea3878.chunk.js": "/Social-Network/static/js/2.89ea3878.chunk.js",
+    "static/js/2.89ea3878.chunk.js.map": "/Social-Network/static/js/2.89ea3878.chunk.js.map",
     "index.html": "/Social-Network/index.html",
-    "precache-manifest.4e3e32ccfdb3ea30203361cc23f44479.js": "/Social-Network/precache-manifest.4e3e32ccfdb3ea30203361cc23f44479.js",
+    "precache-manifest.2506253da961113b14580bcea10b6aae.js": "/Social-Network/precache-manifest.2506253da961113b14580bcea10b6aae.js",
     "service-worker.js": "/Social-Network/service-worker.js",
-    "static/css/main.6fd4dda3.chunk.css.map": "/Social-Network/static/css/main.6fd4dda3.chunk.css.map",
-    "static/js/2.20be893f.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.20be893f.chunk.js.LICENSE.txt",
+    "static/css/main.ec299f6d.chunk.css.map": "/Social-Network/static/css/main.ec299f6d.chunk.css.map",
+    "static/js/2.89ea3878.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.89ea3878.chunk.js.LICENSE.txt",
     "static/media/Eclipse-1s-84px.svg": "/Social-Network/static/media/Eclipse-1s-84px.8ef24065.svg",
     "static/media/annUser.jpg": "/Social-Network/static/media/annUser.689ea90f.jpg",
     "static/media/reactBg.jpg": "/Social-Network/static/media/reactBg.5f8ab0b4.jpg",
     "static/media/reactLogo.svg": "/Social-Network/static/media/reactLogo.abc92c83.svg",
+    "static/media/smiley.png": "/Social-Network/static/media/smiley.0c197c71.png",
     "static/media/App.scss": "/Social-Network/static/media/wallpapperBg.59216aa3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3828848e.js",
-    "static/js/2.20be893f.chunk.js",
-    "static/css/main.6fd4dda3.chunk.css",
-    "static/js/main.889574f6.chunk.js"
+    "static/js/2.89ea3878.chunk.js",
+    "static/css/main.ec299f6d.chunk.css",
+    "static/js/main.4d008f28.chunk.js"
   ]
 }
