@@ -17,6 +17,7 @@ const Messages = (props) => {
   let addNewMessage = (values) => {
     props.sendMessage(values.newMessageBody)
   }
+
   return (
     <div className={Styles.mainWrap}>
       <div className={Styles.personsWrap}>{FriendsName}</div>

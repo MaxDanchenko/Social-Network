@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Messages from './Messages'
 import {compose} from 'redux'
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
+import {reset} from 'redux-form'
 
 
 const mapStateToProps = (state) => {
@@ -17,6 +18,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   sendMessage: (newMessageBody) => {
     dispatch(sendMessageCreator(newMessageBody))
+    dispatch(reset('dialogAddMessageForm'))
+    debugger
   }
 })
 
