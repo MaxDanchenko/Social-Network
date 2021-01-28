@@ -1,3 +1,4 @@
+import { Dispatch } from 'redux';
 import {auth} from './authUserReducer'
 
 
@@ -31,7 +32,7 @@ export const initializeSuccessfully = (): InitializeActionType => ({
   type: INITIALIZE_SUCCESSFULLY
 })
 
-export const initialize = () => async (dispatch: any) => {
+export const initialize = () => async (dispatch: Dispatch<any>) => {
   const promise = dispatch(auth())
   Promise.all([promise]).then(() => {
     dispatch(initializeSuccessfully())

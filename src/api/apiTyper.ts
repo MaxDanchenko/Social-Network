@@ -23,6 +23,7 @@ export type ProfileType = {
   userId: number;
   lookingForAJob: boolean;
   lookingForAJobDescription: string;
+  aboutMe: null | string
   fullName: string;
   contacts: {
     github: string;

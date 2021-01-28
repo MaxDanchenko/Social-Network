@@ -5,8 +5,7 @@ import avatar from '../../../images/avatars/annUser.jpg'
 
 
 const HomePage = (props) => {
-  debugger
-  if (!props.profile) {
+  if (!props.profile.photos) {
     return <PreLoader/>
   }
   return (

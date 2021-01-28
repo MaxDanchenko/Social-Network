@@ -1,6 +1,7 @@
 import {CurrentItemType} from '../api/apiTyper'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
+import {Dispatch} from 'redux'
 
 
 const FOLLOW = 'FOLLOW'
@@ -106,8 +107,8 @@ export const toggleButtonProgress = (isFetching: boolean, userId: number): Toggl
   isFetching,
   userId
 })
-
-export const getUsers = (currentPage: number, pageSize: number) => (dispatch: any) => {
+type GetUsersDispatchType = SetIsFetchingType | SetCurrentPageType | SetUsersType
+export const getUsers = (currentPage: number, pageSize: number) => (dispatch: Dispatch<GetUsersDispatchType>) => {
   dispatch(setIsFetching(true))
   dispatch(setCurrentPage(currentPage))
   usersAPI.getUsers(currentPage, pageSize).then((data) => {
@@ -124,12 +125,12 @@ const followUnfollow = async (userId: number, dispatch: any, apiMethod: any, act
   }
   dispatch(toggleButtonProgress(false, userId))
 }
-export const follow = (userId: number) => async (dispatch: any) => {
+export const follow = (userId: number) => async (dispatch: Dispatch<FollowSuccessType>) => {
   const apiMethod = usersAPI.follow.bind(usersAPI)
   const actionCreator = followSuccess
   followUnfollow(userId, dispatch, apiMethod, actionCreator)
 }
-export const unfollow = (userId: number) => async (dispatch: any) => {
+export const unfollow = (userId: number) => async (dispatch: Dispatch<UnfollowSuccessType>) => {
   const apiMethod = usersAPI.unfollow.bind(usersAPI)
   const actionCreator = unfollowSuccess
   followUnfollow(userId, dispatch, apiMethod, actionCreator)
