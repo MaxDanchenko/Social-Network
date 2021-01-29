@@ -38,7 +38,10 @@ const App: React.FC<PropsType> = ({initialStatus, initialize})=> {
       {[GeneralNav].map((component: React.FC, index: number) => routeComponent(component, index))}
     </Route>
     <div className="wrapper">
-      <Route path="/Sign In" render={() => <AuthUserContainer/>}/>
+      <Route path="/Sign In" render={() =>
+        //@ts-ignore
+        <AuthUserContainer/>
+      }/>
       <Route path="/ByePage" render={() => <ByePage/>}/>
       <div className="subWrap">
         <Route>

@@ -5,12 +5,12 @@ import {reduxForm} from 'redux-form'
 import {NavLink, Redirect} from 'react-router-dom'
 
 
-const Authorization = (props) => {
-  if (props.isAuth) {
+const Authorization = ({isAuth, logIn, captchaUrl}) => {
+  if (isAuth) {
     return <Redirect to={'profile'}/>
   }
   const onSubmit = (formData) => {
-    props.logIn(
+    logIn(
       formData.email,
       formData.password,
       formData.rememberMe,
@@ -25,7 +25,7 @@ const Authorization = (props) => {
         </NavLink>
       </div>
       <div className={Styles.authWrapper}>
-        <AuthFormRedux captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
+        <AuthFormRedux captchaUrl={captchaUrl} onSubmit={onSubmit}/>
       </div>
     </div>
   )
