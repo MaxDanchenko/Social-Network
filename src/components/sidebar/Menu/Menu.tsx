@@ -3,7 +3,7 @@ import Styles from './Menu.module.scss'
 import {NavLink} from 'react-router-dom'
 
 
-const Menu = () => {
+const Menu: React.FC = () => {
   return (
     <ul className={Styles.table}>
       <li className={Styles.list}>

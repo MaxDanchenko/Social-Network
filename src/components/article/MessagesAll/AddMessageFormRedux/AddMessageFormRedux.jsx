@@ -10,15 +10,14 @@ const AddMessageForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={Styles.writeMessage}>
       <Field
-        validate={[requiredField, maxLength15]}
-        component="textarea"
+        component="input"
         placeholder={'Write your message'}
         className={Styles.MessageArea}
         name="newMessageBody"
-        cols="2"
+        cols="100"
         maxLength={'500'}
       />
-      <button className={Styles.SendButton}>Send</button>
+      <button type={'button'} className={Styles.SendButton}>Send</button>
     </form>
   )
 }

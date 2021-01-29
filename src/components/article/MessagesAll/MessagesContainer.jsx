@@ -19,7 +19,6 @@ const mapDispatchToProps = (dispatch) => ({
   sendMessage: (newMessageBody) => {
     dispatch(sendMessageCreator(newMessageBody))
     dispatch(reset('dialogAddMessageForm'))
-    debugger
   }
 })
 

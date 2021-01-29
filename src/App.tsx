@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react'
 import './App.scss'
 import {Route} from 'react-router-dom'
-import {compose} from 'redux'
-import {withRouter} from 'react-browser-router'
 import {connect} from 'react-redux'
 import './components/CommonFiles/NullStyles.module.scss'
 import GeneralNav from './components/navigation/GeneralNav/GeneralNav'
@@ -16,33 +14,38 @@ import {initialize} from './Redux/appReducer'
 import PreLoader from './components/CommonFiles/PreLoader/PreLoader'
 import PhotoGallery from './components/article/PhotoGallery/PhotoGallery'
 import ByePage from './components/byePage/ByePage'
+import {AppStateType} from './Redux/reduxStore'
 
 
-const App = (props) => {
+type PropsType = {
+  initialStatus: boolean
+  initialize: () => void
+}
+const App: React.FC<PropsType> = ({initialStatus, initialize})=> {
   useEffect(() => {
-    props.initialize()
+    initialize()
   }, [])
   const pathName = ['/Home', '/Messages', '/UsersFollow', '/profile/:userId?', '/Photos', '/Videos']
-  const routeComponent = (component, index) => (<Route exact path="/" component={component} key={index}/>)
-  if (!props.initialStatus) {
+  const routeComponent = (component: React.FC, index: number) => (<Route exact path="/" component={component} key={index}/>)
+  if (!initialStatus) {
     return <PreLoader/>
   }
   return (<div>
     <Route>
-      {pathName.map((path, index) => (<Route path={path} component={GeneralNav} key={index}/>))}
+      {pathName.map((path: string, index: number) => (<Route path={path} component={GeneralNav} key={index}/>))}
     </Route>
     <Route>
-      {[GeneralNav].map((component, index) => routeComponent(component, index))}
+      {[GeneralNav].map((component: React.FC, index: number) => routeComponent(component, index))}
     </Route>
     <div className="wrapper">
       <Route path="/Sign In" render={() => <AuthUserContainer/>}/>
       <Route path="/ByePage" render={() => <ByePage/>}/>
       <div className="subWrap">
         <Route>
-          {[GeneralHeader, GeneralSidebarContainer].map((component, index) => routeComponent(component, index))}
+          {[GeneralHeader, GeneralSidebarContainer].map((component: React.FC, index: number) => routeComponent(component, index))}
         </Route>
         <Route>
-          {pathName.map((path, index) => (<Route
+          {pathName.map((path: string, index: number) => (<Route
             path={path}
             component={GeneralSidebarContainer}
             key={index}
@@ -58,11 +61,8 @@ const App = (props) => {
   </div>)
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialStatus: state.app.initialStatus,
-  isAuth: state.authUser.isAuth
 })
 
-export default compose(
-  withRouter,
-  connect(mapStateToProps, {initialize}))(App)
+export default connect(mapStateToProps, {initialize})(App)
