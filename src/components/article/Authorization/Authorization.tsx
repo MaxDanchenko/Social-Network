@@ -5,11 +5,19 @@ import {reduxForm} from 'redux-form'
 import {NavLink, Redirect} from 'react-router-dom'
 
 
-const Authorization = ({isAuth, logIn, captchaUrl}) => {
+type PropsType = {
+  isAuth: boolean
+  captchaUrl: string | File
+  logIn: (email: string | null,
+          password: string | null,
+          rememberMe?: boolean,
+          captcha?: string) => void
+}
+const Authorization: React.FC<PropsType> = ({isAuth, logIn, captchaUrl}) => {
   if (isAuth) {
     return <Redirect to={'profile'}/>
   }
-  const onSubmit = (formData) => {
+  const onSubmit = (formData: ReduxFormType) => {
     logIn(
       formData.email,
       formData.password,
@@ -24,12 +32,20 @@ const Authorization = ({isAuth, logIn, captchaUrl}) => {
           <p className={Styles.networkName}>Social Network</p>
         </NavLink>
       </div>
-      <div className={Styles.authWrapper}>
+      <div className={Styles.authWrapper}>{
+        //@ts-ignore
         <AuthFormRedux captchaUrl={captchaUrl} onSubmit={onSubmit}/>
+      }
       </div>
     </div>
   )
 }
-const AuthFormRedux = reduxForm({form: 'logIn'})(AuthForm)
+type ReduxFormType = {
+  email: string
+  password: string
+  rememberMe?: boolean
+  captcha?: string
+}
+const AuthFormRedux = reduxForm<ReduxFormType>({form: 'logIn'})(AuthForm)
 
 export default Authorization

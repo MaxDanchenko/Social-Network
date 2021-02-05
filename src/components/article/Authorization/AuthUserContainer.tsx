@@ -5,7 +5,7 @@ import Authorization from './Authorization'
 import {AppStateType} from '../../../Redux/reduxStore'
 
 type PropsType = {
-  captchaUrl: string
+  captchaUrl: string | File
   isAuth: boolean
   
   auth: () => void

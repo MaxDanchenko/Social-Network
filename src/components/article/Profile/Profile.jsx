@@ -5,7 +5,7 @@ import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWIthHooks'
 
 
 const Profile = (props) => {
-  if (!props.profile) {
+  if (!props.profile || !props.profile.contacts) {
     return <PreLoader/>
   }
   const addPhoto = (e) => {
@@ -13,6 +13,7 @@ const Profile = (props) => {
       props.savePhoto(e.target.files[0])
     }
   }
+  debugger
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.subWrapper}>

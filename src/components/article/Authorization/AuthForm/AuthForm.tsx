@@ -11,7 +11,10 @@ import cn from 'classnames'
 const maxLength32 = maxLengthCreator(32)
 const minLength4 = minLengthCreator(4)
 
-const AuthForm = (props) => {
+
+
+const AuthForm = (props: any) => {
+  console.log(Object.assign({}, props))
   return (<form onSubmit={props.handleSubmit}>
     <div className={Styles.authWrapper}>
       <h3 className={Styles.logInto}>Log Into Social Network</h3>

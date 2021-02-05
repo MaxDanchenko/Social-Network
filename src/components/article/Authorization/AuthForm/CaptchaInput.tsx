@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const CaptchaInput = ({input, meta, ...props}) => {
+const CaptchaInput = ({input, meta, ...props}: any) => {
   return (<div>
     <input
       {...input}
