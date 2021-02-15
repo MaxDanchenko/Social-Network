@@ -21,7 +21,7 @@ type InitialStateType = {
 }
 const initialState = {
   users: [],
-  pageSize: 5,
+  pageSize: 20,
   pageUserCount: 50,
   currentPage: 1,
   isFetching: true,
