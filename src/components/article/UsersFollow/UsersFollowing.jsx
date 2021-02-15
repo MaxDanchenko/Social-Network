@@ -9,6 +9,7 @@ const UsersFollowing = (props) => {
   if (!props.users) {
     return <PreLoader/>
   }
+
   let pagesCount = Math.ceil(props.pageUserCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {
@@ -31,7 +32,7 @@ const UsersFollowing = (props) => {
                 <NavLink className={Styles.linkPerson} to={'/profile/' + u.id}>
                   <li className={Styles.personName}>{u.name}</li>
                   <li className={Styles.aboutPerson}>
-                    {u.job} {u.city}
+                    Job: {u.job || 'React developer'}
                   </li>
                   <li className={Styles.aboutPerson}>{u.interests}</li>
                 </NavLink>

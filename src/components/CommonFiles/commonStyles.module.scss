@@ -17,7 +17,8 @@ $mainTextColor: black;
     -webkit-transition: 0.1s;
     -o-transition: 0.1s;
     transition: 0.1s;
-    background-color: #dee0e3;
+    background: rgb(0,138,255);
+    background: linear-gradient(90deg, rgba(0,138,255,1) 0%, rgba(162,239,255,1) 100%);
     color: #000;
     font-weight: bold;
   }

@@ -1,131 +1,120 @@
 @import '../../CommonFiles/commonStyles.module';
 
 .usersWrap {
-  .personWrap {
-    width: 80%;
-    margin: 0 30px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    @include onHoverBackgroundColor;
-    padding: 10px 30px;
-
-    .personSubWrap {
+   .personWrap {
+      width: 80%;
+      margin: 0 30px;
+      height: 100%;
       display: flex;
+      justify-content: space-between;
+      @include onHoverBackgroundColor;
+      padding: 10px 30px;
 
-      .link {
-        .avatar {
-          @include onHoverBackgroundColor;
-          max-width: 110px;
-          max-height: 110px;
-          border-radius: 50px;
-        }
+      &:hover {
+         cursor: pointer;
+         border-left: 3px solid $mainBackGroundColor;
       }
 
-      .person {
-        padding: 0 10px;
-        line-height: 25px;
-        letter-spacing: 0.24px;
+      .personSubWrap {
+         display: flex;
 
-        .linkPerson {
-          .personName {
-            color: #000;
-            opacity: 0.7;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            @include onHoverText;
-          }
+         .link {
+            .avatar {
+               @include onHoverBackgroundColor;
+               max-width: 60px;
+               max-height: 60px;
+               border-radius: 50px;
+               @include onHoverActiveButton
+            }
+         }
 
-          .aboutPerson {
-            opacity: 60%;
-          }
-        }
+         .person {
+            padding: 0 10px;
+            line-height: 25px;
+            letter-spacing: 0.24px;
+
+            .linkPerson {
+               display: flex;
+               flex-wrap: wrap;
+
+               .personName {
+                  width: 100%;
+                  color: #000;
+                  opacity: 0.7;
+                  font-weight: bold;
+                  font-size: 16px;
+                  cursor: pointer;
+                  @include onHoverText;
+               }
+
+               .aboutPerson {
+                  color: #fff;
+               }
+            }
+         }
       }
-    }
-  }
+   }
 
-  .buttonsBlock {
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-around;
-    width: 60%;
-    height: 30px;
-  }
+   .buttonsBlock {
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-around;
+      width: 60%;
+      height: 30px;
+   }
 
-  .buttonsBlock button {
-    background-color: #E9EAED;
-    font-size: 18px;
-    width: 20px;
-    border-radius: 50px;
-  }
+   .buttonsBlock button {
+     background: white;
+      font-size: 18px;
+      width: 30px;
+      border-radius: 50px;
+     &:hover {
+       text-decoration: underline;
+     }
+     &:active {
+       transform: scale(0.9);
+     }
+   }
 
-  .buttonsBlock button:hover {
-    box-shadow: 0 0 4px 4px #98949c;
-    transition: 0.2s;
-  }
-
-  .pageButton {
-    font-weight: bolder;
-    text-decoration: underline;
-  }
+   .pageButton {
+      font-weight: bolder;
+     border: 3px solid #3b5998;
+   }
 }
 
 .buttonWrap {
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
+   padding-top: 20px;
+   display: flex;
+   justify-content: space-between;
 
-  .followButton {
-    width: 120px;
-    height: 30px;
-    background-color: #3B5998;
-    color: #fff;
-    font-weight: bold;
-    border: 1px solid #3B5998;
-    border-radius: 3px;
-    @include onHoverActiveButton;
+   .followButton {
+      width: 120px;
+      height: 30px;
+      background-color: #3B5998;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid #3B5998;
+      border-radius: 3px;
+      @include onHoverActiveButton;
 
-    &:disabled {
-      background-color: #88a8ea;
-      color: #98949c;
-    }
-  }
+      &:disabled {
+         background-color: #88a8ea;
+         color: #98949c;
+      }
 
-  .unfollowButton {
-    border: 1px solid #98949c;
-    border-radius: 3px;
-    color: #4b4f56;
-    background-color: #fff;
-    width: 120px;
-    height: 30px;
-    font-weight: bold;
+      .inviteIcon {
+         padding-right: 5px;
+         width: 23px;
+      }
+   }
 
-    &:hover {
-      -webkit-box-shadow: 0 0 4px 2px #4b4f56;
-      box-shadow: 0 0 2px 1px #4b4f56;
-      -webkit-transition: 0.1s;
-      -o-transition: 0.1s;
-      transition: 0.1s;
-    }
-
-    &:active {
-      -webkit-box-shadow: 0 0 6px 4px #98949c;
-      box-shadow: 0 0 4px 4px #98949c;
-      -webkit-transition: 0.2s;
-      -o-transition: 0.2s;
-      transition: 0.2s;
-    }
-
-    &:disabled {
+   .unfollowButton {
+      border: 1px solid #98949c;
+      border-radius: 3px;
+      color: #4b4f56;
       background-color: #fff;
-      color: #98949c;
-      border: 1px solid #adcbff;
-    }
-  }
-
-  .inviteIcon {
-    padding-right: 5px;
-    width: 23px;
-  }
+      width: 120px;
+      height: 30px;
+      @import '../../CommonFiles/commonStyles.module';
+   }
 }
