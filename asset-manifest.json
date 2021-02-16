@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Social-Network/static/css/main.c7151b20.chunk.css",
-    "main.js": "/Social-Network/static/js/main.01a6b074.chunk.js",
-    "main.js.map": "/Social-Network/static/js/main.01a6b074.chunk.js.map",
+    "main.css": "/Social-Network/static/css/main.e60a7a00.chunk.css",
+    "main.js": "/Social-Network/static/js/main.3b05e8e9.chunk.js",
+    "main.js.map": "/Social-Network/static/js/main.3b05e8e9.chunk.js.map",
     "runtime-main.js": "/Social-Network/static/js/runtime-main.3828848e.js",
     "runtime-main.js.map": "/Social-Network/static/js/runtime-main.3828848e.js.map",
-    "static/js/2.eb888722.chunk.js": "/Social-Network/static/js/2.eb888722.chunk.js",
-    "static/js/2.eb888722.chunk.js.map": "/Social-Network/static/js/2.eb888722.chunk.js.map",
+    "static/js/2.75486b05.chunk.js": "/Social-Network/static/js/2.75486b05.chunk.js",
+    "static/js/2.75486b05.chunk.js.map": "/Social-Network/static/js/2.75486b05.chunk.js.map",
     "index.html": "/Social-Network/index.html",
-    "precache-manifest.6db778b91666f54dd7a4c774fd383442.js": "/Social-Network/precache-manifest.6db778b91666f54dd7a4c774fd383442.js",
+    "precache-manifest.25ec4f046c95708ba8f2e35ce0fe8db4.js": "/Social-Network/precache-manifest.25ec4f046c95708ba8f2e35ce0fe8db4.js",
     "service-worker.js": "/Social-Network/service-worker.js",
-    "static/css/main.c7151b20.chunk.css.map": "/Social-Network/static/css/main.c7151b20.chunk.css.map",
-    "static/js/2.eb888722.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.eb888722.chunk.js.LICENSE.txt",
+    "static/css/main.e60a7a00.chunk.css.map": "/Social-Network/static/css/main.e60a7a00.chunk.css.map",
+    "static/js/2.75486b05.chunk.js.LICENSE.txt": "/Social-Network/static/js/2.75486b05.chunk.js.LICENSE.txt",
     "static/media/Eclipse-1s-84px.svg": "/Social-Network/static/media/Eclipse-1s-84px.8ef24065.svg",
     "static/media/annUser.jpg": "/Social-Network/static/media/annUser.689ea90f.jpg",
     "static/media/reactBg.jpg": "/Social-Network/static/media/reactBg.5f8ab0b4.jpg",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3828848e.js",
-    "static/js/2.eb888722.chunk.js",
-    "static/css/main.c7151b20.chunk.css",
-    "static/js/main.01a6b074.chunk.js"
+    "static/js/2.75486b05.chunk.js",
+    "static/css/main.e60a7a00.chunk.css",
+    "static/js/main.3b05e8e9.chunk.js"
   ]
 }
