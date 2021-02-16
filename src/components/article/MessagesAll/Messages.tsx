@@ -5,19 +5,38 @@ import MyAnswer from './MyAnswer/MyAnswer'
 import {reduxForm} from 'redux-form'
 import AddMessageForm from './AddMessageFormRedux/AddMessageFormRedux'
 
+type ValuesType = {
+  newMessageBody: string
+}
+type FriendsListType = {
+  id: number
+  name: string
+  src: string
+}
+type MessageType = {
+  id: number
+  message: string
+}
+type PropsType = {
+  friendsList: Array<FriendsListType>
+  messages: Array<MessageType>;
 
-const Messages = (props) => {
-  let FriendsName = props.friendsList.map((Friend) => (
+  sendMessage: (newMessageBody: string) => void
+}
+
+
+const Messages: React.FC<PropsType> = (props) => {
+
+  const FriendsName = props.friendsList.map((Friend) => (
     <Person id={Friend.id} name={Friend.name} src={Friend.src}/>
   ))
-  let MyDialog = props.messages.map((Dialog) => (
+
+  const MyDialog = props.messages.map((Dialog) => (
     <MyAnswer message={Dialog.message}/>
   ))
-  
-  let addNewMessage = (values) => {
+  const addNewMessage = (values: ValuesType) => {
     props.sendMessage(values.newMessageBody)
   }
-
   return (
     <div className={Styles.mainWrap}>
       <div className={Styles.personsWrap}>{FriendsName}</div>
@@ -30,8 +49,6 @@ const Messages = (props) => {
     </div>
   )
 }
-const AddMessageFormRedux = reduxForm({form: 'dialogAddMessageForm'})(
-  AddMessageForm
-)
-
+type ReduxFormType = { newMessageBody: string }
+const AddMessageFormRedux = reduxForm<ReduxFormType>({form: 'dialogAddMessageForm'})(AddMessageForm)
 export default Messages

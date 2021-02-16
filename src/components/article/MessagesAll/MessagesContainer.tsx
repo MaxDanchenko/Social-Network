@@ -5,18 +5,19 @@ import Messages from './Messages'
 import {compose} from 'redux'
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 import {reset} from 'redux-form'
+import { AppStateType } from '../../../Redux/reduxStore'
 
 
-const mapStateToProps = (state) => {
+
+const mapStateToProps = (state: AppStateType) => {
   return {
     friendsList: state.messagePage.friendsList,
-    dialogsList: state.messagePage.dialogsList,
     messages: state.messagePage.messages
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  sendMessage: (newMessageBody) => {
+const mapDispatchToProps = (dispatch: any) => ({
+  sendMessage: (newMessageBody: string) => {
     dispatch(sendMessageCreator(newMessageBody))
     dispatch(reset('dialogAddMessageForm'))
   }

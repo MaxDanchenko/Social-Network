@@ -24,7 +24,7 @@ const initialState = {
     }
   ]
 }
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 const messageReducer = (state = initialState, action: SendMessageCreatorType): InitialStateType => {
   switch (action.type) {

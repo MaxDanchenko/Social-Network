@@ -1,12 +1,13 @@
 import Styles from './AddMessageFormRedux.module.scss'
-import {Field} from 'redux-form'
+import {Field, InjectedFormProps} from 'redux-form'
 import React from 'react'
-import {maxLengthCreator} from '../../../../utilities/validator'
 
-
-const AddMessageForm = (props) => {
+type PropsType = {
+   newMessageBody: string
+}
+const AddMessageForm: React.FC<InjectedFormProps<PropsType>> = ({handleSubmit}) => {
   return (
-    <form onSubmit={props.handleSubmit} className={Styles.writeMessage}>
+    <form onSubmit={handleSubmit} className={Styles.writeMessage}>
       <Field
         component="input"
         placeholder={'Write your message'}
