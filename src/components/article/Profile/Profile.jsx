@@ -1,7 +1,7 @@
 import React from 'react'
 import Styles from './Profile.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
-import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWIthHooks'
+import ProfileStatus from './ProfileStatus/ProfileStatus'
 
 
 const Profile = (props) => {
@@ -13,7 +13,6 @@ const Profile = (props) => {
       props.savePhoto(e.target.files[0])
     }
   }
-  debugger
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.subWrapper}>
@@ -54,7 +53,7 @@ const Profile = (props) => {
           <input onChange={addPhoto} type="file" hidden/>
         </label>
       )}
-      <ProfileStatusWithHooks
+      <ProfileStatus
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}

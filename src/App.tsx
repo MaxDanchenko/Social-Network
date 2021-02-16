@@ -8,13 +8,13 @@ import GeneralSidebarContainer from './components/sidebar/GeneralSidebar/General
 import GeneralHeader from './components/header/GeneralHeader/GeneralHeader'
 import MessagesContainer from './components/article/MessagesAll/MessagesContainer'
 import UsersContainer from './components/article/UsersFollow/UsersContainer'
-import ProfileContainer from './components/article/Profile/ProfileContainer'
 import AuthUserContainer from './components/article/Authorization/AuthUserContainer'
 import {initialize} from './Redux/appReducer'
 import PreLoader from './components/CommonFiles/PreLoader/PreLoader'
 import PhotoGallery from './components/article/PhotoGallery/PhotoGallery'
 import ByePage from './components/byePage/ByePage'
 import {AppStateType} from './Redux/reduxStore'
+import ProfileContainer from './components/article/Profile/ProfileContainer'
 
 
 type PropsType = {
@@ -57,7 +57,8 @@ const App: React.FC<PropsType> = ({initialStatus, initialize})=> {
         <Route path="/Home" render={() => <GeneralHeader/>}/>
         <Route path="/Messages" render={() => <MessagesContainer/>}/>
         <Route path="/UsersFollow" render={() => <UsersContainer/>}/>
-        <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
+        { //@ts-ignore
+        <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>}
         <Route path="/Photos" render={() => <PhotoGallery/>}/>
       </div>
     </div>
