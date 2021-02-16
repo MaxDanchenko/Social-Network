@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Sidebar from './GeneralSidebar'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
@@ -7,29 +7,23 @@ import {auth} from '../../../Redux/authUserReducer'
 import {withRouter} from 'react-browser-router'
 
 
-class GeneralSidebarContainer extends React.Component {
-  refreshProfile() {
-    let userId = this.props.match.params.userId
-    if (!userId) userId = this.props.id
-    if (!this.props.id) {
-      this.props.history.push('/Sign In')
+const GeneralSidebarContainer = (props) => {
+  const refreshProfile = () => {
+    let userId = props.match.params.userId
+    if (!userId) userId = props.id
+    if (!props.id) {
+      props.history.push('/Sign In')
     }
-    this.props.getUserProfile(userId)
-    this.props.getStatus(userId)
+    props.getUserProfile(userId)
+    props.getStatus(userId)
   }
-  
-  componentDidMount() {
-    this.refreshProfile()
-  }
-  
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.props.match.params.userId !== prevProps.match.params.userId)
-      this.refreshProfile()
-  }
-  
-  render() {
-    return <Sidebar {...this.props} />
-  }
+  useEffect(() => {
+    refreshProfile()
+  }, [])
+  useEffect(() => {
+    refreshProfile()
+  }, [props.match.params.userId])
+  return <Sidebar {...props} />
 }
 
 let mapStateToProps = (state) => ({

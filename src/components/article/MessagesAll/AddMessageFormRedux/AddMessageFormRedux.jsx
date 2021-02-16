@@ -1,10 +1,8 @@
 import Styles from './AddMessageFormRedux.module.scss'
 import {Field} from 'redux-form'
 import React from 'react'
-import {maxLengthCreator, requiredField} from '../../../../utilities/validator'
+import {maxLengthCreator} from '../../../../utilities/validator'
 
-
-const maxLength15 = maxLengthCreator(15)
 
 const AddMessageForm = (props) => {
   return (
