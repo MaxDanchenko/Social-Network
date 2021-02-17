@@ -3,9 +3,21 @@ import Styles from './Users.module.scss'
 import {NavLink} from 'react-router-dom'
 import avatar from '../../../images/avatars/annUser.jpg'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
+import {CurrentItemType} from "../../../api/apiTyper";
 
 
-const UsersFollowing = (props) => {
+type PropsType = {
+  users: Array<CurrentItemType>
+  pageSize: number
+  pageUserCount: number
+  currentPage: number
+
+  followingInProgress: any
+  unfollow: (userId: number) => void
+  follow: (userId: number) => void
+  onPageChanged: (p: any) => void
+}
+const UsersFollowing: React.FC<PropsType> = (props) => {
   if (!props.users) {
     return <PreLoader/>
   }
@@ -17,7 +29,7 @@ const UsersFollowing = (props) => {
   }
   return (
     <div className={Styles.usersWrap}>
-      {props.users.map((u) => (
+      {props.users.map((u: any) => (
         <div key={u.id}>
           <div className={Styles.personWrap}>
             <div className={Styles.personSubWrap}>
@@ -41,7 +53,7 @@ const UsersFollowing = (props) => {
             <div className={Styles.buttonWrap}>
               {u.followed ? (
                 <button
-                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  disabled={props.followingInProgress.some((id: number) => id === u.id)}
                   onClick={() => {
                     {
                       props.unfollow(u.id)
@@ -53,7 +65,7 @@ const UsersFollowing = (props) => {
                 </button>
               ) : (
                 <button
-                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  disabled={props.followingInProgress.some((id: number) => id === u.id)}
                   onClick={() => {
                     {
                       props.follow(u.id)
@@ -77,6 +89,7 @@ const UsersFollowing = (props) => {
         {pages.map((p) => {
           return (
             <button
+              //@ts-ignore
               className={props.currentPage === p && Styles.pageButton}
               onClick={(e) => {
                 if (!props.currentPage) {

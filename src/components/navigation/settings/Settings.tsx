@@ -3,7 +3,7 @@ import Styles from './Settings.module.scss'
 import cn from 'classnames'
 
 
-const Settings = () => {
+const Settings: React.FC = () => {
   return (
     <ul className={cn(Styles.table, Styles.table_small)}>
       <li className={cn(Styles.list, Styles.small)}>

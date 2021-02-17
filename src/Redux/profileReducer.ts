@@ -59,11 +59,11 @@ export const setPhotoSuccess = (photos: {small?: string, large?: string}): SetPh
 })
 
 
-export const getUserProfile = (userId: number) => async (dispatch: Dispatch<SetUserProfileType>) => {
+export const getUserProfile = (userId: number | null) => async (dispatch: Dispatch<SetUserProfileType>) => {
   const response = await usersAPI.profile(userId)
   dispatch(setUserProfile(response.data))
 }
-export const getStatus = (userId: number) => async (dispatch: Dispatch<SetStatusType>) => {
+export const getStatus = (userId: number | null) => async (dispatch: Dispatch<SetStatusType>) => {
   const response = await profileAPI.getStatus(userId)
   dispatch(setStatus(response.data))
 }

@@ -2,8 +2,11 @@ import React from 'react'
 import Styles from './LogOutUser.module.scss'
 import {NavLink, Redirect} from 'react-router-dom'
 
-
-const LogOutUser = ({logOut, isAuth}) => {
+type PropsType = {
+  logOut: () => void
+  isAuth: boolean
+}
+const LogOutUser: React.FC<PropsType> = ({logOut, isAuth}) => {
   if (!isAuth) {
     return <Redirect to={'ByePage'}/>
   }

@@ -2,7 +2,7 @@ import React from 'react'
 import Styles from './MainImg.module.scss'
 
 
-const MainImg = () => {
+const MainImg: React.FC = () => {
   return (
     <div className={Styles.backImgWrap}>
       <img

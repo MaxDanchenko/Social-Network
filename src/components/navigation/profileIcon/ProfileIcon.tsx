@@ -2,7 +2,7 @@ import React from 'react'
 import Styles from './ProfileIcon.module.scss'
 
 
-const ProfileIcon = () => {
+const ProfileIcon: React.FC = () => {
   return (
     <a href="#">
       <img

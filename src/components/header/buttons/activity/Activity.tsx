@@ -3,7 +3,7 @@ import Styles from './Activity.module.scss'
 import cn from 'classnames'
 
 
-const Activity = () => {
+const Activity: React.FC = () => {
   return (
     <ul className={Styles.table}>
       <li className={Styles.list}>

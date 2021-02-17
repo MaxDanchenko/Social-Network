@@ -2,7 +2,7 @@ import React from 'react'
 import Styles from './Search.module.scss'
 
 
-const Search = () => {
+const Search: React.FC = () => {
   return <input type="text" placeholder="Search" className={Styles.area}/>
 }
 

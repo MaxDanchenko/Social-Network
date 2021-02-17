@@ -7,7 +7,7 @@ import NavMenu from '../menu/Menu'
 import LoginUserContainer from '../../header/LogOutUser/LogOutUserContainer'
 
 
-const GeneralNav = () => {
+const GeneralNav: React.FC = () => {
   return (
     <nav className={Styles.nav}>
       <div className={Styles.navWrap}>

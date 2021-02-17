@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import img from '../../images/smiley.png'
 
 
-const ByePage = () => {
+const ByePage: React.FC = () => {
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.imgWrap}>

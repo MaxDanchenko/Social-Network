@@ -3,7 +3,7 @@ import Styles from './PreLoader.module.scss'
 import preLoaderImg from '../../../images/Eclipse-1s-84px.svg'
 
 
-let PreLoader = () => {
+let PreLoader: React.FC = () => {
   return (
     <div className={Styles.preloadBlock}>
       <img alt={'text'} className={Styles.loadIcon} src={preLoaderImg}/>

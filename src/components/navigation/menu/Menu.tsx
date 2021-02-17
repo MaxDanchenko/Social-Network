@@ -2,7 +2,7 @@ import React from 'react'
 import Styles from './Menu.module.scss'
 
 
-const NavMenu = () => {
+const NavMenu: React.FC = () => {
   return (
     <ul className={Styles.table}>
       <li className={Styles.list}>

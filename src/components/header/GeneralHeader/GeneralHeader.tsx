@@ -5,7 +5,7 @@ import Contact from '../buttons/contact/Contact'
 import Activity from '../buttons/activity/Activity'
 
 
-const GeneralHeader = () => {
+const GeneralHeader: React.FC = () => {
   return (
     <header className={Styles.head}>
       <MainImg/>

@@ -45,7 +45,8 @@ const App: React.FC<PropsType> = ({initialStatus, initialize})=> {
       <Route path="/ByePage" render={() => <ByePage/>}/>
       <div className="subWrap">
         <Route>
-          {[GeneralHeader, GeneralSidebarContainer].map((component: React.FC, index: number) => routeComponent(component, index))}
+          {//@ts-ignore
+            [GeneralHeader, GeneralSidebarContainer].map((component: React.FC, index: number) => routeComponent(component, index))}
         </Route>
         <Route>
           {pathName.map((path: string, index: number) => (<Route
@@ -56,7 +57,8 @@ const App: React.FC<PropsType> = ({initialStatus, initialize})=> {
         </Route>
         <Route path="/Home" render={() => <GeneralHeader/>}/>
         <Route path="/Messages" render={() => <MessagesContainer/>}/>
-        <Route path="/UsersFollow" render={() => <UsersContainer/>}/>
+        { //@ts-ignore
+        <Route path="/UsersFollow" render={() => <UsersContainer/>}/>}
         { //@ts-ignore
         <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>}
         <Route path="/Photos" render={() => <PhotoGallery/>}/>
