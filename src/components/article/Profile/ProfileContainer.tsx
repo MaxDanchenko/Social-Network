@@ -9,6 +9,8 @@ import {ProfileType} from "../../../api/apiTyper";
 
 
 type PropsType = {
+  profile: ProfileType
+  status: string
   match: {
     params: {
       userId: number
@@ -18,8 +20,11 @@ type PropsType = {
     push: (string: string) => void
   }
   id: number
+
   getUserProfile: (userId: number) => void
   getStatus: (userId: number) => void
+  updateStatus: (status: string) => void
+  savePhoto: (e: any) => void
 }
 
 const ProfileContainer: React.FC<PropsType> = (props) => {
@@ -40,9 +45,11 @@ const ProfileContainer: React.FC<PropsType> = (props) => {
   }, [props.match.params.userId])
   return (
     <Profile
-      {...props}
       isOwner={!props.match.params.userId}
-      setProfilePhoto={savePhoto}
+      savePhoto={props.savePhoto}
+      profile={props.profile}
+      status={props.status}
+      updateStatus={props.updateStatus}
     />
   )
 }

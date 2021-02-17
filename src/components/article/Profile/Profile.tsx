@@ -2,13 +2,24 @@ import React from 'react'
 import Styles from './Profile.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import ProfileStatus from './ProfileStatus/ProfileStatus'
+import {ProfileType} from "../../../api/apiTyper";
+import {savePhoto} from "../../../Redux/profileReducer";
 
+type PropsType = {
+  profile: ProfileType
+  isOwner: boolean
+  status: string
 
-const Profile = (props) => {
+  updateStatus: (status: string) => void
+  savePhoto: (e: any) => void
+}
+
+const Profile: React.FC<PropsType> = (props) => {
   if (!props.profile || !props.profile.contacts) {
     return <PreLoader/>
   }
-  const addPhoto = (e) => {
+
+  const addPhoto = (e: any) => {
     if (e.target.files.length) {
       props.savePhoto(e.target.files[0])
     }
@@ -54,7 +65,6 @@ const Profile = (props) => {
         </label>
       )}
       <ProfileStatus
-        profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
       />

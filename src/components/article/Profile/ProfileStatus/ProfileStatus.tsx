@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, {FormEvent, useEffect, useState} from 'react'
 import Styles from './ProfileStatus.module.scss'
 
 
-const ProfileStatus = (props) => {
+type PropsType = {
+  status: string
+  updateStatus: (status: string) => void
+}
+const ProfileStatus: React.FC<PropsType> = (props) => {
   let [editMode, setEditMode] = useState(false)
   let [status, setStatus] = useState(props.status)
   
@@ -17,7 +21,12 @@ const ProfileStatus = (props) => {
     setEditMode(false)
     props.updateStatus(status)
   }
-  const onStatusChange = (e) => {
+  const setDeactivateStatus = (e: any) => {
+    if(e.key === 'Enter'){
+      deactivateStatus()
+    }
+  }
+  const onStatusChange = (e: FormEvent<HTMLInputElement>) => {
     setStatus(e.currentTarget.value)
   }
   
@@ -35,6 +44,7 @@ const ProfileStatus = (props) => {
         <div>
           <input
             onBlur={deactivateStatus}
+            onKeyPress={setDeactivateStatus}
             className={Styles.statusInput}
             onChange={onStatusChange}
             autoFocus={true}
