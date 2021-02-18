@@ -3,7 +3,10 @@ import Styles from './Users.module.scss'
 import {NavLink} from 'react-router-dom'
 import avatar from '../../../images/avatars/annUser.jpg'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
-import {CurrentItemType} from "../../../api/apiTyper";
+import {CurrentItemType} from '../../../api/apiTyper'
+import arrowLeft from '../../../images/small_icons/left.svg'
+import arrowRight from '../../../images/small_icons/right.svg'
+import cn from 'classnames'
 
 
 type PropsType = {
@@ -15,17 +18,24 @@ type PropsType = {
   followingInProgress: any
   unfollow: (userId: number) => void
   follow: (userId: number) => void
-  onPageChanged: (p: any) => void
+  onPageChanged: (arg: any) => void
 }
 const UsersFollowing: React.FC<PropsType> = (props) => {
   if (!props.users) {
     return <PreLoader/>
   }
-
   let pagesCount = Math.ceil(props.pageUserCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i)
+  }
+  const setNextPage = (p: any) => {
+    p = props.currentPage + 1
+    if (p <= 10) props.onPageChanged(p)
+  }
+  const setPrevPage = (p: any) => {
+    p = props.currentPage - 1
+    if (p >= 1) props.onPageChanged(p)
   }
   return (
     <div className={Styles.usersWrap}>
@@ -86,6 +96,10 @@ const UsersFollowing: React.FC<PropsType> = (props) => {
         </div>
       ))}
       <div className={Styles.buttonsBlock}>
+        <img  className={cn(Styles.arrow, {[Styles.disabled]: props.currentPage <= 1})}
+              src={arrowLeft}
+              alt="arrow"
+              onClick={setPrevPage}/>
         {pages.map((p) => {
           return (
             <button
@@ -102,6 +116,10 @@ const UsersFollowing: React.FC<PropsType> = (props) => {
             </button>
           )
         })}
+        <img className={cn(Styles.arrow, {[Styles.disabled]: props.currentPage >= 10})}
+             src={arrowRight}
+             alt="arrow"
+             onClick={setNextPage}/>
       </div>
     </div>
   )

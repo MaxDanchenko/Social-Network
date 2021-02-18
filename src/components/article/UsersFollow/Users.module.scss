@@ -1,14 +1,14 @@
 @import '../../CommonFiles/commonStyles.module';
 
 .usersWrap {
+   width: 70%;
+
    .personWrap {
-      width: 80%;
-      margin: 0 30px;
       height: 100%;
       display: flex;
       justify-content: space-between;
       @include onHoverBackgroundColor;
-      padding: 10px 30px;
+      padding: 10px 5px;
 
       &:hover {
          cursor: pointer;
@@ -59,26 +59,48 @@
       margin: 20px auto;
       display: flex;
       justify-content: space-around;
-      width: 60%;
+      width: 70%;
       height: 30px;
-   }
+      align-items: center;
 
-   .buttonsBlock button {
-     background: white;
-      font-size: 18px;
-      width: 30px;
-      border-radius: 50px;
-     &:hover {
-       text-decoration: underline;
-     }
-     &:active {
-       transform: scale(0.9);
-     }
+      & button {
+         background: white;
+         font-size: 15px;
+         width: 25px;
+         height: 25px;
+         border-radius: 50px;
+
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+
+      .arrow {
+         height: 25px;
+         margin: 0 10px;
+         transform: scale(0.9);
+         cursor: pointer;
+
+         &:hover {
+            transition: 0.1s;
+            transform: scale(1.0)
+         }
+
+         &:active {
+            transform: scale(0.9);
+         }
+      }
+      .disabled {
+         opacity: 0.2;
+         &:hover {
+            transform: scale(0.9)
+         }
+      }
    }
 
    .pageButton {
       font-weight: bolder;
-     border: 3px solid #3b5998;
+      box-shadow: 0 0 0 2px $mainBackGroundColor;
    }
 }
 
