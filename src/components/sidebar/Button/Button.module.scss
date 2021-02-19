@@ -2,14 +2,14 @@
 
 .butt {
   margin-top: 10px;
-  width: 100px;
+  width: 120px;
   height: 30px;
-  background-color: $mainBackGroundColor;
+  background-color: $buttonColor;
   @include onHoverActiveButton;
 
   .buttLink {
     color: #ffffff;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 32px;
     letter-spacing: 0.23px;
   }

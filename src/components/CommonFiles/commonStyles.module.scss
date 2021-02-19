@@ -9,7 +9,9 @@ $mainBackGroundColor: #3b5998;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //Main text color//
 $mainTextColor: black;
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//Main button color//
+$buttonColor: #006eff;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover effect for menu and block item
 @mixin onHoverBackgroundColor {
@@ -46,8 +48,8 @@ $mainTextColor: black;
   }
 
   &:active {
-    -webkit-box-shadow: 0 0 4px 4px #adcbff;
-    box-shadow: 0 0 4px 4px #adcbff;
+    -webkit-box-shadow: 0 0 2px 1px #adcbff;
+    box-shadow: 0 0 2px 1px #adcbff;
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
     transition: 0.2s;
@@ -65,5 +67,3 @@ $mainTextColor: black;
     transition: 0.1s;
   }
 }
-
-

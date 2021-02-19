@@ -112,10 +112,10 @@
    .followButton {
       width: 120px;
       height: 30px;
-      background-color: #3B5998;
+      background-color: $buttonColor;
       color: #fff;
       font-weight: bold;
-      border: 1px solid #3B5998;
+      border: 1px solid $buttonColor;
       border-radius: 3px;
       @include onHoverActiveButton;
 
