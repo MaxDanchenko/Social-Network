@@ -6,6 +6,7 @@ import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import {compose} from 'redux'
 import {AppStateType} from "../../../Redux/reduxStore";
 import {CurrentItemType} from "../../../api/apiTyper";
+import Styles from './Users.module.scss'
 
 
 type PropsType = {
@@ -30,7 +31,7 @@ const UsersContainer: React.FC<PropsType> = (props) => {
     props.getUsers(pageNumber, props.pageSize)
   }
   return (
-    <>
+    <div className={Styles.userContainer}>
       <UsersFollowing
         users={props.users}
         pageSize={props.pageSize}
@@ -42,7 +43,7 @@ const UsersContainer: React.FC<PropsType> = (props) => {
         followingInProgress={props.followingInProgress}
       />
       {props.isFetching ? <PreLoader/> : null}
-    </>
+    </div>
   )
 }
 

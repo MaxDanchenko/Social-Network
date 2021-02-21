@@ -1,6 +1,9 @@
+@import '../../CommonFiles/commonStyles.module';
+
 .head {
   width: 100%;
   grid-area: 1 / 2 / 2 / 3;
+  box-shadow: $boxShadowForBlock;
 
   .wrap {
     background-color: #fff;

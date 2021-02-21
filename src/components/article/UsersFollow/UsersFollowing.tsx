@@ -21,9 +21,9 @@ type PropsType = {
   onPageChanged: (arg: any) => void
 }
 const UsersFollowing: React.FC<PropsType> = (props) => {
-  if (!props.users) {
-    return <PreLoader/>
-  }
+  // if (!props.users) {
+  //   return <PreLoader/>
+  // }
   let pagesCount = Math.ceil(props.pageUserCount / props.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {
@@ -106,9 +106,9 @@ const UsersFollowing: React.FC<PropsType> = (props) => {
               //@ts-ignore
               className={props.currentPage === p && Styles.pageButton}
               onClick={(e) => {
-                if (!props.currentPage) {
-                  return <PreLoader/>
-                }
+                // if (!props.currentPage) {
+                //   return <PreLoader/>
+                // }
                 props.onPageChanged(p)
               }}
             >

@@ -12,14 +12,14 @@
 
   .names {
     padding: 40px 0 9px 0;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 26px;
     color: $mainTextColor;
   }
 
   .profiles {
-    width: 200px;
+    width: 180px;
     border-radius: 10px;
     @include onHoverActiveButton;
   }

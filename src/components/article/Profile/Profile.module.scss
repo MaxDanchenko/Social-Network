@@ -1,7 +1,6 @@
 @import '../../CommonFiles/commonStyles.module';
 
 .wrapper {
-  width: 70%;
 
   .subWrapper {
     align-items: center;
@@ -11,14 +10,6 @@
     padding: 10px 20px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-
-    .avatar {
-      border: 1px solid #000;
-      border-radius: 50%;
-      margin-right: 20px;
-      max-width: 150px;
-      max-height: 150px;
-    }
 
     ul .profileItem {
       color: black;

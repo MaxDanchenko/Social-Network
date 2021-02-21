@@ -1,8 +1,11 @@
 @import '../../CommonFiles/commonStyles.module';
 
-.usersWrap {
-   width: 70%;
-
+.userContainer {
+   display: flex;
+   flex-direction: column;
+}
+.usersWrap{
+   padding-left: 5px;
    .personWrap {
       height: 100%;
       display: flex;
@@ -100,7 +103,7 @@
 
    .pageButton {
       font-weight: bolder;
-      box-shadow: 0 0 0 2px $mainBackGroundColor;
+      box-shadow: 0 0 0 2px $buttonColor;
    }
 }
 
