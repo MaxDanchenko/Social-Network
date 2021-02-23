@@ -20,6 +20,6 @@ export const authAPI = {
     }).then((res) => res.data)
   },
   logOut() {
-    return instance.delete('auth/login').then((res) => res.data)
+    return instance.delete('auth/login').then((res): Promise<ResponseData> => res.data)
   }
 }
