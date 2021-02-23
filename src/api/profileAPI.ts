@@ -1,5 +1,5 @@
 import {instance} from './api'
-import {ProfilePhotoType, UserType} from './apiTyper'
+import {ProfilePhotoDataType, ResponseData, UserType} from './commonApiTypes'
 
 
 export const profileAPI = {
@@ -12,6 +12,6 @@ export const profileAPI = {
   setProfilePhoto(photoFile: File) {
     const formData = new FormData()
     formData.append('image', photoFile)
-    return instance.put<ProfilePhotoType>('profile/photo/', formData)
+    return instance.put<ResponseData<ProfilePhotoDataType>>('profile/photo/', formData)
   }
 }

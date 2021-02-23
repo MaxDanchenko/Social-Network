@@ -1,6 +1,6 @@
 import {usersAPI} from '../api/usersAPI'
 import {profileAPI} from '../api/profileAPI'
-import { ProfileType } from '../api/apiTyper'
+import { ProfileType } from '../api/commonApiTypes'
 import {Dispatch} from 'redux'
 
 
@@ -61,7 +61,7 @@ export const setPhotoSuccess = (photos: {small?: string, large?: string}): SetPh
 
 export const getUserProfile = (userId: number | null) => async (dispatch: Dispatch<SetUserProfileType>) => {
   const response = await usersAPI.profile(userId)
-  dispatch(setUserProfile(response.data))
+  dispatch(setUserProfile(response))
 }
 export const getStatus = (userId: number | null) => async (dispatch: Dispatch<SetStatusType>) => {
   const response = await profileAPI.getStatus(userId)

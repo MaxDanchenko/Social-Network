@@ -1,4 +1,4 @@
-import {CurrentItemType} from '../api/apiTyper'
+import {CurrentItemType} from '../api/commonApiTypes'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
 import {Dispatch} from 'redux'
@@ -8,7 +8,7 @@ const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-const IS_FETCHING_FUNK = 'IS_FETCHING_FUNK'
+const IS_FETCHING = 'IS_FETCHING'
 const TOGGLE_BUTTON = 'TOGGLE_BUTTON'
 
 type InitialStateType = {
@@ -50,7 +50,7 @@ const usersReducer = (state = initialState, action: UsersActionsType): InitialSt
     case SET_CURRENT_PAGE: {
       return {...state, currentPage: action.currentPage}
     }
-    case IS_FETCHING_FUNK: {
+    case IS_FETCHING: {
       return {...state, isFetching: action.isFetching}
     }
     case TOGGLE_BUTTON: {
@@ -90,11 +90,11 @@ export const setCurrentPage = (currentPage: number): SetCurrentPageType => ({
   currentPage
 })
 type SetIsFetchingType = {
-  type: typeof IS_FETCHING_FUNK
+  type: typeof IS_FETCHING
   isFetching: boolean
 }
 export const setIsFetching = (isFetching: boolean): SetIsFetchingType => ({
-  type: IS_FETCHING_FUNK,
+  type: IS_FETCHING,
   isFetching
 })
 type ToggleButtonType = {

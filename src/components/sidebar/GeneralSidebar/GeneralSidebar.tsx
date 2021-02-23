@@ -3,7 +3,7 @@ import Styles from './GeneralSidebar.module.scss'
 import HomePage from '../HomePage/HomePage'
 import Menu from '../Menu/Menu'
 import Button from '../Button/Button'
-import {ProfileType} from "../../../api/apiTyper";
+import {ProfileType} from "../../../api/commonApiTypes";
 
 type PropsType = {
   profile: ProfileType

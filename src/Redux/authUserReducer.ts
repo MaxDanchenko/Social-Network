@@ -73,8 +73,9 @@ export const getSecurityCaptcha = (captchaUrl: string): GetCaptchaType => ({
 
 export const auth = () => async (dispatch: Dispatch<SetUserDataType>) => {
   const response = await usersAPI.auth()
-  if (response.data.resultCode === 0) {
-    const {email, id, login} = response.data.data
+  if (response.resultCode === 0) {
+    debugger
+    const {email, id, login} = response.data
     dispatch(setUserData(email, id, login, true))
   }
 }

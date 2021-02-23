@@ -1,10 +1,10 @@
 import {instance} from './api'
-import {AuthMeType, UserLoginType} from './apiTyper'
+import {AuthMeDataType, ResponseData, UserLoginDataType} from './commonApiTypes'
 
 
 export const authAPI = {
   auth() {
-    return instance.get<AuthMeType>('auth/me')
+    return instance.get<ResponseData<AuthMeDataType>>('auth/me')
   },
   logIn(
     email: string | null,
@@ -12,7 +12,7 @@ export const authAPI = {
     rememberMe: boolean | null = false,
     captcha: string | null = null
   ) {
-    return instance.post<UserLoginType>('auth/login', {
+    return instance.post<ResponseData<UserLoginDataType>>('auth/login', {
       email,
       password,
       rememberMe,
@@ -20,6 +20,6 @@ export const authAPI = {
     })
   },
   logOut() {
-    return instance.delete<UserLoginType>('auth/login')
+    return instance.delete('auth/login')
   }
 }

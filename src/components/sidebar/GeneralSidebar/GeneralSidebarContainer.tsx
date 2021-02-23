@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import Sidebar from './GeneralSidebar'
 import {connect} from 'react-redux'
 import {getStatus, getUserProfile} from '../../../Redux/profileReducer'
-import {ProfileType} from "../../../api/apiTyper";
+import {ProfileType} from "../../../api/commonApiTypes";
 import {AppStateType} from "../../../Redux/reduxStore";
 
 
