@@ -1,10 +1,10 @@
 import {instance} from './api'
-import {AuthMeDataType, ResponseData, UserLoginDataType} from './commonApiTypes'
+import {AuthMeDataType, ResponseData, UserLoginDataType} from './ApiTypes'
 
 
 export const authAPI = {
   auth() {
-    return instance.get<ResponseData<AuthMeDataType>>('auth/me')
+    return instance.get<ResponseData<AuthMeDataType>>('auth/me').then((res) => res.data)
   },
   logIn(
     email: string | null,
@@ -17,9 +17,9 @@ export const authAPI = {
       password,
       rememberMe,
       captcha
-    })
+    }).then((res) => res.data)
   },
   logOut() {
-    return instance.delete('auth/login')
+    return instance.delete('auth/login').then((res) => res.data)
   }
 }

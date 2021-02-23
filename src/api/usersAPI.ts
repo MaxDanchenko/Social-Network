@@ -1,5 +1,5 @@
 import {instance} from './api'
-import {AuthMeDataType, ItemsType, ProfileType, ResponseData, UserType} from './commonApiTypes'
+import {ItemsType, ResponseData} from './ApiTypes'
 
 
 export const usersAPI = {
@@ -8,15 +8,9 @@ export const usersAPI = {
       .then((res) => res.data)
   },
   follow(userId: number) {
-    return instance.post<UserType>(`follow/${userId}`).then((res) => res.data)
+    return instance.post<ResponseData>(`follow/${userId}`)
   },
   unfollow(userId: number) {
-    return instance.delete(`follow/${userId}`).then((res) => res.data)
-  },
-  profile(userId: number | null) {
-    return instance.get<ProfileType>(`profile/${userId}`).then((res) => res.data)
-  },
-  auth() {
-    return instance.get<ResponseData<AuthMeDataType>>('auth/me').then((res) => res.data)
+    return instance.delete(`follow/${userId}`)
   }
 }

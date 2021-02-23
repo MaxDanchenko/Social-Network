@@ -1,4 +1,4 @@
-import {CurrentItemType} from '../api/commonApiTypes'
+import {CurrentItemType} from '../api/ApiTypes'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
 import {Dispatch} from 'redux'

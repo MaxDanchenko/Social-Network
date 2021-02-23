@@ -39,12 +39,6 @@ export type ResponseData<D = {}> = {
   resultCode: number
   messages: Array<string>
 }
-export type UserType = {
-  data?: {}
-  fieldsErrors?: Array<string>
-  messages: Array<string>
-  resultCode: number
-}
 export type AuthMeDataType = {
   id: number
   email: string
@@ -60,4 +54,7 @@ export type UserLoginDataType = {
   data?: {
     userId: number
   }
+}
+export type CaptchaType = {
+  url: string
 }

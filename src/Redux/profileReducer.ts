@@ -1,6 +1,5 @@
-import {usersAPI} from '../api/usersAPI'
 import {profileAPI} from '../api/profileAPI'
-import { ProfileType } from '../api/commonApiTypes'
+import {ProfileType} from '../api/ApiTypes'
 import {Dispatch} from 'redux'
 
 
@@ -60,23 +59,23 @@ export const setPhotoSuccess = (photos: {small?: string, large?: string}): SetPh
 
 
 export const getUserProfile = (userId: number | null) => async (dispatch: Dispatch<SetUserProfileType>) => {
-  const response = await usersAPI.profile(userId)
+  const response = await profileAPI.profile(userId)
   dispatch(setUserProfile(response))
 }
 export const getStatus = (userId: number | null) => async (dispatch: Dispatch<SetStatusType>) => {
   const response = await profileAPI.getStatus(userId)
-  dispatch(setStatus(response.data))
+  dispatch(setStatus(response))
 }
 export const updateStatus = (status: string) => async (dispatch: Dispatch<SetStatusType>) => {
   const response = await profileAPI.updateStatus(status)
-  if (response.data.resultCode === 0) {
+  if (response.resultCode === 0) {
     dispatch(setStatus(status))
   }
 }
 export const savePhoto = (photos: File) => async (dispatch: Dispatch<SetPhotoSuccessType>) => {
   const response = await profileAPI.setProfilePhoto(photos)
-  if (response.data.resultCode === 0) {
-    dispatch(setPhotoSuccess(response.data.data.photos))
+  if (response.resultCode === 0) {
+    dispatch(setPhotoSuccess(response.data.photos))
   }
 }
 

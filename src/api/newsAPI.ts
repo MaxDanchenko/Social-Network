@@ -16,7 +16,6 @@ export const newsAPI = {
           pageSize = 10,
           autoCorrect = true,) {
     return instance.get(`/?q=${q}&pageNumber=${pageNumber}&pageSize=${pageSize}&autoCorrect=${autoCorrect}`)
+      .then((res) => res.data)
   }
 }
-
-//  autoCorrect=true&fromPublishedDate=null&toPublishedDate=null

@@ -5,7 +5,7 @@ import UsersFollowing from './UsersFollowing'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import {compose} from 'redux'
 import {AppStateType} from "../../../Redux/reduxStore";
-import {CurrentItemType} from "../../../api/commonApiTypes";
+import {CurrentItemType} from "../../../api/ApiTypes";
 import Styles from './Users.module.scss'
 
 

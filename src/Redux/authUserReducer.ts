@@ -1,7 +1,6 @@
 import {stopSubmit} from 'redux-form'
 import {authAPI} from '../api/authAPI'
 import {securityAPI} from '../api/securityAPI'
-import {usersAPI} from '../api/usersAPI'
 import {Dispatch} from 'redux'
 
 
@@ -72,16 +71,15 @@ export const getSecurityCaptcha = (captchaUrl: string): GetCaptchaType => ({
 
 
 export const auth = () => async (dispatch: Dispatch<SetUserDataType>) => {
-  const response = await usersAPI.auth()
+  const response = await authAPI.auth()
   if (response.resultCode === 0) {
-    debugger
     const {email, id, login} = response.data
     dispatch(setUserData(email, id, login, true))
   }
 }
 export const getCaptchaUrl = () => async (dispatch: Dispatch<GetCaptchaType>) => {
   const response = await securityAPI.getCaptchaUrl()
-  const captchaUrl = response.data.url
+  const captchaUrl = response.url
   dispatch(getSecurityCaptcha(captchaUrl))
 }
 
@@ -91,15 +89,15 @@ export const logIn = (email: string | null,
                       rememberMe?: boolean,
                       captcha?: string) => async (dispatch: any) => {
   const response = await authAPI.logIn(email, password, rememberMe, captcha)
-  if (response.data.resultCode === 0) {
+  if (response.resultCode === 0) {
     dispatch(auth())
   } else {
-    if (response.data.resultCode === 10) {
+    if (response.resultCode === 10) {
       dispatch(getCaptchaUrl())
     }
     const errorMessage =
-      response.data.messages.length > 0
-        ? response.data.messages[0]
+      response.messages.length > 0
+        ? response.messages[0]
         : 'Some error'
     const action = stopSubmit('logIn', {_error: errorMessage})
     dispatch(action)
@@ -107,7 +105,7 @@ export const logIn = (email: string | null,
 }
 export const logOut = () => async (dispatch: Dispatch<SetUserDataType>) => {
   const response = await authAPI.logOut()
-  if (response.data.resultCode === 0) {
+  if (response.resultCode === 0) {
     dispatch(setUserData(null, null, null, false))
   }
 }

@@ -5,7 +5,7 @@ import {withRouter} from 'react-router'
 import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../Redux/profileReducer'
 import {compose} from 'redux'
 import {AppStateType} from "../../../Redux/reduxStore";
-import {ProfileType} from "../../../api/commonApiTypes";
+import {ProfileType} from "../../../api/ApiTypes";
 
 
 type PropsType = {

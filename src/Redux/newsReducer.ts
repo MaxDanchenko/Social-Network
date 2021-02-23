@@ -35,6 +35,6 @@ export const getNews = (q: string,
                         pageSize: number,
                         autoCorrect: boolean) => async (dispatch: Dispatch<GetNewsActionType>) => {
   const response = await newsAPI.getNews(q, pageNumber, pageSize, autoCorrect)
-  dispatch(getNewsAction(response.data.value[5]))
+  dispatch(getNewsAction(response.value[5]))
 }
 export default newsReducer

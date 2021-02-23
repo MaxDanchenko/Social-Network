@@ -3,7 +3,7 @@ import Styles from './Users.module.scss'
 import {NavLink} from 'react-router-dom'
 import avatar from '../../../images/avatars/annUser.jpg'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
-import {CurrentItemType} from '../../../api/commonApiTypes'
+import {CurrentItemType} from '../../../api/ApiTypes'
 import arrowLeft from '../../../images/small_icons/left.svg'
 import arrowRight from '../../../images/small_icons/right.svg'
 import cn from 'classnames'
@@ -106,9 +106,6 @@ const UsersFollowing: React.FC<PropsType> = (props) => {
               //@ts-ignore
               className={props.currentPage === p && Styles.pageButton}
               onClick={(e) => {
-                // if (!props.currentPage) {
-                //   return <PreLoader/>
-                // }
                 props.onPageChanged(p)
               }}
             >
