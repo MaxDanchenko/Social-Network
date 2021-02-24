@@ -7,10 +7,10 @@ import {AppStateType} from '../../../Redux/reduxStore'
 type PropsType = {
   captchaUrl: string | File
   isAuth: boolean
-  
+
   auth: () => void
-  logIn: (email: string | null,
-          password: string | null,
+  logIn: (email: string,
+          password: string,
           rememberMe?: boolean,
           captcha?: string) => void
 }
@@ -26,8 +26,8 @@ type MapStateToPropsType = {
 }
 type MapDispatchToPropsType = {
   auth: () => void
-  logIn: (email: string | null,
-          password: string | null,
+  logIn: (email: string,
+          password: string,
           rememberMe?: boolean,
           captcha?: string) => void
 }

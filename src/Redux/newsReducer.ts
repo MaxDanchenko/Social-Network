@@ -1,17 +1,15 @@
 import {newsAPI} from "../api/newsAPI";
-import {Dispatch} from "redux";
+import {CommonActionsType, InferActionsType} from "./reduxStore";
 
-const GET_WEATHER = 'GET_WEATHER'
 
 const initialState = {
-    title: '',
-    body: ''
+  title: '',
+  body: ''
 }
-export type InitialStateType = typeof initialState
 
-const newsReducer = (state = initialState, action: GetNewsActionType): InitialStateType => {
+const newsReducer = (state = initialState, action: newsActionType): InitialStateType => {
   switch (action.type) {
-    case GET_WEATHER:
+    case 'GET_WEATHER':
       return {
         ...state,
         title: action.payload.title,
@@ -21,20 +19,20 @@ const newsReducer = (state = initialState, action: GetNewsActionType): InitialSt
       return state
   }
 }
-type PayloadType = {
-  body: string
-  title: string
+
+const actions = {
+  getNewsAction: (payload: { title: string, body: string }) => ({type: 'GET_WEATHER', payload}) as const
 }
-type GetNewsActionType = {
-  type: typeof GET_WEATHER
-  payload: PayloadType
-}
-const getNewsAction = (payload: {title: string, body: string}): GetNewsActionType => ({type: GET_WEATHER, payload})
+
 export const getNews = (q: string,
                         pageNumber: number,
                         pageSize: number,
-                        autoCorrect: boolean) => async (dispatch: Dispatch<GetNewsActionType>) => {
+                        autoCorrect: boolean): ThunkType => async (dispatch) => {
   const response = await newsAPI.getNews(q, pageNumber, pageSize, autoCorrect)
-  dispatch(getNewsAction(response.value[5]))
+  dispatch(actions.getNewsAction(response.value[5]))
 }
 export default newsReducer
+
+export type InitialStateType = typeof initialState
+type newsActionType = InferActionsType<typeof actions>
+type ThunkType = CommonActionsType<newsActionType>

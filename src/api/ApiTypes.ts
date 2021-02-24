@@ -2,8 +2,8 @@ export type CurrentItemType = {
   name: string
   id: number
   photos: {
-    small?: string
-    large?: string
+    small: string
+    large: string
   }
   status: string
   followed: boolean
@@ -17,21 +17,14 @@ export type ProfileType = {
   userId: number
   lookingForAJob: boolean
   lookingForAJobDescription: string
-  aboutMe: null | string
+  aboutMe: string
   fullName: string
   contacts: {
-    github: string
-    vk: string
-    facebook: string
-    instagram: string
     twitter: string
-    website: string
-    youtube: string
-    mainLink: string
   };
   photos: {
-    small?: string
-    large?: string
+    small: string
+    large: string
   };
 }
 export type ResponseData<D = {}> = {

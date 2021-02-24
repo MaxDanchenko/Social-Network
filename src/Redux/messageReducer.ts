@@ -1,4 +1,4 @@
-const SEND_MESSAGE = 'SEND_MESSAGE'
+import {InferActionsType} from "./reduxStore";
 
 const initialState = {
   friendsList: [
@@ -24,11 +24,10 @@ const initialState = {
     }
   ]
 }
-export type InitialStateType = typeof initialState
 
-const messageReducer = (state = initialState, action: SendMessageCreatorType): InitialStateType => {
+const messageReducer = (state = initialState, action: messageActionType): InitialStateType => {
   switch (action.type) {
-    case SEND_MESSAGE:
+    case 'SEND_MESSAGE':
       return {
         ...state,
         messages: [...state.messages, {id: 7, message: action.newMessageBody}]
@@ -38,13 +37,15 @@ const messageReducer = (state = initialState, action: SendMessageCreatorType): I
   }
 }
 
-type SendMessageCreatorType = {
-  type: typeof SEND_MESSAGE
-  newMessageBody: string
+export const actions = {
+  sendMessageCreator: (newMessageBody: string) => ({
+    type: 'SEND_MESSAGE',
+    newMessageBody
+  }) as const
 }
-export const sendMessageCreator = (newMessageBody: string): SendMessageCreatorType => ({
-  type: SEND_MESSAGE,
-  newMessageBody
-})
+
 
 export default messageReducer
+
+export type InitialStateType = typeof initialState
+type messageActionType = InferActionsType<typeof actions>

@@ -1,82 +1,79 @@
 import {profileAPI} from '../api/profileAPI'
 import {ProfileType} from '../api/ApiTypes'
-import {Dispatch} from 'redux'
+import {CommonActionsType, InferActionsType} from "./reduxStore";
 
 
-const SET_STATUS = 'SET_STATUS'
-const SET_USER_PROFILE = 'SET_USER_PROFILE'
-const SET_PHOTO_SUCCESS = 'SET_PHOTO_SUCCESS'
-
-type InitialStateType = {
-  profile: ProfileType
-  status: string
-}
 const initialState = {
-  profile: {},
+  profile: {
+    userId: 0,
+    lookingForAJob: true,
+    lookingForAJobDescription: '',
+    aboutMe: '',
+    fullName: '',
+    contacts: {
+      twitter: ''
+    },
+    photos: {
+      small: '',
+      large: '',
+    }
+  },
   status: ''
-} as InitialStateType
+}
 
-type ProfileActionType = SetUserProfileType | SetStatusType | SetPhotoSuccessType
-const profileReducer = (state = initialState, action: ProfileActionType): InitialStateType => {
+const profileReducer = (state = initialState, action: profileActionType): InitialStateType => {
   switch (action.type) {
-    case SET_USER_PROFILE: {
+    case 'SET_USER_PROFILE': {
       return {...state, profile: action.profile}
     }
-    case SET_STATUS: {
+    case 'SET_STATUS': {
       return {...state, status: action.status}
     }
-    case SET_PHOTO_SUCCESS: {
+    case 'SET_PHOTO_SUCCESS': {
       return {...state, profile: {...state.profile, photos: action.photos}}
     }
     default:
       return state
   }
 }
-type SetUserProfileType = {
-  type: typeof  SET_USER_PROFILE
-  profile: ProfileType
+
+const actions = {
+  setUserProfile: (profile: ProfileType) => ({
+    type: 'SET_USER_PROFILE',
+    profile
+  }) as const,
+  setStatus: (status: string) => ({type: 'SET_STATUS', status}) as const,
+  setPhotoSuccess: (photos: { small: string, large: string }) => ({
+    type: 'SET_PHOTO_SUCCESS',
+    photos
+  }) as const
 }
-export const setUserProfile = (profile: ProfileType): SetUserProfileType => ({
-  type: SET_USER_PROFILE,
-  profile
-})
-type SetStatusType = {
-  type: typeof SET_STATUS
-  status: string
-}
-export const setStatus = (status: string): SetStatusType => ({type: SET_STATUS, status})
-type SetPhotoSuccessType = {
-  type: typeof SET_PHOTO_SUCCESS
-  photos: {
-    small?: string
-    large?: string
-  }
-}
-export const setPhotoSuccess = (photos: {small?: string, large?: string}): SetPhotoSuccessType => ({
-  type: SET_PHOTO_SUCCESS,
-  photos
-})
 
 
-export const getUserProfile = (userId: number | null) => async (dispatch: Dispatch<SetUserProfileType>) => {
+export const getUserProfile = (userId: number | null): ThunkType => async (dispatch) => {
   const response = await profileAPI.profile(userId)
-  dispatch(setUserProfile(response))
+  dispatch(actions.setUserProfile(response))
 }
-export const getStatus = (userId: number | null) => async (dispatch: Dispatch<SetStatusType>) => {
+export const getStatus = (userId: number | null): ThunkType => async (dispatch) => {
   const response = await profileAPI.getStatus(userId)
-  dispatch(setStatus(response))
+  dispatch(actions.setStatus(response))
 }
-export const updateStatus = (status: string) => async (dispatch: Dispatch<SetStatusType>) => {
+export const updateStatus = (status: string): ThunkType => async (dispatch) => {
   const response = await profileAPI.updateStatus(status)
   if (response.resultCode === 0) {
-    dispatch(setStatus(status))
+    dispatch(actions.setStatus(status))
   }
 }
-export const savePhoto = (photos: File) => async (dispatch: Dispatch<SetPhotoSuccessType>) => {
+export const savePhoto = (photos: File): ThunkType => async (dispatch) => {
   const response = await profileAPI.setProfilePhoto(photos)
   if (response.resultCode === 0) {
-    dispatch(setPhotoSuccess(response.data.photos))
+    dispatch(actions.setPhotoSuccess(response.data.photos))
   }
 }
 
 export default profileReducer
+
+
+type InitialStateType = typeof initialState
+type profileActionType = InferActionsType<typeof actions>
+type ThunkType = CommonActionsType<profileActionType>

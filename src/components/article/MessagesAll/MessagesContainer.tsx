@@ -1,5 +1,5 @@
 import React from 'react'
-import {sendMessageCreator} from '../../../Redux/messageReducer'
+import {actions} from '../../../Redux/messageReducer'
 import {connect} from 'react-redux'
 import Messages from './Messages'
 import {compose} from 'redux'
@@ -18,7 +18,7 @@ const mapStateToProps = (state: AppStateType) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   sendMessage: (newMessageBody: string) => {
-    dispatch(sendMessageCreator(newMessageBody))
+    dispatch(actions.sendMessageCreator(newMessageBody))
     dispatch(reset('dialogAddMessageForm'))
   }
 })

@@ -8,8 +8,8 @@ import {NavLink, Redirect} from 'react-router-dom'
 type PropsType = {
   isAuth: boolean
   captchaUrl: string | File
-  logIn: (email: string | null,
-          password: string | null,
+  logIn: (email: string,
+          password: string,
           rememberMe?: boolean,
           captcha?: string) => void
 }
