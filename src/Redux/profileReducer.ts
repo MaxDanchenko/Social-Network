@@ -1,6 +1,6 @@
 import {profileAPI} from '../api/profileAPI'
 import {ProfileType} from '../api/ApiTypes'
-import {CommonActionsType, InferActionsType} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from "./reduxStore";
 
 
 const initialState = {
@@ -75,5 +75,5 @@ export default profileReducer
 
 
 type InitialStateType = typeof initialState
-type profileActionType = InferActionsType<typeof actions>
+type profileActionType = InferActionsTypes<typeof actions>
 type ThunkType = CommonActionsType<profileActionType>

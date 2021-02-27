@@ -1,7 +1,7 @@
 import {CurrentItemType} from '../api/ApiTypes'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
-import {CommonActionsType, InferActionsType} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from "./reduxStore";
 
 
 const initialState = {
@@ -101,5 +101,5 @@ export const unfollow = (userId: number): ThunkType => async (dispatch) => {
 export default usersReducer
 
 type InitialStateType = typeof initialState
-type ActionsType = InferActionsType<typeof actions>
+type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = CommonActionsType

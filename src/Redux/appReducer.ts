@@ -1,5 +1,5 @@
 import {auth} from './authUserReducer'
-import {CommonActionsType, InferActionsType} from './reduxStore'
+import {CommonActionsType, InferActionsTypes} from './reduxStore'
 
 
 const initialState = {
@@ -29,7 +29,7 @@ export const initialize = (): ThunkType => async (dispatch) => {
 }
 
 type InitialStateType = typeof initialState
-type ActionsType = InferActionsType<typeof actions>
+type ActionsType = InferActionsTypes<typeof actions>
 type ThunkType = CommonActionsType<ActionsType>
 
 

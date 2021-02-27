@@ -1,5 +1,5 @@
 import {newsAPI} from "../api/newsAPI";
-import {CommonActionsType, InferActionsType} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from "./reduxStore";
 
 
 const initialState = {
@@ -34,5 +34,5 @@ export const getNews = (q: string,
 export default newsReducer
 
 export type InitialStateType = typeof initialState
-type newsActionType = InferActionsType<typeof actions>
+type newsActionType = InferActionsTypes<typeof actions>
 type ThunkType = CommonActionsType<newsActionType>

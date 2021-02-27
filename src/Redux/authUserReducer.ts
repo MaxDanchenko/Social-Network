@@ -1,7 +1,7 @@
 import {stopSubmit} from 'redux-form'
 import {authAPI} from '../api/authAPI'
 import {securityAPI} from '../api/securityAPI'
-import {CommonActionsType, InferActionsType} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from "./reduxStore";
 
 
 const initialState = {
@@ -81,5 +81,5 @@ export const logOut = (): ThunkType => async (dispatch) => {
 export default authUserReducer
 
 type InitialStateType = typeof initialState
-type ActionType = InferActionsType<typeof actions>
+type ActionType = InferActionsTypes<typeof actions>
 type ThunkType = CommonActionsType

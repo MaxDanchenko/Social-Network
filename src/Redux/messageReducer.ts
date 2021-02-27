@@ -1,4 +1,4 @@
-import {InferActionsType} from "./reduxStore";
+import {InferActionsTypes} from "./reduxStore";
 
 const initialState = {
   friendsList: [
@@ -48,4 +48,4 @@ export const actions = {
 export default messageReducer
 
 export type InitialStateType = typeof initialState
-type messageActionType = InferActionsType<typeof actions>
+type messageActionType = InferActionsTypes<typeof actions>
