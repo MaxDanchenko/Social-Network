@@ -6,15 +6,14 @@ import {compose} from 'redux'
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 import {reset} from 'redux-form'
 import { AppStateType } from '../../../Redux/reduxStore'
+import {getFriendListSelector, getMessagesSelector} from '../../../Redux/selectors'
 
 
 
-const mapStateToProps = (state: AppStateType) => {
-  return {
-    friendsList: state.messagePage.friendsList,
-    messages: state.messagePage.messages
-  }
-}
+const mapStateToProps = (state: AppStateType) => ({
+    friendsList: getFriendListSelector(state),
+    messages: getMessagesSelector(state)
+})
 
 const mapDispatchToProps = (dispatch: any) => ({
   sendMessage: (newMessageBody: string) => {

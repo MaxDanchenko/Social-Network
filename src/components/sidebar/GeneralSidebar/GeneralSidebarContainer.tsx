@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {getStatus, getUserProfile} from '../../../Redux/profileReducer'
 import {ProfileType} from "../../../api/ApiTypes";
 import {AppStateType} from "../../../Redux/reduxStore";
+import {getIdSelector, getProfileSelector, getStatusSelector} from '../../../Redux/selectors';
 
 
 type PropsType = {
@@ -40,8 +41,8 @@ const GeneralSidebarContainer: React.FC<PropsType> = (props) => {
 }
 
 let mapStateToProps = (state: AppStateType) => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status,
-  id: state.authUser.id
+  profile: getProfileSelector(state),
+  status: getStatusSelector(state),
+  id: getIdSelector(state)
 })
 export default connect(mapStateToProps, {getUserProfile, getStatus})(GeneralSidebarContainer)

@@ -7,6 +7,14 @@ import {compose} from 'redux'
 import {AppStateType} from "../../../Redux/reduxStore";
 import {CurrentItemType} from "../../../api/ApiTypes";
 import Styles from './Users.module.scss'
+import {
+  getIsFetchingSelector,
+  getCurrentPageSelector,
+  getPageSizeSelector,
+  getPageUserCountSelector,
+  getFollowingSelector
+} from '../../../Redux/selectors'
+import {getUsersSelector} from '../../../Redux/selectors'
 
 
 type PropsType = {
@@ -49,12 +57,12 @@ const UsersContainer: React.FC<PropsType> = (props) => {
 
 const mapStateToProps = (state: AppStateType) => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    pageUserCount: state.usersPage.pageUserCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress
+    users: getUsersSelector(state),
+    pageSize: getPageSizeSelector(state),
+    pageUserCount: getPageUserCountSelector(state),
+    currentPage: getCurrentPageSelector(state),
+    isFetching: getIsFetchingSelector(state),
+    followingInProgress: getFollowingSelector(state)
   }
 }
 

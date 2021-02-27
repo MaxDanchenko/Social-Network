@@ -6,6 +6,7 @@ import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../Redux
 import {compose} from 'redux'
 import {AppStateType} from "../../../Redux/reduxStore";
 import {ProfileType} from "../../../api/ApiTypes";
+import {getIdSelector, getIsAuthSelector, getProfileSelector, getStatusSelector} from "../../../Redux/selectors";
 
 
 type PropsType = {
@@ -61,10 +62,10 @@ type MapStateToPropsType = {
   isAuth: boolean
 }
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status,
-  id: state.authUser.id,
-  isAuth: state.authUser.isAuth
+  profile: getProfileSelector(state),
+  status: getStatusSelector(state),
+  id: getIdSelector(state),
+  isAuth: getIsAuthSelector(state)
 })
 export default compose(
   connect(mapStateToProps, {

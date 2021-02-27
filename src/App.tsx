@@ -16,6 +16,7 @@ import ByePage from './components/byePage/ByePage'
 import {AppStateType} from './Redux/reduxStore'
 import ProfileContainer from './components/article/Profile/ProfileContainer'
 import NewsContainer from "./components/newsBar/NewsContainer";
+import { getInitialStatusSelector } from './Redux/selectors'
 
 
 type PropsType = {
@@ -81,7 +82,7 @@ const App: React.FC<PropsType> = ({initialStatus, initialize}) => {
 }
 
 const mapStateToProps = (state: AppStateType) => ({
-  initialStatus: state.app.initialStatus,
+  initialStatus: getInitialStatusSelector(state)
 })
 
 export default connect(mapStateToProps, {initialize})(App)

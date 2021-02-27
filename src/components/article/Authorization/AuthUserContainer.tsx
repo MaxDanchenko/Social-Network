@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {auth, logIn} from '../../../Redux/authUserReducer'
 import Authorization from './Authorization'
 import {AppStateType} from '../../../Redux/reduxStore'
+import {getCaptchaSelector, getIsAuthSelector} from '../../../Redux/selectors'
 
 type PropsType = {
   captchaUrl: string | File
@@ -32,8 +33,8 @@ type MapDispatchToPropsType = {
           captcha?: string) => void
 }
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-  isAuth: state.authUser.isAuth,
-  captchaUrl: state.authUser.captchaUrl
+  isAuth: getIsAuthSelector(state),
+  captchaUrl: getCaptchaSelector(state)
 })
 
 export default connect<MapStateToPropsType, MapDispatchToPropsType, PropsType, AppStateType>(mapStateToProps, {

@@ -3,6 +3,7 @@ import News from "./News"
 import {AppStateType} from "../../Redux/reduxStore";
 import {connect} from "react-redux";
 import {getNews} from "../../Redux/newsReducer";
+import {getBodySelector, getTitleSelector } from "../../Redux/selectors";
 
 type PropsType = {
   title: string
@@ -27,8 +28,8 @@ const NewsContainer: React.FC<PropsType> = (props) => {
 }
 
 const mapStateToProps = (state: AppStateType) => ({
-  title: state.newsReducer.title,
-  body: state.newsReducer.body
+  title: getTitleSelector(state),
+  body: getBodySelector(state)
 })
 
 
