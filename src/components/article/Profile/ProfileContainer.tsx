@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import Profile from './Profile'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
-import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../Redux/profileReducer'
+import {savePhoto, updateStatus} from '../../../Redux/profileReducer'
 import {compose} from 'redux'
 import {AppStateType} from "../../../Redux/reduxStore";
 import {ProfileType} from "../../../api/ApiTypes";
@@ -22,28 +22,11 @@ type PropsType = {
   }
   id: number
 
-  getUserProfile: (userId: number) => void
-  getStatus: (userId: number) => void
   updateStatus: (status: string) => void
   savePhoto: (e: any) => void
 }
 
 const ProfileContainer: React.FC<PropsType> = (props) => {
-  // const refreshProfile = () => {
-  //   let userId = props.match.params.userId
-  //   if (!userId) userId = props.id
-  //   if (!props.id) {
-  //     props.history.push('/Sign In')
-  //   }
-  //   props.getUserProfile(userId)
-  //   props.getStatus(userId)
-  // }
-  // useEffect(() => {
-  //   refreshProfile()
-  // }, [])
-  // useEffect(() => {
-  //   refreshProfile()
-  // }, [props.match.params.userId])
   return (
     <Profile
       isOwner={!props.match.params.userId}
@@ -54,7 +37,6 @@ const ProfileContainer: React.FC<PropsType> = (props) => {
     />
   )
 }
-
 type MapStateToPropsType = {
   profile: ProfileType
   status: string
@@ -69,8 +51,6 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
 })
 export default compose(
   connect(mapStateToProps, {
-    getUserProfile,
-    getStatus,
     updateStatus,
     savePhoto
   }),
