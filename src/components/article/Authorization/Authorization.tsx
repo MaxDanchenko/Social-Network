@@ -15,7 +15,7 @@ type PropsType = {
 }
 const Authorization: React.FC<PropsType> = ({isAuth, logIn, captchaUrl}) => {
   if (isAuth) {
-    return <Redirect to={'profile'}/>
+    return <Redirect to={'home'}/>
   }
   const onSubmit = (formData: ReduxFormType) => {
     logIn(

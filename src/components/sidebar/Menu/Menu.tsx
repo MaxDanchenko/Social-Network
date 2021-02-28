@@ -11,7 +11,6 @@ const Menu: React.FC = () => {
     {id: 4, linkTo: '/UsersFollow', menuName: 'Users'},
     {id: 5, linkTo: '/Photos', menuName: 'Photos'},
     {id: 6, linkTo: '/Videos', menuName: 'Videos'},
-    {id: 7, linkTo: '/Sign In', menuName: 'Sign In'}
   ])
   return (
     <ul className={Styles.table}>
