@@ -6,17 +6,13 @@ import {NavLink, Redirect} from 'react-router-dom'
 
 
 type PropsType = {
-  isAuth: boolean
   captchaUrl: string | File
   logIn: (email: string,
           password: string,
           rememberMe?: boolean,
           captcha?: string) => void
 }
-const Authorization: React.FC<PropsType> = ({isAuth, logIn, captchaUrl}) => {
-  if (isAuth) {
-    return <Redirect to={'home'}/>
-  }
+const Authorization: React.FC<PropsType> = ({logIn, captchaUrl}) => {
   const onSubmit = (formData: ReduxFormType) => {
     logIn(
       formData.email,
@@ -28,9 +24,9 @@ const Authorization: React.FC<PropsType> = ({isAuth, logIn, captchaUrl}) => {
   return (
     <div className={Styles.mainPageAuth}>
       <div className={Styles.imageWrapper}>
-        <NavLink className={Styles.imageLink} to={'/Home'}>
+        <div className={Styles.image}>
           <p className={Styles.networkName}>Social Network</p>
-        </NavLink>
+        </div>
       </div>
       <div className={Styles.authWrapper}>{
         //@ts-ignore

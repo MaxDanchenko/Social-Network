@@ -3,7 +3,6 @@ import {actions} from '../../../Redux/messageReducer'
 import {connect} from 'react-redux'
 import Messages from './Messages'
 import {compose} from 'redux'
-import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 import {reset} from 'redux-form'
 import { AppStateType } from '../../../Redux/reduxStore'
 import {getFriendListSelector, getMessagesSelector} from '../../../Redux/selectors'
@@ -23,6 +22,5 @@ const mapDispatchToProps = (dispatch: any) => ({
 })
 
 export default compose(
-  withAuthRedirect,
   connect(mapStateToProps, mapDispatchToProps)
 )(Messages)

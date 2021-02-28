@@ -29,21 +29,21 @@ type PropsType = {
 }
 
 const ProfileContainer: React.FC<PropsType> = (props) => {
-  const refreshProfile = () => {
-    let userId = props.match.params.userId
-    if (!userId) userId = props.id
-    if (!props.id) {
-      props.history.push('/Sign In')
-    }
-    props.getUserProfile(userId)
-    props.getStatus(userId)
-  }
-  useEffect(() => {
-    refreshProfile()
-  }, [])
-  useEffect(() => {
-    refreshProfile()
-  }, [props.match.params.userId])
+  // const refreshProfile = () => {
+  //   let userId = props.match.params.userId
+  //   if (!userId) userId = props.id
+  //   if (!props.id) {
+  //     props.history.push('/Sign In')
+  //   }
+  //   props.getUserProfile(userId)
+  //   props.getStatus(userId)
+  // }
+  // useEffect(() => {
+  //   refreshProfile()
+  // }, [])
+  // useEffect(() => {
+  //   refreshProfile()
+  // }, [props.match.params.userId])
   return (
     <Profile
       isOwner={!props.match.params.userId}

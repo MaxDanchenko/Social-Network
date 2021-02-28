@@ -4,6 +4,7 @@ import {auth, logIn} from '../../../Redux/authUserReducer'
 import Authorization from './Authorization'
 import {AppStateType} from '../../../Redux/reduxStore'
 import {getCaptchaSelector, getIsAuthSelector} from '../../../Redux/selectors'
+import {Redirect} from "react-router-dom";
 
 type PropsType = {
   captchaUrl: string | File
@@ -18,8 +19,12 @@ type PropsType = {
 const AuthUserContainer: React.FC<PropsType> = ({auth, isAuth, logIn, captchaUrl}) => {
   useEffect(() => {
     auth()
+    console.log('use effect')
   }, [])
-  return <Authorization isAuth={isAuth} logIn={logIn} captchaUrl={captchaUrl} />
+  if (isAuth) {
+    return <Redirect to={'home'}/>
+  }
+  return <Authorization logIn={logIn} captchaUrl={captchaUrl} />
 }
 type MapStateToPropsType = {
   isAuth: boolean

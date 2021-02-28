@@ -17,5 +17,4 @@ const mapStateToProps = (state: AppStateType) => ({
   isAuth: getIsAuthSelector(state)
 })
 
-export default connect(mapStateToProps, {logOut}
-)(LogOutUserContainer)
+export default connect(mapStateToProps, {logOut})(LogOutUserContainer)
