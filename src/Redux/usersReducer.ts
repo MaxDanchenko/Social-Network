@@ -1,7 +1,7 @@
 import {CurrentItemType} from '../api/ApiTypes'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
-import {CommonActionsType, InferActionsTypes} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from './reduxStore'
 
 
 const initialState = {
@@ -14,14 +14,14 @@ const initialState = {
         large: '',
       },
       status: '',
-      followed: false
-    }
+      followed: false,
+    },
   ],
   pageSize: 7,
   pageUserCount: 70,
   currentPage: 1,
   isFetching: true,
-  followingInProgress: [0]
+  followingInProgress: [0],
 }
 
 const usersReducer = (state = initialState, action: ActionsType): InitialStateType => {
@@ -30,15 +30,15 @@ const usersReducer = (state = initialState, action: ActionsType): InitialStateTy
       return {
         ...state,
         users: updateObjectInArray(state.users, action.userId, 'id', {
-          followed: true
-        })
+          followed: true,
+        }),
       }
     case 'USERS_UNFOLLOW':
       return {
         ...state,
         users: updateObjectInArray(state.users, action.userId, 'id', {
-          followed: false
-        })
+          followed: false,
+        }),
       }
     case 'USERS_SET_USERS': {
       return {...state, users: action.users}
@@ -55,7 +55,7 @@ const usersReducer = (state = initialState, action: ActionsType): InitialStateTy
         ...state,
         followingInProgress: action.isFetching
           ? [...state.followingInProgress, action.userId]
-          : state.followingInProgress.filter((id) => id !== action.userId)
+          : state.followingInProgress.filter((id) => id !== action.userId),
       }
     }
     default:
@@ -68,7 +68,7 @@ const actions = {
   setUsers: (users: Array<CurrentItemType>) => ({type: 'USERS_SET_USERS', users}) as const,
   setCurrentPage: (currentPage: number) => ({type: 'USERS_SET_CURRENT_PAGE', currentPage}) as const,
   setIsFetching: (isFetching: boolean) => ({type: 'USERS_IS_FETCHING', isFetching}) as const,
-  toggleButtonProgress: (isFetching: boolean, userId: number) => ({type: 'USERS_TOGGLE_BUTTON', isFetching, userId}) as const
+  toggleButtonProgress: (isFetching: boolean, userId: number) => ({type: 'USERS_TOGGLE_BUTTON', isFetching, userId}) as const,
 }
 
 export const getUsers = (currentPage: number, pageSize: number): ThunkType => (dispatch) => {

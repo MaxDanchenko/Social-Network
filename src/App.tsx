@@ -7,7 +7,7 @@ import GeneralNav from './components/navigation/GeneralNav/GeneralNav'
 import GeneralSidebarContainer from './components/sidebar/GeneralSidebar/GeneralSidebarContainer'
 import GeneralHeader from './components/header/GeneralHeader/GeneralHeader'
 import MessagesContainer from './components/article/MessagesAll/MessagesContainer'
-import UsersContainer from './components/article/UsersFollow/UsersContainer'
+import UsersContainer from './components/article/Users/UsersContainer'
 import AuthUserContainer from './components/article/Authorization/AuthUserContainer'
 import {initialize} from './Redux/appReducer'
 import PreLoader from './components/CommonFiles/PreLoader/PreLoader'
@@ -15,21 +15,19 @@ import PhotoGallery from './components/article/PhotoGallery/PhotoGallery'
 import ByePage from './components/byePage/ByePage'
 import {AppStateType} from './Redux/reduxStore'
 import ProfileContainer from './components/article/Profile/ProfileContainer'
-import NewsContainer from "./components/newsBar/NewsContainer";
-import { getInitialStatusSelector } from './Redux/selectors'
+import {getInitialStatusSelector} from './Redux/selectors'
+import Player from './components/article/Music/AudioPlayer'
 
 
-type PropsType = {
+type AppPropsType = {
   initialStatus: boolean
   initialize: () => void
 }
-const App: React.FC<PropsType> = ({initialStatus, initialize}) => {
+const App: React.FC<AppPropsType> = ({initialStatus, initialize}) => {
   useEffect(() => {
     initialize()
   }, [])
-  const pathName = ['/Home', '/Messages', '/UsersFollow', '/profile/:userId?', '/Photos', '/Videos']
-  let pathNameForWeather = pathName.concat()
-  pathNameForWeather = pathNameForWeather.splice(1, 5)
+  const pathName = ['/Home', '/Messages', '/Users', '/profile/:userId?', '/Music', '/Photos', '/Videos']
   const routeComponent = (component: React.FC, index: number) => (<Route exact path="/" component={component} key={index}/>)
   if (!initialStatus) {
     return <PreLoader/>
@@ -43,15 +41,11 @@ const App: React.FC<PropsType> = ({initialStatus, initialize}) => {
         {[GeneralNav].map((component: React.FC, index: number) => routeComponent(component, index))}
       </Route>
       <div className="wrapper">
-        <Route path="/Sign In" render={() =>
-          //@ts-ignore
-          <AuthUserContainer/>
-        }/>
+        <Route path="/Sign In" render={() => <AuthUserContainer />}/>
         <Route path="/ByePage" render={() => <ByePage/>}/>
         <div className="subWrap">
-          <Route>
-            {//@ts-ignore
-              [GeneralHeader, GeneralSidebarContainer].map((component: React.FC, index: number) => routeComponent(component, index))}
+          <Route>{[GeneralHeader, GeneralSidebarContainer]
+            .map((component: any, index: number) => routeComponent(component, index))}
           </Route>
           <Route>
             {pathName.map((path: string, index: number) => (<Route
@@ -60,21 +54,13 @@ const App: React.FC<PropsType> = ({initialStatus, initialize}) => {
               key={index}
             />))}
           </Route>
-          <Route path="/Home" render={() => <GeneralHeader/>}/>
-          <div className={'weatherWrap'}>
+          <div className={'asideWrap'}>
+            <Route path="/Home" render={() => <GeneralHeader/>}/>
             <Route path="/Messages" render={() => <MessagesContainer/>}/>
-            { //@ts-ignore
-              <Route path="/UsersFollow" render={() => <UsersContainer/>}/>}
-            { //@ts-ignore
-              <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>}
+            <Route path="/Users" render={() => <UsersContainer/>}/>
+            <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
             <Route path="/Photos" render={() => <PhotoGallery/>}/>
-            {/*<Route>*/}
-            {/*  {pathNameForWeather.map((path: string, index: number) => (<Route path={path} component={NewsContainer} key={index}/>))}*/}
-            {/*</Route>*/}
-            {/*<Route>*/}
-            {/*  { //@ts-ignore*/}
-            {/*    [NewsContainer].map((component: React.FC, index: number) => routeComponent(component, index))}*/}
-            {/*</Route>*/}
+            <Route path="/Music" render={() => <div>coming soon...</div>}/>
           </div>
         </div>
       </div>
@@ -82,7 +68,7 @@ const App: React.FC<PropsType> = ({initialStatus, initialize}) => {
 }
 
 const mapStateToProps = (state: AppStateType) => ({
-  initialStatus: getInitialStatusSelector(state)
+  initialStatus: getInitialStatusSelector(state),
 })
 
 export default connect(mapStateToProps, {initialize})(App)

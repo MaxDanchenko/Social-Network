@@ -1,16 +1,19 @@
+@import '../../CommonFiles/commonStyles.module';
 .area {
-  min-height: 26px;
-  min-width: 403px;
-  padding-left: 10px;
-  color: #373b44;
-  font-size: 14px;
-  line-height: 25px;
+   min-height: 30px;
+   min-width: 350px;
+   padding-left: 10px;
+   color: #373b44;
+   font-size: 14px;
+   line-height: 25px;
+   box-shadow: $boxShadowForBlock;
+   border-radius: $smallRadius;
 
-  &:hover {
-    -webkit-box-shadow: 0 0 4px 2px #adcbff;
-    box-shadow: 0 0 4px 2px #adcbff;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-  }
+   &:hover {
+      -webkit-box-shadow: 0 0 4px 2px #adcbff;
+      box-shadow: 0 0 4px 2px #adcbff;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+   }
 }

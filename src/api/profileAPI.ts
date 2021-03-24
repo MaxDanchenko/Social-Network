@@ -19,5 +19,5 @@ export const profileAPI = {
   },
   profile(userId: number | null) {
     return instance.get<ProfileType>(`profile/${userId}`).then((res) => res.data)
-  }
+  },
 }

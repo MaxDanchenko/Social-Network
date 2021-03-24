@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Profile from './Profile'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import {savePhoto, updateStatus} from '../../../Redux/profileReducer'
 import {compose} from 'redux'
-import {AppStateType} from "../../../Redux/reduxStore";
-import {ProfileType} from "../../../api/ApiTypes";
-import {getIdSelector, getIsAuthSelector, getProfileSelector, getStatusSelector} from "../../../Redux/selectors";
+import {AppStateType} from '../../../Redux/reduxStore'
+import {ProfileType} from '../../../api/ApiTypes'
+import {getIdSelector, getIsAuthSelector, getProfileSelector, getStatusSelector} from '../../../Redux/selectors'
 
 
 type PropsType = {
@@ -23,7 +23,7 @@ type PropsType = {
   id: number
 
   updateStatus: (status: string) => void
-  savePhoto: (e: any) => void
+  savePhoto: (e: File) => void
 }
 
 const ProfileContainer: React.FC<PropsType> = (props) => {
@@ -47,12 +47,12 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
   profile: getProfileSelector(state),
   status: getStatusSelector(state),
   id: getIdSelector(state),
-  isAuth: getIsAuthSelector(state)
+  isAuth: getIsAuthSelector(state),
 })
-export default compose(
+export default compose<any>(
   connect(mapStateToProps, {
     updateStatus,
-    savePhoto
+    savePhoto,
   }),
   withRouter
 )(ProfileContainer)

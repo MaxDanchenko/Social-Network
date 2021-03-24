@@ -1,38 +1,36 @@
 @import '../../CommonFiles/commonStyles.module';
 
 .mainWrap {
-  background-color: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  width: 100%;
-  height: fit-content;
-  box-shadow: $boxShadowForBlock;
+   background-color: white;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 10px 0 10px 10px;
+   width: 100%;
+   box-shadow: $boxShadowForBlock;
+   border-radius: $bottomRadius;
 
-  .personsWrap {
-    padding-right: 6px;
-    width: 30%;
-    height: 100%;
-  }
+   .personsWrap {
+      padding-right: 6px;
+      width: 30%;
+      height: 100%;
+   }
 
-  .messageWrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 70%;
-    flex-wrap: wrap;
-    border-left: solid 1px $mainBackGroundColor;
+   .messageWrap {
+      position: relative;
+      width: 70%;
+      border-left: solid 1px $mainBackGroundColor;
 
-    .message {
-      width: 100%;
-      overflow: auto;
-    }
-  }
+      .message {
+         height: 500px;
+         width: 100%;
+         overflow: auto;
+      }
+   }
 }
 
 @media (max-width: 1244px) {
-  .mainWrap {
-    width: 93%;
-    margin-left: 20px;
-  }
+   .mainWrap {
+      width: 93%;
+      margin-left: 20px;
+   }
 }

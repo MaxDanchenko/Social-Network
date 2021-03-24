@@ -3,9 +3,9 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 
 type PropsType = {
-    id: number
-    src: string
-    name: string
+  id: number
+  src: string
+  name: string
 }
 
 const Person: React.FC<PropsType> = ({id, src, name}) => {

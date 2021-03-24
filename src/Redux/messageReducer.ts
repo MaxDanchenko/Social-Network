@@ -1,4 +1,4 @@
-import {InferActionsTypes} from "./reduxStore";
+import {InferActionsTypes} from './reduxStore'
 
 const initialState = {
   friendsList: [
@@ -7,22 +7,22 @@ const initialState = {
     {id: 3, name: 'James Smith', src: require('../images/avatars/3.png')},
     {id: 4, name: 'Joe Rogan', src: require('../images/avatars/4.png')},
     {id: 5, name: 'Francis Ngannou', src: require('../images/avatars/5.png')},
-    {id: 6, name: 'Daniel Cormrier', src: require('../images/avatars/6.png')}
+    {id: 6, name: 'Daniel Cormrier', src: require('../images/avatars/6.png')},
   ],
   messages: [
     {
       id: 1,
-      message: ' no problem '
+      message: ' no problem ',
     },
     {
       id: 1,
-      message: ' i think so '
+      message: ' i think so ',
     },
     {
       id: 1,
-      message: ' ok man'
-    }
-  ]
+      message: ' ok man',
+    },
+  ],
 }
 
 const messageReducer = (state = initialState, action: messageActionType): InitialStateType => {
@@ -30,7 +30,7 @@ const messageReducer = (state = initialState, action: messageActionType): Initia
     case 'SEND_MESSAGE':
       return {
         ...state,
-        messages: [...state.messages, {id: 7, message: action.newMessageBody}]
+        messages: [...state.messages, {id: 7, message: action.newMessageBody}],
       }
     default:
       return state
@@ -40,8 +40,8 @@ const messageReducer = (state = initialState, action: messageActionType): Initia
 export const actions = {
   sendMessageCreator: (newMessageBody: string) => ({
     type: 'SEND_MESSAGE',
-    newMessageBody
-  }) as const
+    newMessageBody,
+  }) as const,
 }
 
 

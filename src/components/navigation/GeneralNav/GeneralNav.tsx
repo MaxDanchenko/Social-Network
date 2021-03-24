@@ -5,6 +5,8 @@ import Search from '../search/Search'
 import Settings from '../settings/Settings'
 import NavMenu from '../menu/Menu'
 import LoginUserContainer from '../../header/LogOutUser/LogOutUserContainer'
+import Player from '../../article/Music/AudioPlayer'
+
 
 
 const GeneralNav: React.FC = () => {
@@ -15,6 +17,7 @@ const GeneralNav: React.FC = () => {
           <ProfileIcon/>
           <Search/>
         </form>
+        <Player />
         <div className={Styles.icons}>
           <NavMenu/>
           <Settings/>

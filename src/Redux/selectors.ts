@@ -1,4 +1,4 @@
-import {AppStateType} from "./reduxStore";
+import {AppStateType} from './reduxStore'
 
 export const getInitialStatusSelector = (state: AppStateType) => state.app.initialStatus
 export const getCaptchaSelector = (state: AppStateType) => state.authUser.captchaUrl
@@ -14,5 +14,3 @@ export const getPageUserCountSelector = (state: AppStateType) => state.usersPage
 export const getCurrentPageSelector = (state: AppStateType) => state.usersPage.currentPage
 export const getIsFetchingSelector = (state: AppStateType) => state.usersPage.isFetching
 export const getFollowingSelector = (state: AppStateType) => state.usersPage.followingInProgress
-export const getTitleSelector = (state: AppStateType) => state.newsReducer.title
-export const getBodySelector = (state: AppStateType) => state.newsReducer.body

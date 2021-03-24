@@ -3,7 +3,6 @@ import Styles from './formValidator.module.scss'
 import cn from 'classnames'
 
 
-
 const ValidateInput: React.FC<any> = ({input, meta, ...props}) => {
   const hasError = meta.error && meta.touched
   return (

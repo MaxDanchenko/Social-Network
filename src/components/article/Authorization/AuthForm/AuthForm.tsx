@@ -66,11 +66,11 @@ const AuthForm = (props: any) => {
           <div className={Styles.or}>or</div>
         </div>
         <div className={Styles.createAccountWrap}>
-          <NavLink className={Styles.createAccount} to={'/Regestration'}>
+          <div className={Styles.createAccount}>
             <button className={Styles.createAccountButton}>
               Create New Account
             </button>
-          </NavLink>
+          </div>
         </div>
       </div>
     </div>

@@ -6,29 +6,27 @@ import usersReducer from './usersReducer'
 import profileReducer from './profileReducer'
 import authUserReducer from './authUserReducer'
 import appReducer from './appReducer'
-import newsReducer from './newsReducer'
+import friendsReducer from './friendsReducer'
 
 
 const rootReducers = combineReducers({
   messagePage: messageReducer,
-  newsReducer: newsReducer,
   usersPage: usersReducer,
   profilePage: profileReducer,
   authUser: authUserReducer,
+  friendsPage: friendsReducer,
   form: formReducer,
-  app: appReducer
+  app: appReducer,
 })
 
-export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U} ? U : never
+export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
 export type CommonActionsType<A extends Action = Action, R = Promise<void> | void> = ThunkAction<R, AppStateType, unknown, A>
 
 type RootReducerType = typeof rootReducers
 export type AppStateType = ReturnType<RootReducerType>
 
 
-
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware))
-
 
 
 // @ts-ignore

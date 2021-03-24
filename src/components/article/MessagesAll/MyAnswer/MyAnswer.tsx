@@ -3,7 +3,7 @@ import Styles from './MyAnswer.module.scss'
 import cn from 'classnames'
 
 type PropsType = {
-    message: string
+  message: string
 }
 
 const MyAnswer: React.FC<PropsType> = ({message}) => {

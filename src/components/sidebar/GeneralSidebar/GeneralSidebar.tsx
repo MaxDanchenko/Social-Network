@@ -2,8 +2,7 @@ import React from 'react'
 import Styles from './GeneralSidebar.module.scss'
 import HomePage from '../HomePage/HomePage'
 import Menu from '../Menu/Menu'
-import Button from '../Button/Button'
-import {ProfileType} from "../../../api/ApiTypes";
+import {ProfileType} from '../../../api/ApiTypes'
 
 type PropsType = {
   profile: ProfileType
@@ -15,7 +14,6 @@ const Sidebar: React.FC<PropsType> = ({profile, status}) => {
       <div className={Styles.wrapper}>
         <HomePage profile={profile} status={status}/>
         <Menu/>
-        <Button/>
       </div>
     </aside>
   )

@@ -3,18 +3,17 @@ import {follow, getUsers, unfollow} from '../../../Redux/usersReducer'
 import {connect} from 'react-redux'
 import UsersFollowing from './UsersFollowing'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
-import {compose} from 'redux'
-import {AppStateType} from "../../../Redux/reduxStore";
-import {CurrentItemType} from "../../../api/ApiTypes";
+import {AppStateType} from '../../../Redux/reduxStore'
+import {CurrentItemType} from '../../../api/ApiTypes'
 import Styles from './Users.module.scss'
 import {
-  getIsFetchingSelector,
   getCurrentPageSelector,
+  getFollowingSelector,
+  getIsFetchingSelector,
   getPageSizeSelector,
   getPageUserCountSelector,
-  getFollowingSelector
+  getUsersSelector,
 } from '../../../Redux/selectors'
-import {getUsersSelector} from '../../../Redux/selectors'
 
 
 type PropsType = {
@@ -26,7 +25,7 @@ type PropsType = {
 
   unfollow: (userId: number) => void
   follow: (userId: number) => void
-  onPageChanged: (p: any) => void
+  onPageChanged?: (p: number) => void
   followingInProgress: any
   getUsers: (currentPage: number, pageSize: number) => void
 }
@@ -62,14 +61,12 @@ const mapStateToProps = (state: AppStateType) => {
     pageUserCount: getPageUserCountSelector(state),
     currentPage: getCurrentPageSelector(state),
     isFetching: getIsFetchingSelector(state),
-    followingInProgress: getFollowingSelector(state)
+    followingInProgress: getFollowingSelector(state),
   }
 }
 
-export default compose(
-  connect(mapStateToProps, {
-    getUsers,
-    follow,
-    unfollow
-  })
-)(UsersContainer)
+export default connect(mapStateToProps, {
+  getUsers,
+  follow,
+  unfollow,
+})(UsersContainer)

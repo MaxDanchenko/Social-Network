@@ -1,0 +1,79 @@
+@import '../../CommonFiles/commonStyles.module';
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .audioPlayer {
+    height: 30px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: $boxShadowForBlock;
+    padding: 0 10px;
+    border-radius: $smallRadius;
+
+    .btnWrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 120px;
+
+      .button {
+        cursor: pointer;
+
+        .buttonIcon {
+          height: 20px;
+        }
+      }
+    }
+
+    .timeLineWrap {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+
+      .trackName {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: -5px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .timeSlider {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        width: 280px;
+        height: inherit;
+        .timeLine {
+          border-radius: $smallRadius;
+        height: 5px;
+          border: 1px solid black;
+          &:first-child {
+            background-color: white;
+            & > * {
+              background-color: $mainBackGroundColor;
+            }
+          }
+        }
+
+        & > * {
+          &:hover{
+            cursor: pointer;
+          }
+          width: 250px;
+          color: $mainTextColor;
+        }
+      }
+
+    }
+  }
+}

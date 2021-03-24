@@ -3,7 +3,7 @@ import {CommonActionsType, InferActionsTypes} from './reduxStore'
 
 
 const initialState = {
-  initialStatus: false
+  initialStatus: false,
 }
 
 const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
@@ -11,7 +11,7 @@ const appReducer = (state = initialState, action: ActionsType): InitialStateType
     case 'APP_INITIALIZE_SUCCESSFULLY':
       return {
         ...state,
-        initialStatus: true
+        initialStatus: true,
       }
     default:
       return state
@@ -19,7 +19,7 @@ const appReducer = (state = initialState, action: ActionsType): InitialStateType
 }
 
 const actions = {
-  initializeSuccessfully: () => ({type: 'APP_INITIALIZE_SUCCESSFULLY'}) as const
+  initializeSuccessfully: () => ({type: 'APP_INITIALIZE_SUCCESSFULLY'}) as const,
 }
 export const initialize = (): ThunkType => async (dispatch) => {
   const promise = dispatch(auth())

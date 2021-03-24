@@ -9,11 +9,11 @@ type PropsType = {
 const ProfileStatus: React.FC<PropsType> = (props) => {
   let [editMode, setEditMode] = useState(false)
   let [status, setStatus] = useState(props.status)
-  
+
   useEffect(() => {
     setStatus(props.status)
   }, [props.status])
-  
+
   const activateStatus = () => {
     setEditMode(true)
   }
@@ -22,14 +22,14 @@ const ProfileStatus: React.FC<PropsType> = (props) => {
     props.updateStatus(status)
   }
   const setDeactivateStatus = (e: any) => {
-    if(e.key === 'Enter'){
+    if (e.key === 'Enter') {
       deactivateStatus()
     }
   }
   const onStatusChange = (e: FormEvent<HTMLInputElement>) => {
     setStatus(e.currentTarget.value)
   }
-  
+
   return (
     <div>
       {!editMode && (

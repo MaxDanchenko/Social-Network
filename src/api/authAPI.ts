@@ -10,16 +10,16 @@ export const authAPI = {
     email: string | null,
     password: string | null,
     rememberMe: boolean | null = false,
-    captcha: string | null = null
+    captcha: string | null = null,
   ) {
     return instance.post<ResponseData<UserLoginDataType>>('auth/login', {
       email,
       password,
       rememberMe,
-      captcha
+      captcha,
     }).then((res) => res.data)
   },
   logOut() {
     return instance.delete('auth/login').then((res): Promise<ResponseData> => res.data)
-  }
+  },
 }

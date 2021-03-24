@@ -1,7 +1,7 @@
 import {stopSubmit} from 'redux-form'
 import {authAPI} from '../api/authAPI'
 import {securityAPI} from '../api/securityAPI'
-import {CommonActionsType, InferActionsTypes} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from './reduxStore'
 
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
   id: 0,
   login: '',
   isAuth: false,
-  captchaUrl: ''
+  captchaUrl: '',
 }
 
 
@@ -19,7 +19,7 @@ const authUserReducer = (state = initialState, action: ActionType): InitialState
     case 'GET_SECURITY_CAPTCHA':
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       }
     default:
       return state
@@ -32,12 +32,12 @@ const actions = {
                 login: string,
                 isAuth: boolean) => ({
     type: 'SET_AUTH_USER',
-    payload: {email, id, login, isAuth}
+    payload: {email, id, login, isAuth},
   }) as const,
   getSecurityCaptcha: (captchaUrl: string) => ({
     type: 'GET_SECURITY_CAPTCHA',
-    payload: {captchaUrl}
-  }) as const
+    payload: {captchaUrl},
+  }) as const,
 }
 
 
@@ -65,8 +65,8 @@ export const logIn = (email: string,
       dispatch(getCaptchaUrl())
     }
     const errorMessage = response.messages.length > 0
-        ? response.messages[0]
-        : 'Some error'
+      ? response.messages[0]
+      : 'Some error'
     const action = stopSubmit('logIn', {_error: errorMessage})
     dispatch(action)
   }

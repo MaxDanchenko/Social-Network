@@ -1,0 +1,13 @@
+@import '../commonStyles.module';
+
+
+.wrap {
+
+   .uploadBtn {
+      background-color: $buttonColor;
+      color: $buttonTextColor;
+      cursor: pointer;
+      @include onHoverActiveButton;
+   }
+}
+

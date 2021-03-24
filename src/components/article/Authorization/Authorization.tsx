@@ -2,7 +2,6 @@ import React from 'react'
 import AuthForm from './AuthForm/AuthForm'
 import Styles from './Authorization.module.scss'
 import {reduxForm} from 'redux-form'
-import {NavLink, Redirect} from 'react-router-dom'
 
 
 type PropsType = {
@@ -18,7 +17,7 @@ const Authorization: React.FC<PropsType> = ({logIn, captchaUrl}) => {
       formData.email,
       formData.password,
       formData.rememberMe,
-      formData.captcha
+      formData.captcha,
     )
   }
   return (

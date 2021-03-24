@@ -2,7 +2,9 @@ import React from 'react'
 import Styles from './HomePage.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import avatar from '../../../images/avatars/annUser.jpg'
-import {ProfileType} from "../../../api/ApiTypes";
+import {CurrentItemType, ProfileType} from '../../../api/ApiTypes'
+import {NavLink, Route} from 'react-router-dom'
+import GeneralHeader from '../../header/GeneralHeader/GeneralHeader'
 
 type PropsType = {
   profile: ProfileType
@@ -14,11 +16,13 @@ const HomePage: React.FC<PropsType> = ({profile, status}) => {
   }
   return (
     <div className={Styles.main}>
-      <img
-        src={profile.photos.large || avatar}
-        alt="avatar"
-        className={Styles.profiles}
-      />
+      <NavLink className={Styles.linkPerson} to={'/profile/' + profile.userId}>
+        <img
+          src={profile.photos.large || avatar}
+          alt="avatar"
+          className={Styles.profiles}
+        />
+      </NavLink>
       <h1 className={Styles.names}>{profile.fullName}</h1>
       <p className={Styles.subName}>{status}</p>
     </div>

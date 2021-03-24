@@ -2,9 +2,9 @@ import React, {useEffect} from 'react'
 import Sidebar from './GeneralSidebar'
 import {connect} from 'react-redux'
 import {getStatus, getUserProfile} from '../../../Redux/profileReducer'
-import {ProfileType} from "../../../api/ApiTypes";
-import {AppStateType} from "../../../Redux/reduxStore";
-import {getIdSelector, getProfileSelector, getStatusSelector} from '../../../Redux/selectors';
+import {CurrentItemType, ProfileType} from '../../../api/ApiTypes'
+import {AppStateType} from '../../../Redux/reduxStore'
+import {getIdSelector, getProfileSelector, getStatusSelector, getUsersSelector} from '../../../Redux/selectors'
 
 
 type PropsType = {

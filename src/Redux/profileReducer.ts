@@ -1,6 +1,6 @@
 import {profileAPI} from '../api/profileAPI'
 import {ProfileType} from '../api/ApiTypes'
-import {CommonActionsType, InferActionsTypes} from "./reduxStore";
+import {CommonActionsType, InferActionsTypes} from './reduxStore'
 
 
 const initialState = {
@@ -11,14 +11,14 @@ const initialState = {
     aboutMe: '',
     fullName: '',
     contacts: {
-      twitter: ''
+      twitter: '',
     },
     photos: {
       small: '',
       large: '',
-    }
+    },
   },
-  status: ''
+  status: '',
 }
 
 const profileReducer = (state = initialState, action: profileActionType): InitialStateType => {
@@ -40,13 +40,13 @@ const profileReducer = (state = initialState, action: profileActionType): Initia
 const actions = {
   setUserProfile: (profile: ProfileType) => ({
     type: 'SET_USER_PROFILE',
-    profile
+    profile,
   }) as const,
   setStatus: (status: string) => ({type: 'SET_STATUS', status}) as const,
   setPhotoSuccess: (photos: { small: string, large: string }) => ({
     type: 'SET_PHOTO_SUCCESS',
-    photos
-  }) as const
+    photos,
+  }) as const,
 }
 
 

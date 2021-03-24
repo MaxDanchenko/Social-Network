@@ -1,18 +1,43 @@
 @import "../../CommonFiles/commonStyles.module";
 
-.list {
-  padding-left: 5px;
-  @include onHoverBackgroundColor;
-  @include onActiveBackgroundColor;
+.table {
+  width: 70%;
 
-  &:hover {
-    border-left: 3px solid #4267b2;
+  .list {
+    .link {
+      border-radius: $smallRadius;
+      width: 100%;
+      display: inline-flex;
+      color: $mainTextColor;
+      font-size: 14px;
+      line-height: 32px;
+      align-items: center;
+      padding-left: 5px;
+      @include onHoverBackgroundColor;
+
+      &:hover {
+        border-left: 4px solid #4267b2;
+        cursor: pointer;
+      }
+
+      .menuLinkIcon {
+        height: 15px;
+      }
+
+      .menuLinkItem {
+        padding-left: 7px;
+      }
+    }
   }
 
-  .link {
-    display: inline-block;
-    color: $mainTextColor;
-    font-size: 14px;
-    line-height: 32px;
+  .activeListItem {
+    background-color: #d6d4d4;
+    border-left: 4px solid #4267b2;
+    font-weight: bold;
+
+    &:hover {
+      border-left: 3px solid #4267b2;
+    }
   }
 }
+

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {ChangeEvent} from 'react'
 import Styles from './Profile.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import ProfileStatus from './ProfileStatus/ProfileStatus'
-import {ProfileType} from "../../../api/ApiTypes";
+import {ProfileType} from '../../../api/ApiTypes'
 
 type PropsType = {
   profile: ProfileType
@@ -10,7 +10,7 @@ type PropsType = {
   status: string
 
   updateStatus: (status: string) => void
-  savePhoto: (e: any) => void
+  savePhoto: (e: File) => void
 }
 
 const Profile: React.FC<PropsType> = (props) => {
@@ -18,8 +18,8 @@ const Profile: React.FC<PropsType> = (props) => {
     return <PreLoader/>
   }
 
-  const addPhoto = (e: any) => {
-    if (e.target.files.length) {
+  const addPhoto = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.length) {
       props.savePhoto(e.target.files[0])
     }
   }

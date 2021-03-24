@@ -1,5 +1,6 @@
 // main border boxShadow for Block
 $boxShadowForBlock: 0 0 5px 1px rgba(156, 156, 156, 1);
+$boxShadowForBlockLight: 0 0 2px 1px rgba(201, 201, 201, 1);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // required/dangerous effect for Form
 $danger0usShadow: inset 0 0 2px 1px rgba(255, 0, 0, 1);
@@ -13,57 +14,56 @@ $mainTextColor: black;
 //Main button color//
 $buttonColor: #006eff;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// Button text color//
+$buttonTextColor: #fff;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// Border Radius//
+$smallRadius: 5px;
+$largeRadius: 15px;
+$bottomRadius: 0 0 10px 10px;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// Input BackGround
+$inputBackGround: #E8F0FE;
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover effect for menu and block item
 @mixin onHoverBackgroundColor {
-  &:hover {
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-    background: rgb(0,138,255);
-    background: linear-gradient(90deg, rgba(0,138,255,1) 0%, rgba(162,239,255,1) 100%);
-    color: #000;
-    font-weight: bold;
-  }
+   &:hover {
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+      background: #d6d4d4;
+   }
 }
 
-@mixin onActiveBackgroundColor {
-  &:active {
-    background-color: #adcbff;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-    font-weight: bold;
-  }
-}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover and active effect Box Shadow for Button //
 @mixin onHoverActiveButton {
-  &:hover {
-    -webkit-box-shadow: 0 0 2px 1px #2e4a75;
-    box-shadow: 0 0 2px 1px #2e4a75;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-  }
+   &:hover {
+      -webkit-box-shadow: 0 0 2px 1px #2e4a75;
+      box-shadow: 0 0 2px 1px #2e4a75;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+   }
 
-  &:active {
-    -webkit-box-shadow: 0 0 2px 1px #adcbff;
-    box-shadow: 0 0 2px 1px #adcbff;
-    -webkit-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-  }
+   &:active {
+      -webkit-box-shadow: 0 0 2px 1px #adcbff;
+      box-shadow: 0 0 2px 1px #adcbff;
+      -webkit-transition: 0.2s;
+      -o-transition: 0.2s;
+      transition: 0.2s;
+   }
 
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 // hover effect for Text
 @mixin onHoverText {
-  &:hover {
-    text-decoration: underline;
-    -webkit-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition: 0.1s;
-  }
+   &:hover {
+      text-decoration: underline;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+   }
 }
