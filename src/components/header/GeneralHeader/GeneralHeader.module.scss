@@ -4,6 +4,7 @@
    box-shadow: $boxShadowForBlock;
    background-color: #fff;
    border-radius: $bottomRadius;
+   height: fit-content;
 
    .wrap {
       display: -webkit-box;

@@ -16,7 +16,8 @@ import ByePage from './components/byePage/ByePage'
 import {AppStateType} from './Redux/reduxStore'
 import ProfileContainer from './components/article/Profile/ProfileContainer'
 import {getInitialStatusSelector} from './Redux/selectors'
-import Player from './components/article/Music/AudioPlayer'
+import Videos from './components/article/Videos/Videos'
+import NewsContainer from './components/newsBar/NewsContainer'
 
 
 type AppPropsType = {
@@ -54,13 +55,15 @@ const App: React.FC<AppPropsType> = ({initialStatus, initialize}) => {
               key={index}
             />))}
           </Route>
-          <div className={'asideWrap'}>
+          <div className={'mainBlockWrap'}>
             <Route path="/Home" render={() => <GeneralHeader/>}/>
             <Route path="/Messages" render={() => <MessagesContainer/>}/>
             <Route path="/Users" render={() => <UsersContainer/>}/>
             <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
             <Route path="/Photos" render={() => <PhotoGallery/>}/>
             <Route path="/Music" render={() => <div>coming soon...</div>}/>
+            <Route path="/Videos" render={() => <Videos />}/>
+            <NewsContainer />
           </div>
         </div>
       </div>

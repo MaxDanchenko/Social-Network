@@ -16,14 +16,12 @@ type PropsType = {
   handleChange: (e: any, value: any) => void
   src: srcType
 }
-const TimeTrackSlider: React.FC<PropsType> = ({
-                                                src,
+const TimeTrackSlider: React.FC<PropsType> = ({ src,
                                                 currentTime,
                                                 duration,
                                                 secondsToHms,
                                                 percentage,
-                                                handleChange,
-                                              }) => {
+                                                handleChange,}) => {
   if (!currentTime) {
     currentTime = 0.01
   }

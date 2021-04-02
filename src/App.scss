@@ -21,7 +21,7 @@ body {
       grid-template-columns: 2fr 10fr;
       grid-template-rows: repeat(2, 1fr);
 
-      .asideWrap {
+      .mainBlockWrap {
          display: grid;
          grid-template-columns: 9fr 3fr;
          grid-template-rows: repeat(3, 1fr);
