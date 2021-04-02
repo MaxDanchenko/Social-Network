@@ -1,56 +1,100 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Styles from './AudioPlayer.module.scss'
 import {src} from './AudioList'
-import Repeat from './RepeatButton'
-import TrackToggle from './TrackToggle'
-import PlayPauseToggle from './PlayPauseToggle'
-import TimeTrackSlider from './TimeTrackSlider'
+import Repeat from './RepeatButton/RepeatButton'
+import TrackToggle from './TrackToggle/TrackToggle'
+import PlayPauseToggle from './PlayPauseToggle/PlayPauseToggle'
+import TimeTrackSlider from './TimeTrackSlider/TimeTrackSlider'
+import VolumeSlider from './VolumeSlider/VolumeSlider'
 
 
 const Player: React.FC = () => {
+  const [percentage, setPercentage] = useState<number>(0)
+  const [isMuted, setIsMuted] = useState<boolean>(false)
   const [loopStatus, setLoopStatus] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
-  const [duration, setDuration] = useState<any>(null)
-  const [currentTime, setCurrentTime] = useState<string>('0:00')
-  const [track, setTrack] = useState<number>(0)
+  const [duration, setDuration] = useState(0)
+  const [currTime, setCurrTime] = useState(0)
+  const [trackNum, setTrackNum] = useState(0)
   const audioRef = useRef(null)
   const nextTrack = () => {
-    if (track === src.length - 1) {
-      return setTrack(0)
-    } else if (track >= 0) {
-      return setTrack(track + 1)
+    if (trackNum === src.length - 1) {
+      return setTrackNum(0)
+    } else if (trackNum >= 0) {
+      return setTrackNum(trackNum + 1)
     }
   }
   const prevTrack = () => {
-    if (track) {
-      return setTrack(track - 1)
-    } else if (!track) {
-      return setTrack(src.length - 1)
+    if (trackNum) {
+      return setTrackNum(trackNum - 1)
+    } else if (!trackNum) {
+      return setTrackNum(src.length - 1)
     }
   }
   useEffect(() => {
     const audio: any = audioRef.current
     if (duration) {
+      setIsPlaying(true)
       audio.play()
     }
-  }, [track])
+  }, [trackNum])
+  useEffect(() => {
+    const audio: any = audioRef.current
+    if (percentage == 100.00) {
+      setIsPlaying(false)
+      nextTrack()
+    }
+  }, [percentage])
+  const secondsToHms = (seconds: number) => {
+    let duration = seconds
+    let hours = duration / 3600
+    duration = duration % 3600
+    //@ts-ignore
+    let min = parseInt(duration / 60)
+    duration = duration % 60
+    //@ts-ignore
+    let sec = parseInt(duration)
 
-  // let a = 193.673469 // duration from object
-  // let b = (a / 60).toFixed(1) // cut number
-  // let c = ((b.split('.').splice(1) + 0) * (60 / 100)) // seconds part
-  // let d = b.split('.').splice(0, 1) // minutes part
-  // let e = `${d}:${c}` // result min + sec
-//175.673469
-  const changeDuration = (e: any) => {
-    e = (e.duration / 60).toFixed(1)  // cut
-    const minutes = e.split('.').splice(0, 1) // minutes part
-    const seconds = ((e.split('.').splice(1) + 0) * (60 / 100)) // seconds part
-    const result = `${minutes}:${seconds}` // result min + sec
-    setDuration(result)
+    if (sec < 10) {
+      //@ts-ignore
+      sec = `0${sec}`
+    }
+    if (min < 10) {
+      //@ts-ignore
+      min = `${min}`
+    }
+    //@ts-ignore
+    if (parseInt(hours, 10) > 0) {
+      //@ts-ignore
+      return `${parseInt(hours, 10)}:${min}:${sec}`
+    } else if (min == 0) {
+      return `0:${sec}`
+    } else {
+      return `${min}:${sec}`
+    }
+  }
+  const getCurrDuration = (e: any) => {
+    if (e.currentTarget.duration) {
+      const percent = ((e.currentTarget.currentTime / e.currentTarget.duration) * 100).toFixed(2)
+      const time = ((e.currentTarget.duration / 100) * percentage).toFixed(2)
+      //@ts-ignore
+      setCurrTime(time)
+      //@ts-ignore
+      setPercentage(percent)
+    }
+  }
+  const handleChange = (event: any, newValue: number) => {
+    console.log({event})
+    const audio: any = audioRef.current
+    const handleTime = ((duration / 100) * newValue)
+    if (audio) {
+      audio.currentTime = handleTime
+    }
+    setPercentage(newValue)
   }
   const togglePlay = () => {
     const audio: any = audioRef.current
-    changeDuration(audio)
+    audio.volume = 0.5
     if (!isPlaying) {
       setIsPlaying(true)
       audio.play()
@@ -70,23 +114,45 @@ const Player: React.FC = () => {
       audio.loop = false
     }
   }
-  let trackListLength = src.length
+  const setMuted = () => {
+    const audio: any = audioRef.current
+    if (!isMuted) {
+      setIsMuted(true)
+      audio.muted = true
+    }
+    if (isMuted) {
+      setIsMuted(false)
+      audio.muted = false
+    }
+  }
+  const trackListLength = src.length
   return (
     <div className={Styles.wrap}>
-      <audio src={src[track]} ref={audioRef}>
+      <audio src={src[trackNum].url}
+             ref={audioRef}
+             onTimeUpdate={getCurrDuration}
+             onLoadedData={(e: any) => {
+               setDuration(e.currentTarget.duration.toFixed(2))
+             }}>
       </audio>
       <div className={Styles.audioPlayer}>
         <div className={Styles.btnWrap}>
-          <Repeat loopStatus={loopStatus} loopingTrack={loopingTrack}/>
-          <TrackToggle trackListLength={trackListLength} prevTrack={prevTrack} nextTrack={nextTrack}/>
-          <PlayPauseToggle togglePlay={togglePlay} isPlaying={isPlaying}/>
+          <Repeat loopStatus={loopStatus}
+                  loopingTrack={loopingTrack}/>
+          <TrackToggle trackListLength={trackListLength}
+                       prevTrack={prevTrack}
+                       nextTrack={nextTrack}/>
+          <PlayPauseToggle togglePlay={togglePlay}
+                           isPlaying={isPlaying}/>
+          <VolumeSlider setMuted={setMuted}
+                        isMuted={isMuted}/>
         </div>
-        <div className={Styles.timeLineWrap}>
-          <div>{currentTime || '0:00'}</div>
-          <div className={Styles.trackName}>Imagine Dragons - Follow you</div>
-          <TimeTrackSlider audioRef={audioRef}/>
-          <div>{duration || '0:00'}</div>
-        </div>
+        <TimeTrackSlider percentage={percentage}
+                         handleChange={handleChange}
+                         secondsToHms={secondsToHms}
+                         duration={duration}
+                         src={src[trackNum]}
+                         currentTime={currTime}/>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
-import Styles from './AudioPlayer.module.scss'
-import PlayIcon from '../../../images/media-icons/play-button.png'
-import PauseIcon from '../../../images/media-icons/pause.png'
+import Styles from '../AudioPlayer.module.scss'
+import PlayIcon from '../../../../images/media-icons/play-button.svg'
+import PauseIcon from '../../../../images/media-icons/pause.svg'
 
 type PropsType = {
   isPlaying: boolean

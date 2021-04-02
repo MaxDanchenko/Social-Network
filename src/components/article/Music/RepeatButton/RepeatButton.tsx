@@ -1,7 +1,7 @@
 import React from 'react'
-import Styles from './AudioPlayer.module.scss'
-import RepeatIcon from '../../../images/media-icons/repeat.png'
-import ActiveRepeatIcon from '../../../images/media-icons/repeat.svg'
+import Styles from '../AudioPlayer.module.scss'
+import RepeatIcon from '../../../../images/media-icons/progress-arrows-active.svg'
+import ActiveRepeatIcon from '../../../../images/media-icons/progress-arrows.svg'
 
 type PropsType = {
   loopingTrack: () => void

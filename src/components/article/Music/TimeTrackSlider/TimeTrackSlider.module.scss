@@ -1,0 +1,42 @@
+@import '../../../CommonFiles/commonStyles.module';
+
+.timeLineWrap {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  .time {
+    display: flex;
+    align-items: center;
+  }
+
+  .trackName {
+    width: 70%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 6px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .timeSlider {
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+    width: 280px;
+    height: inherit;
+
+
+    & > * {
+      &:hover {
+        cursor: pointer;
+      }
+      width: 250px;
+      color: $mainTextColor;
+    }
+  }
+
+}

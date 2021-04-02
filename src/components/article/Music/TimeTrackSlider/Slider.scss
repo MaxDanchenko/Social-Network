@@ -1,0 +1,29 @@
+@import '../../../CommonFiles/commonStyles.module';
+
+.MuiSlider-root {
+  height: 7px;
+
+  .MuiSlider-thumb {
+    display: none;
+  }
+
+  .MuiSlider-rail {
+    border: 1px solid $mainBackGroundColor;
+    border-radius: $smallRadius;
+    background-color: white;
+    height: 7px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .MuiSlider-track {
+    background-color: $mainBackGroundColor;
+    border-radius: $smallRadius;
+    height: 7px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+

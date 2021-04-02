@@ -1,7 +1,6 @@
 @import '../../CommonFiles/commonStyles.module';
 
 .head {
-   width: 100%;
    box-shadow: $boxShadowForBlock;
    background-color: #fff;
    border-radius: $bottomRadius;
@@ -18,9 +17,3 @@
    }
 }
 
-@media (max-width: 1244px) {
-   .head {
-      margin: 0 auto;
-      width: 90%;
-   }
-}
