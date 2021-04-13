@@ -3,6 +3,7 @@ import Styles from './Profile.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import ProfileStatus from './ProfileStatus/ProfileStatus'
 import {ProfileType} from '../../../api/ApiTypes'
+import src from '../../../images/avatars/1.png'
 
 type PropsType = {
   profile: ProfileType
@@ -12,7 +13,6 @@ type PropsType = {
   updateStatus: (status: string) => void
   savePhoto: (e: File) => void
 }
-
 const Profile: React.FC<PropsType> = (props) => {
   if (!props.profile || !props.profile.contacts) {
     return <PreLoader/>

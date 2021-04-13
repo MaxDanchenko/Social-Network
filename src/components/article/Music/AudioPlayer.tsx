@@ -128,31 +128,33 @@ const Player: React.FC = () => {
   const trackListLength = src.length
   return (
     <div className={Styles.wrap}>
-      <audio src={src[trackNum].url}
-             ref={audioRef}
-             onTimeUpdate={getCurrDuration}
-             onLoadedData={(e: any) => {
-               setDuration(e.currentTarget.duration.toFixed(2))
-             }}>
-      </audio>
-      <div className={Styles.audioPlayer}>
-        <div className={Styles.btnWrap}>
-          <Repeat loopStatus={loopStatus}
-                  loopingTrack={loopingTrack}/>
-          <TrackToggle trackListLength={trackListLength}
-                       prevTrack={prevTrack}
-                       nextTrack={nextTrack}/>
-          <PlayPauseToggle togglePlay={togglePlay}
-                           isPlaying={isPlaying}/>
-          <VolumeSlider setMuted={setMuted}
-                        isMuted={isMuted}/>
+      <div className={Styles.subWrap}>
+        <audio src={src[trackNum].url}
+               ref={audioRef}
+               onTimeUpdate={getCurrDuration}
+               onLoadedData={(e: any) => {
+                 setDuration(e.currentTarget.duration.toFixed(2))
+               }}>
+        </audio>
+        <div className={Styles.audioPlayer}>
+          <div className={Styles.btnWrap}>
+            <Repeat loopStatus={loopStatus}
+                    loopingTrack={loopingTrack}/>
+            <TrackToggle trackListLength={trackListLength}
+                         prevTrack={prevTrack}
+                         nextTrack={nextTrack}/>
+            <PlayPauseToggle togglePlay={togglePlay}
+                             isPlaying={isPlaying}/>
+            <VolumeSlider setMuted={setMuted}
+                          isMuted={isMuted}/>
+
+          </div>
+          <TimeTrackSlider percentage={percentage}
+                           handleChange={handleChange}
+                           secondsToHms={secondsToHms}
+                           duration={duration}
+                           currentTime={currTime}/>
         </div>
-        <TimeTrackSlider percentage={percentage}
-                         handleChange={handleChange}
-                         secondsToHms={secondsToHms}
-                         duration={duration}
-                         src={src[trackNum]}
-                         currentTime={currTime}/>
       </div>
     </div>
   )

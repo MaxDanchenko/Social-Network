@@ -18,6 +18,7 @@ import ProfileContainer from './components/article/Profile/ProfileContainer'
 import {getInitialStatusSelector} from './Redux/selectors'
 import Videos from './components/article/Videos/Videos'
 import NewsContainer from './components/newsBar/NewsContainer'
+import Player from './components/article/Music/AudioPlayer'
 
 
 type AppPropsType = {

@@ -1,26 +1,29 @@
 @import '../../../CommonFiles/commonStyles.module';
 
 .MuiSlider-root {
-  height: 7px;
+  height: 20px;
+
 
   .MuiSlider-thumb {
     display: none;
   }
 
   .MuiSlider-rail {
-    border: 1px solid $mainBackGroundColor;
+    border: 1px solid black;
     border-radius: $smallRadius;
-    background-color: white;
-    height: 7px;
+    background-color: $inputBackGround;
+    height: 20px;
     &:hover {
       cursor: pointer;
     }
   }
 
   .MuiSlider-track {
-    background-color: $mainBackGroundColor;
+    background: url("../../../../images/gif/reactSquare.gif");
+    background-size: contain;
     border-radius: $smallRadius;
-    height: 7px;
+    height: 20px;
+
     &:hover {
       cursor: pointer;
     }
