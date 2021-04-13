@@ -64,7 +64,9 @@ const App: React.FC<AppPropsType> = ({initialStatus, initialize}) => {
             <Route path="/Photos" render={() => <PhotoGallery/>}/>
             <Route path="/Music" render={() => <div>coming soon...</div>}/>
             <Route path="/Videos" render={() => <Videos />}/>
-            <NewsContainer />
+            <Route>
+              {pathName.map((path: string, index: number) => (<Route path={path} component={NewsContainer} key={index}/>))}
+            </Route>
           </div>
         </div>
       </div>
