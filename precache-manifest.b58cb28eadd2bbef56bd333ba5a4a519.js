@@ -1,35 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "35b0516c56069233a70b514cca9cdc9c",
+    "revision": "213674c1f0e3991724b8fef4acfcc1f1",
     "url": "/Social-Network/index.html"
   },
   {
-    "revision": "3dcc33f5ee39752af452",
-    "url": "/Social-Network/static/css/main.6f40a2b8.chunk.css"
+    "revision": "b406f3203affd8490589",
+    "url": "/Social-Network/static/css/main.d1e4beb3.chunk.css"
   },
   {
-    "revision": "9151fa6aee7b3e819471",
-    "url": "/Social-Network/static/js/2.5271943e.chunk.js"
+    "revision": "aaa4f027ec690c85c20e",
+    "url": "/Social-Network/static/js/2.315be48d.chunk.js"
   },
   {
     "revision": "d97e308901436775b1039b42fe435219",
-    "url": "/Social-Network/static/js/2.5271943e.chunk.js.LICENSE.txt"
+    "url": "/Social-Network/static/js/2.315be48d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3dcc33f5ee39752af452",
-    "url": "/Social-Network/static/js/main.1aa89365.chunk.js"
+    "revision": "b406f3203affd8490589",
+    "url": "/Social-Network/static/js/main.367710f3.chunk.js"
   },
   {
     "revision": "1ff006e4b26fc177c7b4",
     "url": "/Social-Network/static/js/runtime-main.3828848e.js"
-  },
-  {
-    "revision": "b2c073715221d88de7415d259fc82103",
-    "url": "/Social-Network/static/media/Eclipse-1s-84px.b2c07371.svg"
-  },
-  {
-    "revision": "b6462e378a7e46a9ebf0e4db984debb5",
-    "url": "/Social-Network/static/media/add-friend.b6462e37.png"
   },
   {
     "revision": "689ea90f52b6991dc0bd718cdbef279b",
@@ -80,8 +72,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Social-Network/static/media/right.f216bec2.svg"
   },
   {
+    "revision": "2110592771ae19e5e7f591d160272983",
+    "url": "/Social-Network/static/media/search-active.21105927.svg"
+  },
+  {
+    "revision": "3c81c3f19843f8d3b462d1924138f636",
+    "url": "/Social-Network/static/media/search.3c81c3f1.svg"
+  },
+  {
     "revision": "0c197c71333f6c826086c04cdf9ec73b",
     "url": "/Social-Network/static/media/smiley.0c197c71.png"
+  },
+  {
+    "revision": "d692109251674c1031bd22e66e79df46",
+    "url": "/Social-Network/static/media/user.d6921092.svg"
   },
   {
     "revision": "975e5f1078d7169edf4af91442ba4374",
