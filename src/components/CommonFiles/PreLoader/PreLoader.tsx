@@ -1,14 +1,11 @@
-import React from 'react'
+import React from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Styles from './PreLoader.module.scss'
-import preLoaderImg from '../../../images/Eclipse-1s-84px.svg'
 
-
-let PreLoader: React.FC = () => {
+export function PreLoader() {
   return (
-    <div className={Styles.preloadBlock}>
-      <img alt={'text'} className={Styles.loadIcon} src={preLoaderImg}/>
+    <div className={Styles.preloadWrapper}>
+      <CircularProgress />
     </div>
-  )
+  );
 }
-
-export default PreLoader

@@ -18,3 +18,4 @@ export const getFollowingSelector = (state: AppStateType) => state.usersPage.fol
 export const getFriendsSelector = (state: AppStateType) => state.friendsPage.friends
 export const getFriendsTotalCountSelector = (state: AppStateType) => state.friendsPage.pageFriendsCount
 export const getCurrentFriendsPageSelector = (state: AppStateType) => state.friendsPage.currentPage
+export const getFriendsPageSizeSelector = (state: AppStateType) => state.friendsPage.pageSize

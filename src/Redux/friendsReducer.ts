@@ -15,8 +15,8 @@ const initialState = {
       followed: false,
     },
   ],
-  pageSize: 10,
-  pageFriendsCount: 1,
+  pageSize: 7,
+  pageFriendsCount: 70,
   currentPage: 1,
 }
 
@@ -25,8 +25,7 @@ const friendsReducer = (state = initialState, action: ActionsType): InitialState
     case 'GET_FRIENDS_LIST':
       return {
         ...state,
-        friends: action.friends.items,
-        pageFriendsCount: action.friends.totalCount
+        friends: action.friends.items
       }
     default:
       return state

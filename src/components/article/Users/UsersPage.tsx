@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box'
 import SwipeableViews from 'react-swipeable-views'
 import {
   getCurrentFriendsPageSelector,
-  getCurrentPageSelector,
+  getCurrentPageSelector, getFriendsPageSizeSelector,
   getFriendsSelector, getFriendsTotalCountSelector,
   getIsFetchingSelector,
   getPageSizeSelector, getPageUserCountSelector,
@@ -20,7 +20,7 @@ import {getUsers} from '../../../Redux/usersReducer'
 import {CurrentItemType} from '../../../api/ApiTypes'
 import {UserList} from './AllUsers/UserList'
 import {UserPaginator} from './AllUsers/UserPaginator'
-import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
+import {PreLoader} from '../../CommonFiles/PreLoader/PreLoader'
 import {getFriends} from '../../../Redux/friendsReducer'
 
 interface TabPanelProps {
@@ -66,6 +66,7 @@ export const UsersPage: React.FC<PropsType> = () => {
   const pageUserCount = useSelector(getPageUserCountSelector)
   const friendsCurrentPage = useSelector(getCurrentFriendsPageSelector)
   const friendsTotalCount = useSelector(getFriendsTotalCountSelector)
+  const friendsPageSize = useSelector(getFriendsPageSizeSelector)
   const isFetching = useSelector(getIsFetchingSelector)
   const dispatch = useDispatch()
   const onUsersPageChanged = (pageNumber: number) => {
@@ -116,7 +117,7 @@ export const UsersPage: React.FC<PropsType> = () => {
             <div className={Styles.usersWrap}>
               <UserList users={users}/>
               <UserPaginator
-                pageSize={pageSize}
+                pageSize={friendsPageSize}
                 currentPage={currentPage}
                 pageUserCount={pageUserCount}
                 onPageChanged={onUsersPageChanged}

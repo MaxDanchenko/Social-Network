@@ -1,10 +1,9 @@
 import React from 'react'
 import Styles from './HomePage.module.scss'
-import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
+import {PreLoader} from '../../CommonFiles/PreLoader/PreLoader'
 import avatar from '../../../images/avatars/annUser.jpg'
-import {CurrentItemType, ProfileType} from '../../../api/ApiTypes'
-import {NavLink, Route} from 'react-router-dom'
-import GeneralHeader from '../../header/GeneralHeader/GeneralHeader'
+import {ProfileType} from '../../../api/ApiTypes'
+import {NavLink} from 'react-router-dom'
 
 type PropsType = {
   profile: ProfileType

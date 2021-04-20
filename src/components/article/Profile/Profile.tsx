@@ -1,6 +1,6 @@
 import React, {ChangeEvent} from 'react'
 import Styles from './Profile.module.scss'
-import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
+import {PreLoader} from '../../CommonFiles/PreLoader/PreLoader'
 import ProfileStatus from './ProfileStatus/ProfileStatus'
 import {savePhoto} from '../../../Redux/profileReducer'
 import {useDispatch, useSelector} from 'react-redux'
