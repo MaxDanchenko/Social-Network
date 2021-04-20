@@ -7,18 +7,17 @@ import GeneralNav from './components/navigation/GeneralNav/GeneralNav'
 import GeneralSidebarContainer from './components/sidebar/GeneralSidebar/GeneralSidebarContainer'
 import GeneralHeader from './components/header/GeneralHeader/GeneralHeader'
 import MessagesContainer from './components/article/MessagesAll/MessagesContainer'
-import UsersContainer from './components/article/Users/UsersContainer'
 import AuthUserContainer from './components/article/Authorization/AuthUserContainer'
 import {initialize} from './Redux/appReducer'
 import PreLoader from './components/CommonFiles/PreLoader/PreLoader'
 import PhotoGallery from './components/article/PhotoGallery/PhotoGallery'
 import ByePage from './components/byePage/ByePage'
 import {AppStateType} from './Redux/reduxStore'
-import ProfileContainer from './components/article/Profile/ProfileContainer'
 import {getInitialStatusSelector} from './Redux/selectors'
 import Videos from './components/article/Videos/Videos'
 import NewsContainer from './components/newsBar/NewsContainer'
-import Player from './components/article/Music/AudioPlayer'
+import {Profile} from './components/article/Profile/Profile'
+import {UsersPage} from './components/article/Users/UsersPage'
 
 
 type AppPropsType = {
@@ -43,7 +42,7 @@ const App: React.FC<AppPropsType> = ({initialStatus, initialize}) => {
         {[GeneralNav].map((component: React.FC, index: number) => routeComponent(component, index))}
       </Route>
       <div className="wrapper">
-        <Route path="/Sign In" render={() => <AuthUserContainer />}/>
+        <Route path="/Sign In" render={() => <AuthUserContainer/>}/>
         <Route path="/ByePage" render={() => <ByePage/>}/>
         <div className="subWrap">
           <Route>{[GeneralHeader, GeneralSidebarContainer]
@@ -59,11 +58,11 @@ const App: React.FC<AppPropsType> = ({initialStatus, initialize}) => {
           <div className={'mainBlockWrap'}>
             <Route path="/Home" render={() => <GeneralHeader/>}/>
             <Route path="/Messages" render={() => <MessagesContainer/>}/>
-            <Route path="/Users" render={() => <UsersContainer/>}/>
-            <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
+            <Route path="/Users" render={() => <UsersPage/>}/>
+            <Route path="/profile/:userId?" render={() => <Profile/>}/>
             <Route path="/Photos" render={() => <PhotoGallery/>}/>
             <Route path="/Music" render={() => <div>coming soon...</div>}/>
-            <Route path="/Videos" render={() => <Videos />}/>
+            <Route path="/Videos" render={() => <Videos/>}/>
             <Route>
               {pathName.map((path: string, index: number) => (<Route path={path} component={NewsContainer} key={index}/>))}
             </Route>

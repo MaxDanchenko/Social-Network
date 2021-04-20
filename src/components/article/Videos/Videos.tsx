@@ -9,5 +9,4 @@ const Videos: React.FC<PropsType> = () => {
     </div>
   )
 }
-
 export default Videos

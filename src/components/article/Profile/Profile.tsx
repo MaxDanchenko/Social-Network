@@ -2,72 +2,54 @@ import React, {ChangeEvent} from 'react'
 import Styles from './Profile.module.scss'
 import PreLoader from '../../CommonFiles/PreLoader/PreLoader'
 import ProfileStatus from './ProfileStatus/ProfileStatus'
-import {ProfileType} from '../../../api/ApiTypes'
-import src from '../../../images/avatars/1.png'
+import {savePhoto} from '../../../Redux/profileReducer'
+import {useDispatch, useSelector} from 'react-redux'
+import {getIdSelector, getProfileIdSelector, getProfileSelector} from '../../../Redux/selectors'
 
-type PropsType = {
-  profile: ProfileType
-  isOwner: boolean
-  status: string
 
-  updateStatus: (status: string) => void
-  savePhoto: (e: File) => void
-}
-const Profile: React.FC<PropsType> = (props) => {
-  if (!props.profile || !props.profile.contacts) {
+export const Profile = () => {
+  const profile = useSelector(getProfileSelector)
+  const profileId = useSelector(getProfileIdSelector)
+  const ownerId = useSelector(getIdSelector)
+  const dispatch = useDispatch()
+  const saveNewPhoto = (e: File) => {
+    dispatch(savePhoto(e))
+  }
+  if (!profile || !profile.contacts) {
     return <PreLoader/>
   }
-
   const addPhoto = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.length) {
-      props.savePhoto(e.target.files[0])
+      saveNewPhoto(e.target.files[0])
     }
   }
+  const profileItems = [
+    {id: 1, name: 'Full Name:', content: profile.fullName},
+    {id: 2, name: 'About me:', content: profile.aboutMe || 'React developer'},
+    {id: 3, name: 'Job search status:', content: profile.lookingForAJobDescription || 'Looking for my dream company'},
+    {id: 4, name: 'Contacts:', content: profile.contacts.twitter || 'LinkedIn'},
+  ]
   return (
     <div className={Styles.wrapper}>
       <div className={Styles.subWrapper}>
         <ul>
-          <li className={Styles.profileItem}>
-            Full Name:
-            <span>{props.profile.fullName}</span>
-          </li>
-          <li className={Styles.profileItem}>
-            About me:
-            <span>
-              {props.profile.aboutMe
-                ? props.profile.aboutMe
-                : 'React developer'}
-            </span>
-          </li>
-          <li className={Styles.profileItem}>
-            Job search status:
-            <span>
-              {props.profile.lookingForAJobDescription
-                ? props.profile.lookingForAJobDescription
-                : 'Looking for my dream company'}
-            </span>
-          </li>
-          <li className={Styles.profileItem}>
-            Contacts:
-            <span>
-              {props.profile.contacts.twitter
-                ? props.profile.contacts.twitter
-                : 'LinkedIn'}
-            </span>
-          </li>
+          {
+            profileItems.map(el => {
+              return <li key={el.id} className={Styles.profileItem}>
+                {el.name}
+                <span>{el.content}</span>
+              </li>
+            })
+          }
         </ul>
       </div>
-      {props.isOwner && (
-        <label className={Styles.fileContainer}>
+      <ProfileStatus profileId={profileId} ownerId={ownerId}/>
+      {
+        ownerId === profileId && <label className={Styles.fileContainer}>
           Change photo
           <input onChange={addPhoto} type="file" hidden/>
         </label>
-      )}
-      <ProfileStatus
-        status={props.status}
-        updateStatus={props.updateStatus}
-      />
+      }
     </div>
   )
 }
-export default Profile

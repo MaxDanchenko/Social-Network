@@ -15,10 +15,16 @@
    }
 }
 
-.statusInput {
-   border-radius: $smallRadius;
-   border: 1px solid #000000;
-   font-size: 20px;
-   width: 50%;
+.editStatusWrap {
+   margin-top: 25px;
+   width: 250px;
    text-align: center;
+   .newStatusInput {
+      border-radius: $smallRadius;
+      border: 1px solid #000000;
+      font-size: 20px;
+      width: 100%;
+      text-align: center;
+
+   }
 }

@@ -37,7 +37,7 @@ const profileReducer = (state = initialState, action: profileActionType): Initia
   }
 }
 
-const actions = {
+export const actions = {
   setUserProfile: (profile: ProfileType) => ({
     type: 'SET_USER_PROFILE',
     profile,
@@ -48,7 +48,6 @@ const actions = {
     photos,
   }) as const,
 }
-
 
 export const getUserProfile = (userId: number | null): ThunkType => async (dispatch) => {
   const response = await profileAPI.profile(userId)

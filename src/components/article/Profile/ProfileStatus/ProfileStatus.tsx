@@ -1,25 +1,32 @@
 import React, {FormEvent, useEffect, useState} from 'react'
 import Styles from './ProfileStatus.module.scss'
+import {useDispatch, useSelector} from 'react-redux'
+import {getStatusSelector} from '../../../../Redux/selectors'
+import {updateStatus} from '../../../../Redux/profileReducer'
 
 
 type PropsType = {
-  status: string
-  updateStatus: (status: string) => void
+  ownerId: number
+  profileId: number
 }
-const ProfileStatus: React.FC<PropsType> = (props) => {
-  let [editMode, setEditMode] = useState(false)
-  let [status, setStatus] = useState(props.status)
-
+const ProfileStatus: React.FC<PropsType> = ({ownerId, profileId}) => {
+  const status = useSelector(getStatusSelector)
+  const [editMode, setEditMode] = useState(false)
+  const [newStatus, setNewStatus] = useState(status)
+  const dispatch = useDispatch()
+  const updateMyStatus = (status: string) => {
+    dispatch(updateStatus(status))
+  }
   useEffect(() => {
-    setStatus(props.status)
-  }, [props.status])
+    setNewStatus(status)
+  }, [status])
 
   const activateStatus = () => {
     setEditMode(true)
   }
   const deactivateStatus = () => {
     setEditMode(false)
-    props.updateStatus(status)
+    updateMyStatus(newStatus)
   }
   const setDeactivateStatus = (e: any) => {
     if (e.key === 'Enter') {
@@ -27,33 +34,32 @@ const ProfileStatus: React.FC<PropsType> = (props) => {
     }
   }
   const onStatusChange = (e: FormEvent<HTMLInputElement>) => {
-    setStatus(e.currentTarget.value)
+    setNewStatus(e.currentTarget.value)
   }
-
   return (
     <div>
-      {!editMode && (
+      {!editMode && ownerId === profileId ?
         <div className={Styles.statusWrap}>
           <p className={Styles.status}> status: </p>
           <p onDoubleClick={activateStatus} className={Styles.status}>
-            {props.status || 'Double click on me and write your status :)'}
+            {status || 'Double click on me and write your status :)'}
           </p>
-        </div>
-      )}
-      {editMode && (
-        <div>
+        </div> : null
+      }
+      {editMode && ownerId === profileId ?
+        <div className={Styles.editStatusWrap}>
           <input
+            className={Styles.newStatusInput}
             onBlur={deactivateStatus}
             onKeyPress={setDeactivateStatus}
-            className={Styles.statusInput}
             onChange={onStatusChange}
             autoFocus={true}
             type="textarea"
             maxLength={50}
-            value={status}
+            value={newStatus}
           />
-        </div>
-      )}
+        </div> : null
+      }
     </div>
   )
 }

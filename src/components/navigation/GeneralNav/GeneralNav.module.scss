@@ -19,7 +19,10 @@
       width: 95%;
 
       .form {
-         min-width: 480px;
+         display: flex;
+         justify-content: space-between;
+         min-width: 430px;
+         position: relative;
       }
 
       .icons {

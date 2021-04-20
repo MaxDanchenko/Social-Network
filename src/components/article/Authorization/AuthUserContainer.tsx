@@ -38,7 +38,7 @@ type MapDispatchToPropsType = {
 }
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
   isAuth: getIsAuthSelector(state),
-  captchaUrl: getCaptchaSelector(state),
+  captchaUrl: getCaptchaSelector(state)
 })
 
 export default connect<MapStateToPropsType, MapDispatchToPropsType, any, AppStateType>(mapStateToProps, {

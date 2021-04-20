@@ -17,7 +17,7 @@ const initialState = {
       followed: false,
     },
   ],
-  pageSize: 7,
+  pageSize: 10,
   pageUserCount: 70,
   currentPage: 1,
   isFetching: true,

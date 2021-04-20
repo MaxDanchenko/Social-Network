@@ -13,10 +13,10 @@ const GeneralNav: React.FC = () => {
   return (
     <nav className={Styles.nav}>
       <div className={Styles.navWrap}>
-        <form className={Styles.form}>
+        <div className={Styles.form}>
           <ProfileIcon/>
           <Search/>
-        </form>
+        </div>
         <Player />
         <div className={Styles.icons}>
           <NavMenu/>
