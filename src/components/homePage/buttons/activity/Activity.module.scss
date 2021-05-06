@@ -1,0 +1,54 @@
+@import '../../../commonFiles/commonStyles.module';
+
+.wrap {
+   border-radius: $smallRadius;
+   border: 1px solid #ced0d4;
+   box-shadow: $boxShadowForBlockLight;
+
+  .table {
+    background-color: #f6f7f9;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+
+    .list {
+      text-align: center;
+      min-height: 31px;
+      min-width: 86px;
+
+      .link {
+         border-right: 1px solid #ced0d4;
+        display: block;
+        color: #4a4e58;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.12px;
+        height: 100%;
+        padding: 4px 0 0 0;
+        margin: 0px -1px;
+      }
+
+      @include onHoverActiveButton;
+
+      .icon {
+        padding: 4px 6px 0 0;
+      }
+
+      .small_icon {
+        padding: 10px 5px;
+      }
+
+      .small_link {
+        border-left: none;
+      }
+    }
+  }
+}
+
+
+
+
+

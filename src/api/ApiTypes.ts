@@ -10,7 +10,7 @@ export type CurrentItemType = {
 }
 export type ItemsType = {
   items: Array<CurrentItemType>
-  totalCount?: number
+  totalCount: number
   error?: string
 }
 export type ProfileType = {

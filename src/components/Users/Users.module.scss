@@ -1,0 +1,54 @@
+@import '../commonFiles/commonStyles.module';
+
+.userContainer {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   box-shadow: $boxShadowForBlock;
+   background-color: #dedede;
+   border-radius: $largeRadius;
+   width: 75%;
+   height: fit-content;
+}
+
+.usersWrap {
+   padding-left: 5px;
+   cursor: pointer;
+}
+
+.buttonWrap {
+   padding-top: 10px;
+   display: flex;
+   justify-content: space-between;
+
+   .followButton {
+      width: 120px;
+      height: 30px;
+      background-color: $buttonColor;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid $buttonColor;
+      border-radius: $smallRadius;
+      @include onHoverActiveButton;
+
+      &:disabled {
+         background-color: #88a8ea;
+         color: #98949c;
+      }
+
+      .inviteIcon {
+         padding-right: 5px;
+         width: 23px;
+      }
+   }
+
+   .unfollowButton {
+      border: 1px solid #98949c;
+      border-radius: $smallRadius;
+      color: #4b4f56;
+      background-color: #fff;
+      width: 120px;
+      height: 30px;
+      @import '../commonFiles/commonStyles.module';
+   }
+}

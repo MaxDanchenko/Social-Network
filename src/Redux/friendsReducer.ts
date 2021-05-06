@@ -1,5 +1,6 @@
 import {CommonActionsType, InferActionsTypes} from './reduxStore'
 import {friendsAPI} from '../api/friendsAPI'
+import {ItemsType} from '../api/ApiTypes'
 
 
 const initialState = {
@@ -15,8 +16,8 @@ const initialState = {
       followed: false,
     },
   ],
-  pageSize: 7,
-  pageFriendsCount: 70,
+  pageSize: 10,
+  pageFriendsCount: 0,
   currentPage: 1,
 }
 
@@ -25,14 +26,15 @@ const friendsReducer = (state = initialState, action: ActionsType): InitialState
     case 'GET_FRIENDS_LIST':
       return {
         ...state,
-        friends: action.friends.items
+        friends: action.friends.items,
+        pageFriendsCount: action.friends.totalCount
       }
     default:
       return state
   }
 }
 const actions = {
-  friendsList: (friends: any) => ({type: 'GET_FRIENDS_LIST', friends}) as const,
+  friendsList: (friends: ItemsType) => ({type: 'GET_FRIENDS_LIST', friends}) as const,
 }
 export const getFriends = (friend: boolean): ThunkType => async (dispatch) => {
   const response = await friendsAPI.getFriends(friend)

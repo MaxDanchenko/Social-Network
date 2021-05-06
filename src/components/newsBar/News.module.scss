@@ -1,23 +1,25 @@
-@import '../../components/CommonFiles/commonStyles.module';
+@import '../commonFiles/commonStyles.module';
 
 .wrap {
   height: fit-content;
-  padding: 0 5px;
   color: #4b4b4c;
+  width: 25%;
 
   .newsItem {
     background-color: #fff;
     margin: 10px 15px 30px 15px;
-    padding: 5px;
+    padding: 10px;
     box-shadow: $boxShadowForBlockLight;
     border-radius: $smallRadius;
     text-align: center;
+    line-height: 22px;
 
     .title {
     }
 
     .text {
       margin: 10px 0;
+      font-size: 14px;
     }
 
     .readMoreButton {

@@ -1,0 +1,44 @@
+@import '../commonFiles/commonStyles.module';
+
+.wrapper {
+   width: 75%;
+
+   .subWrapper {
+      align-items: center;
+      min-height: 150px;
+      margin-top: 16px;
+      display: flex;
+      padding: 10px 20px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+
+      ul .profileItem {
+         color: black;
+         font-size: 22px;
+         padding-top: 3px;
+
+         span {
+            color: $mainTextColor;
+            margin-left: 10px;
+            font-size: 20px;
+            font-style: italic;
+         }
+      }
+   }
+
+   .fileContainer {
+      margin: 10px 0 0 30px;
+      display: inline-flex;
+      cursor: pointer;
+      background-color: $buttonColor;
+      font-size: 16px;
+      color: white;
+      padding: 5px;
+      border-radius: $smallRadius;
+      box-shadow: $boxShadowForBlockLight;
+
+      &:hover {
+         @include onHoverActiveButton;
+      }
+   }
+}

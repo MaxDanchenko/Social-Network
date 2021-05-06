@@ -1,0 +1,41 @@
+@import '../../commonFiles/commonStyles.module';
+
+.inputWrapper {
+  width: fit-content;
+  position: relative;
+
+  .area {
+    min-height: 30px;
+    min-width: 350px;
+    padding-left: 10px;
+    //color: #373b44;
+    font-size: 14px;
+    line-height: 25px;
+    box-shadow: $boxShadowForBlock;
+    border-radius: $smallRadius;
+
+    &:hover {
+      -webkit-box-shadow: 0 0 4px 2px #adcbff;
+      box-shadow: 0 0 4px 2px #adcbff;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+    }
+  }
+  .searchIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 27px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border-left: 1px solid #bebebe;
+    background-color: white;
+
+    .searchIcon {
+      width: 20px;
+    }
+  }
+}

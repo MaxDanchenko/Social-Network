@@ -1,0 +1,21 @@
+@import '../../commonFiles/commonStyles.module';
+
+
+.profileIconWrap {
+   width: 35px;
+
+  .profileIcon {
+    margin-right: 30px;
+    height: 30px;
+    border-radius: $smallRadius;
+
+    &:hover {
+      -webkit-box-shadow: 0 0 4px 2px #adcbff;
+      box-shadow: 0 0 4px 2px #adcbff;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+    }
+  }
+}
+

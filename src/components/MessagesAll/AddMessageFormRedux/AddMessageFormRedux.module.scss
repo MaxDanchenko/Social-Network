@@ -1,0 +1,25 @@
+@import '../../commonFiles/commonStyles.module';
+
+.wrap {
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+
+  .writeMessage {
+    margin: 0 auto;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    padding: 0 10px;
+
+    .MessageArea {
+      background-color: $inputBackGround;
+      border-radius: $smallRadius;
+      box-shadow: $boxShadowForBlockLight;
+      padding: 10px;
+      resize: none;
+      width: 100%;
+      @include onHoverActiveButton;
+    }
+  }
+}

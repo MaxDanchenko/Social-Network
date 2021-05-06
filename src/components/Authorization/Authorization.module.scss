@@ -1,0 +1,40 @@
+@import '../commonFiles/commonStyles.module';
+
+.mainPageAuth {
+   padding-top: 150px;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+
+   .imageWrapper {
+      width: 100%;
+      display: flex;
+
+      .image {
+         margin: 20px auto;
+         background-color: $mainBackGroundColor;
+         padding: 10px;
+         border-radius: 10px;
+
+         .networkName {
+            color: #fff;
+            font-size: 32px;
+         }
+      }
+   }
+
+   .authWrapper {
+      box-shadow: $boxShadowForBlock;
+      margin: 0 auto;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      width: 400px;
+      align-items: center;
+      border-radius: 7px;
+   }
+}
+
+
+
+

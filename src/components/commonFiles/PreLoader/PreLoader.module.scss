@@ -1,0 +1,12 @@
+@import '../commonStyles.module';
+
+.preloadWrapper {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 50%;
+  bottom: 50%;
+  width: fit-content;
+  margin: 0 auto;
+  color: $mainBackGroundColor;
+}

@@ -1,0 +1,47 @@
+@import 'components/commonFiles/commonStyles.module.scss';
+body {
+   font-weight: 400;
+   color: $mainTextColor;
+   font-family: "Helvetica Neue";
+   cursor: default;
+
+   &::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for IE, Edge and Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+   }
+}
+.appPreloaderWrapper {
+   align-items: center;
+   min-height: 724px;
+}
+
+.wrapper {
+   margin: 0 auto;
+   width: 95%;
+   height: 100%;
+   min-height: 900px;
+   background-color: #EDEDED;
+   box-shadow: $boxShadowForBlock;
+   border-radius: $bottomRadius;
+
+   .subWrap {
+      position: relative;
+      display: flex;
+
+      .mainBlockWrap {
+         position: relative;
+         display: flex;
+      }
+   }
+}
+
+
+@media (max-width: 737px) {
+   .subWrap {
+      max-height: 490px;
+   }
+}
+
+
+

@@ -1,4 +1,4 @@
-import {CurrentItemType} from '../api/ApiTypes'
+import {CurrentItemType, ItemsType} from '../api/ApiTypes'
 import {usersAPI} from '../api/usersAPI'
 import {updateObjectInArray} from '../utilities/object-helper'
 import {CommonActionsType, InferActionsTypes} from './reduxStore'
@@ -14,11 +14,12 @@ const initialState = {
         large: '',
       },
       status: '',
-      followed: false,
+      followed: false
     },
   ],
+  totalFoundUsersCount: 0 as number | undefined,
   pageSize: 10,
-  pageUserCount: 70,
+  pageUserCount: 0,
   currentPage: 1,
   isFetching: true,
   followingInProgress: [0],
@@ -41,7 +42,10 @@ const usersReducer = (state = initialState, action: ActionsType): InitialStateTy
         }),
       }
     case 'USERS_SET_USERS': {
-      return {...state, users: action.users}
+      return {...state, users: action.users.items, pageUserCount: action.users.totalCount}
+    }
+    case 'USERS_FOUND_USERS': {
+      return {...state, users: action.foundUser.items, totalFoundUsersCount: action.foundUser.totalCount}
     }
     case 'USERS_SET_CURRENT_PAGE': {
       return {...state, currentPage: action.currentPage}
@@ -50,7 +54,6 @@ const usersReducer = (state = initialState, action: ActionsType): InitialStateTy
       return {...state, isFetching: action.isFetching}
     }
     case 'USERS_TOGGLE_BUTTON': {
-      debugger
       return {
         ...state,
         followingInProgress: action.isFetching
@@ -65,10 +68,11 @@ const usersReducer = (state = initialState, action: ActionsType): InitialStateTy
 const actions = {
   followSuccess: (userId: number) => ({type: 'USERS_FOLLOW', userId}) as const,
   unfollowSuccess: (userId: number) => ({type: 'USERS_UNFOLLOW', userId}) as const,
-  setUsers: (users: Array<CurrentItemType>) => ({type: 'USERS_SET_USERS', users}) as const,
+  setUsers: (users: ItemsType) => ({type: 'USERS_SET_USERS', users}) as const,
   setCurrentPage: (currentPage: number) => ({type: 'USERS_SET_CURRENT_PAGE', currentPage}) as const,
   setIsFetching: (isFetching: boolean) => ({type: 'USERS_IS_FETCHING', isFetching}) as const,
   toggleButtonProgress: (isFetching: boolean, userId: number) => ({type: 'USERS_TOGGLE_BUTTON', isFetching, userId}) as const,
+  setFoundUsers: (foundUser: ItemsType) => ({type: 'USERS_FOUND_USERS', foundUser}) as const,
 }
 
 export const getUsers = (currentPage: number, pageSize: number): ThunkType => (dispatch) => {
@@ -76,8 +80,15 @@ export const getUsers = (currentPage: number, pageSize: number): ThunkType => (d
   dispatch(actions.setCurrentPage(currentPage))
   usersAPI.getUsers(currentPage, pageSize).then((data) => {
     dispatch(actions.setIsFetching(false))
-    dispatch(actions.setUsers(data.items))
+    dispatch(actions.setUsers(data))
   })
+}
+export const findUsers = (term: string, currentPage: number, pageSize: number): ThunkType => async (dispatch) => {
+  dispatch(actions.setCurrentPage(currentPage))
+  dispatch(actions.setIsFetching(true))
+  const response = await usersAPI.findUsers(term, currentPage, pageSize)
+  dispatch(actions.setIsFetching(false))
+  dispatch(actions.setFoundUsers(response))
 }
 const followUnfollow = async (userId: number, dispatch: any, apiMethod: any, actionCreator: any) => {
   dispatch(actions.toggleButtonProgress(true, userId))

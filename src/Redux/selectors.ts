@@ -10,6 +10,7 @@ export const getProfileIdSelector = (state: AppStateType) => state.profilePage.p
 export const getStatusSelector = (state: AppStateType) => state.profilePage.status
 export const getIdSelector = (state: AppStateType) => state.authUser.id
 export const getUsersSelector = (state: AppStateType) => state.usersPage.users
+export const getFoundUsersCountSelector = (state: AppStateType) => state.usersPage.totalFoundUsersCount
 export const getPageSizeSelector = (state: AppStateType) => state.usersPage.pageSize
 export const getPageUserCountSelector = (state: AppStateType) => state.usersPage.pageUserCount
 export const getCurrentPageSelector = (state: AppStateType) => state.usersPage.currentPage

@@ -1,0 +1,21 @@
+@import '../../commonFiles/commonStyles.module';
+
+.wrap {
+   box-shadow: $boxShadowForBlock;
+   background-color: #fff;
+   border-radius: $bottomRadius;
+   height: fit-content;
+   width: 75%;
+
+   .subWrap {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      min-height: 57px;
+      padding: 13px 13px;
+   }
+}
+

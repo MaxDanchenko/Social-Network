@@ -1,0 +1,15 @@
+@import '../../../commonFiles/commonStyles.module';
+
+.butt {
+   border-radius: $smallRadius;
+   min-width: 290px;
+   max-height: 31px;
+   background-color: $buttonColor;
+   color: #ffffff;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 24px;
+   @include onHoverActiveButton;
+   box-shadow: $boxShadowForBlockLight;
+}
+

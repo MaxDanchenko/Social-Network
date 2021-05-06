@@ -1,0 +1,59 @@
+@import '../../commonFiles/commonStyles.module';
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: $boxShadowForBlock;
+  border-radius: $smallRadius;
+  position: relative;
+  padding: 0 10px;
+  height: 30px;
+
+  &:hover {
+    -webkit-box-shadow: 0 0 2px 2px #adcbff;
+    box-shadow: 0 0 4px 2px #adcbff;
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+  }
+
+  .trackName {
+    position: absolute;
+    top: 1px;
+    font-size: 14px;
+  }
+  .subWrap {
+
+    .audioPlayer {
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btnWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20px;
+
+        .button {
+          cursor: pointer;
+          padding-right: 10px;
+
+          .buttonIcon {
+            height: 20px;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+            &:active {
+              transform: scale(0.9)
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.button {
+  cursor: pointer;
+
+  .buttonIcon {
+    height: 18px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
