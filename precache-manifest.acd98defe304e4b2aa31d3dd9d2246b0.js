@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "213674c1f0e3991724b8fef4acfcc1f1",
+    "revision": "f346200dba6dd672d07a764beda19110",
     "url": "/Social-Network/index.html"
   },
   {
-    "revision": "b406f3203affd8490589",
-    "url": "/Social-Network/static/css/main.d1e4beb3.chunk.css"
+    "revision": "d7ee531d3235d5665ba1",
+    "url": "/Social-Network/static/css/main.5b428ac9.chunk.css"
   },
   {
-    "revision": "aaa4f027ec690c85c20e",
-    "url": "/Social-Network/static/js/2.315be48d.chunk.js"
+    "revision": "16300dd01d80258f7adf",
+    "url": "/Social-Network/static/js/2.59ce02cb.chunk.js"
   },
   {
     "revision": "d97e308901436775b1039b42fe435219",
-    "url": "/Social-Network/static/js/2.315be48d.chunk.js.LICENSE.txt"
+    "url": "/Social-Network/static/js/2.59ce02cb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b406f3203affd8490589",
-    "url": "/Social-Network/static/js/main.367710f3.chunk.js"
+    "revision": "d7ee531d3235d5665ba1",
+    "url": "/Social-Network/static/js/main.83b40a62.chunk.js"
   },
   {
     "revision": "1ff006e4b26fc177c7b4",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "689ea90f52b6991dc0bd718cdbef279b",
     "url": "/Social-Network/static/media/annUser.689ea90f.jpg"
-  },
-  {
-    "revision": "8d0bbe2e06c3724fd46ad066c0c32c31",
-    "url": "/Social-Network/static/media/left.8d0bbe2e.svg"
   },
   {
     "revision": "f58524420cba9b6a7de32fcd902e2ed8",
@@ -66,14 +62,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4f72ea453feaba6fe5b1665deedaf6c1",
     "url": "/Social-Network/static/media/reactSquare.4f72ea45.gif"
-  },
-  {
-    "revision": "f216bec25731d36113fbe2a0735de218",
-    "url": "/Social-Network/static/media/right.f216bec2.svg"
-  },
-  {
-    "revision": "2110592771ae19e5e7f591d160272983",
-    "url": "/Social-Network/static/media/search-active.21105927.svg"
   },
   {
     "revision": "3c81c3f19843f8d3b462d1924138f636",
