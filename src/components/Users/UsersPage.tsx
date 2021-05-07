@@ -67,9 +67,7 @@ export const UsersPage: React.FC<PropsType> = () => {
   const pageSize = useSelector(getPageSizeSelector)
   const currentPage = useSelector(getCurrentPageSelector)
   const pageUserCount = useSelector(getPageUserCountSelector)
-  const friendsCurrentPage = useSelector(getCurrentFriendsPageSelector)
   const friendsTotalCount = useSelector(getFriendsTotalCountSelector)
-  const friendsPageSize = useSelector(getFriendsPageSizeSelector)
   const isFetching = useSelector(getIsFetchingSelector)
   const dispatch = useDispatch()
   const onUsersPageChanged = (pageNumber: number) => {
@@ -96,49 +94,52 @@ export const UsersPage: React.FC<PropsType> = () => {
   }
   return (
     <div className={Styles.userContainer}>
-      <div>
-        <AppBar position="static" color="default">
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="fullWidth"
-            aria-label="full width tabs example"
+      {users.length > 1 ?
+        <div>
+          <AppBar position="static" color="default">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              variant="fullWidth"
+              aria-label="full width tabs example"
+            >
+              <Tab label="All users" {...a11yProps(0)} />
+              <Tab label="Friends" {...a11yProps(1)} />
+            </Tabs>
+          </AppBar>
+          <SwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={value}
+            onChangeIndex={handleChangeIndex}
           >
-            <Tab label="All users" {...a11yProps(0)} />
-            <Tab label="Friends" {...a11yProps(1)} />
-          </Tabs>
-        </AppBar>
-        <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={value}
-          onChangeIndex={handleChangeIndex}
-        >
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            {isFetching ? <PreLoader/> : null}
-            <div className={Styles.usersWrap}>
-              <UserList users={users}/>
-              {pageUserCount && <UserPaginator
-                paginationSize={'large'}
-                pageUserCount={pageUserCount}
-                onPageChanged={onUsersPageChanged}
-              />}
-            </div>
-          </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            {isFetching ? <PreLoader/> : null}
-            <div className={Styles.usersWrap}>
-              <UserList users={friends}/>
-              <UserPaginator
-                paginationSize={'large'}
-                pageUserCount={friendsTotalCount}
-                onPageChanged={onFriendsPageChanged}
-              />
-            </div>
-          </TabPanel>
-        </SwipeableViews>
-      </div>
+            <TabPanel value={value} index={0} dir={theme.direction}>
+              {isFetching ? <PreLoader/> : null}
+              <div className={Styles.usersWrap}>
+                <UserList users={users}/>
+                {pageUserCount && <UserPaginator
+                  paginationSize={'large'}
+                  pageUserCount={pageUserCount}
+                  onPageChanged={onUsersPageChanged}
+                />}
+              </div>
+            </TabPanel>
+            <TabPanel value={value} index={1} dir={theme.direction}>
+              {isFetching ? <PreLoader/> : null}
+              <div className={Styles.usersWrap}>
+                <UserList users={friends}/>
+                <UserPaginator
+                  paginationSize={'large'}
+                  pageUserCount={friendsTotalCount}
+                  onPageChanged={onFriendsPageChanged}
+                />
+              </div>
+            </TabPanel>
+          </SwipeableViews>
+        </div>
+        : <PreLoader/>
+      }
     </div>
   )
 }

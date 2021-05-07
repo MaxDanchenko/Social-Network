@@ -1,7 +1,7 @@
 import React from 'react'
 import AuthForm from './AuthForm/AuthForm'
 import Styles from './Authorization.module.scss'
-import {reduxForm} from 'redux-form'
+import {InjectedFormProps, reduxForm} from 'redux-form'
 
 
 type PropsType = {
@@ -27,20 +27,21 @@ const Authorization: React.FC<PropsType> = ({logIn, captchaUrl}) => {
           <p className={Styles.networkName}>Social Network</p>
         </div>
       </div>
-      <div className={Styles.authWrapper}>{
-        //@ts-ignore
-        <AuthFormRedux captchaUrl={captchaUrl} onSubmit={onSubmit}/>
-      }
+      <div className={Styles.authWrapper}>
+        {//~~~~~~~~~~~~~~~~~~~~~~~~~~~ NEED TO FIX IN NEXT UPDATE ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          //@ts-ignore
+          <AuthFormRedux captchaUrl={captchaUrl} onSubmit={onSubmit}/>
+        }
       </div>
     </div>
   )
 }
-type ReduxFormType = {
+export type ReduxFormType = {
   email: string
   password: string
   rememberMe?: boolean
   captcha?: string
 }
-const AuthFormRedux = reduxForm<ReduxFormType>({form: 'logIn'})(AuthForm)
+const AuthFormRedux = reduxForm<ReduxFormType & InjectedFormProps>({form: 'logIn'})(AuthForm)
 
 export default Authorization

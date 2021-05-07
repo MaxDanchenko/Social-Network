@@ -1,19 +1,25 @@
 import React from 'react'
 import Styles from './AuthForm.module.scss'
 import {NavLink} from 'react-router-dom'
-import {Field} from 'redux-form'
+import {Field, InjectedFormProps} from 'redux-form'
 import {maxLengthCreator, minLengthCreator, requiredField} from '../../../utilities/validator'
 import ValidateInput from '../../commonFiles/passwordValidator/formValidator'
 import CaptchaInput from './CaptchaInput'
 import cn from 'classnames'
+import {ReduxFormType} from '../Authorization'
 
 
 const maxLength32 = maxLengthCreator(32)
 const minLength4 = minLengthCreator(4)
 
+type PropsType = {
+  captchaUrl?: string
+}
+const AuthForm: React.FC<InjectedFormProps<ReduxFormType
+  & InjectedFormProps<{}, {}, string>, {}, string>
+  & PropsType> = ({handleSubmit, error, captchaUrl}) => {
 
-const AuthForm = (props: any) => {
-  return (<form onSubmit={props.handleSubmit}>
+  return (<form onSubmit={handleSubmit}>
     <div className={Styles.authWrapper}>
       <h3 className={Styles.logInto}>Log Into Social Network</h3>
       <div className={Styles.authSubWrapper}>
@@ -37,13 +43,13 @@ const AuthForm = (props: any) => {
             placeholder={'Password'}
           />
         </div>
-        {props.error && !props.captchaUrl ? (<span className={Styles.showErrorMessage}>{props.error}</span>) : null}
+        {error && !captchaUrl ? (<span className={Styles.showErrorMessage}>{error}</span>) : null}
       </div>
-      {props.captchaUrl ? (<div className={Styles.captchaUrl}>
+      {captchaUrl ? (<div className={Styles.captchaUrl}>
         <div>
           <img
             className={Styles.captchaUrlImage}
-            src={props.captchaUrl}
+            src={captchaUrl}
             alt=""
           />
         </div>
