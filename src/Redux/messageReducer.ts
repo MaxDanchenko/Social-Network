@@ -15,11 +15,11 @@ const initialState = {
       message: ' no problem ',
     },
     {
-      id: 1,
+      id: 2,
       message: ' i think so ',
     },
     {
-      id: 1,
+      id: 3,
       message: ' ok man',
     },
   ],

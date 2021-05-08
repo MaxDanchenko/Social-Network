@@ -36,8 +36,8 @@ const friendsReducer = (state = initialState, action: ActionsType): InitialState
 const actions = {
   friendsList: (friends: ItemsType) => ({type: 'GET_FRIENDS_LIST', friends}) as const,
 }
-export const getFriends = (friend: boolean): ThunkType => async (dispatch) => {
-  const response = await friendsAPI.getFriends(friend)
+export const getFriends = (currentPage: number, pageSize: number, friend: boolean): ThunkType => async (dispatch) => {
+  const response = await friendsAPI.getFriends(currentPage, pageSize, friend)
   dispatch(actions.friendsList(response))
 }
 

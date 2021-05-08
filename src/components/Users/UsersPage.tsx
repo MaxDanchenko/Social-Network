@@ -46,7 +46,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component={'div'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -73,8 +73,8 @@ export const UsersPage: React.FC<PropsType> = () => {
   const onUsersPageChanged = (pageNumber: number) => {
     dispatch(getUsers(pageNumber, pageSize))
   }
-  const onFriendsPageChanged = () => {
-    dispatch(getFriends(true))
+  const onFriendsPageChanged = (pageNumber: number) => {
+    dispatch(getFriends(pageNumber, pageSize, true))
   }
   const getUsersList = getUsers
   const getFriendsList = getFriends
@@ -82,7 +82,7 @@ export const UsersPage: React.FC<PropsType> = () => {
     dispatch(getUsersList(currentPage, pageSize))
   }, [])
   useEffect(() => {
-    dispatch(getFriendsList(true))
+    dispatch(getFriendsList(currentPage, pageSize, true))
   }, [])
   const theme = useTheme()
   const [value, setValue] = React.useState(0)

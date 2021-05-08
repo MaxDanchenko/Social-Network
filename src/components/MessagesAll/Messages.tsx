@@ -40,7 +40,7 @@ const Messages: React.FC<PropsType> = (props) => {
   ))
 
   const MyDialog = props.messages.map((Dialog) => (
-    <MyAnswer message={Dialog.message}/>
+    <MyAnswer key={Dialog.id} message={Dialog.message}/>
   ))
   const addNewMessage = (values: ValuesType) => {
     props.sendMessage(values.newMessageBody)
