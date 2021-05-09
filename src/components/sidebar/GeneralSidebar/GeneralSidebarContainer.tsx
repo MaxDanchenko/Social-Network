@@ -33,9 +33,6 @@ const GeneralSidebarContainer: React.FC<PropsType> = (props) => {
   }
   useEffect(() => {
     refreshProfile()
-  }, [])
-  useEffect(() => {
-    refreshProfile()
   }, [props.match.params.userId])
   return <Sidebar profile={props.profile} status={props.status}/>
 }
