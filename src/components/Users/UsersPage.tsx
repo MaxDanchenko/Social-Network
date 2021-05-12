@@ -7,9 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import SwipeableViews from 'react-swipeable-views'
 import {
-  getCurrentFriendsPageSelector,
   getCurrentPageSelector,
-  getFriendsPageSizeSelector,
   getFriendsSelector,
   getFriendsTotalCountSelector,
   getIsFetchingSelector,
@@ -129,11 +127,11 @@ export const UsersPage: React.FC<PropsType> = () => {
               {isFetching ? <PreLoader/> : null}
               <div className={Styles.usersWrap}>
                 <UserList users={friends}/>
-                <UserPaginator
+                {pageUserCount && <UserPaginator
                   paginationSize={'large'}
                   pageUserCount={friendsTotalCount}
                   onPageChanged={onFriendsPageChanged}
-                />
+                />}
               </div>
             </TabPanel>
           </SwipeableViews>

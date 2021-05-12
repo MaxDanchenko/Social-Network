@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {SetStateAction, useEffect, useRef, useState} from 'react'
 import Styles from './AudioPlayer.module.scss'
 import {src} from './AudioList'
 import Repeat from './RepeatButton/RepeatButton'
@@ -39,7 +39,6 @@ const Player: React.FC = () => {
     }
   }, [trackNum])
   useEffect(() => {
-    const audio: any = audioRef.current
     if (percentage == 100.00) {
       setIsPlaying(false)
       nextTrack()
@@ -47,26 +46,20 @@ const Player: React.FC = () => {
   }, [percentage])
   const secondsToHms = (seconds: number) => {
     let duration = seconds
-    let hours = duration / 3600
+    let hours: number | string = duration / 3600
     duration = duration % 3600
-    //@ts-ignore
-    let min = parseInt(duration / 60)
+    let min: number | string = parseInt(String(duration / 60))
     duration = duration % 60
-    //@ts-ignore
-    let sec = parseInt(duration)
+    let sec: number | string = parseInt(String(duration))
 
     if (sec < 10) {
-      //@ts-ignore
       sec = `0${sec}`
     }
     if (min < 10) {
-      //@ts-ignore
       min = `${min}`
     }
-    //@ts-ignore
-    if (parseInt(hours, 10) > 0) {
-      //@ts-ignore
-      return `${parseInt(hours, 10)}:${min}:${sec}`
+    if (parseInt(String(hours), 10) > 0) {
+      return `${parseInt(String(hours), 10)}:${min}:${sec}`
     } else if (min == 0) {
       return `0:${sec}`
     } else {
@@ -77,14 +70,13 @@ const Player: React.FC = () => {
     if (e.currentTarget.duration) {
       const percent = ((e.currentTarget.currentTime / e.currentTarget.duration) * 100).toFixed(2)
       const time = ((e.currentTarget.duration / 100) * percentage).toFixed(2)
-      //@ts-ignore
+      // @ts-ignore
       setCurrTime(time)
-      //@ts-ignore
+      // @ts-ignore
       setPercentage(percent)
     }
   }
   const handleChange = (event: any, newValue: number) => {
-    console.log({event})
     const audio: any = audioRef.current
     const handleTime = ((duration / 100) * newValue)
     if (audio) {

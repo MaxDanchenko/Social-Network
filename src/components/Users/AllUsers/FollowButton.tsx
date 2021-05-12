@@ -12,16 +12,16 @@ type PropsType = {
 export const FollowButton: React.FC<PropsType> = ({el}) => {
   const dispatch = useDispatch()
   const followingInProgress = useSelector(getFollowingSelector)
+
   return (
     <div className={Styles.buttonWrap}>
       {el.followed ? (
         <button
           disabled={followingInProgress.some((id: number) => id === el.id)}
           onClick={() => {
-            {
-              dispatch(unfollow(el.id))
-            }
-          }}
+            console.log(el.followed)
+            dispatch(unfollow(el.id)
+            )}}
           className={Styles.unfollowButton}
         >
           Remove
@@ -30,9 +30,8 @@ export const FollowButton: React.FC<PropsType> = ({el}) => {
         <button
           disabled={followingInProgress.some((id: number) => id === el.id)}
           onClick={() => {
-            {
-              dispatch(follow(el.id))
-            }
+            console.log(el.followed)
+            dispatch(follow(el.id))
           }}
           className={Styles.followButton}
         >
